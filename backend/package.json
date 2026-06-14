@@ -1,0 +1,26 @@
+{
+  "name": "forge-timber-backend",
+  "version": "1.0.0",
+  "description": "Forge & Timber Atelier Express API",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+  "dev": "tsx watch src/server.ts",
+  "start": "tsx src/server.ts",
+  "build": "tsc"
+},
+  "dependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.9.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.19.2",
+    "nodemailer": "^6.9.13",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

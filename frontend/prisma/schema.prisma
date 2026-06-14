@@ -1,0 +1,107 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model ChatSession {
+  id          String        @id @default(cuid())
+  clerkUserId String?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  messages    ChatMessage[]
+
+  @@map("chat_sessions")
+}
+
+model ChatMessage {
+  id        String      @id @default(cuid())
+  sessionId String
+  role      String
+  content   String
+  createdAt DateTime    @default(now())
+  session   ChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@map("chat_messages")
+}
+
+model Booking {
+  id                 String   @id @default(cuid())
+  name               String
+  phone              String
+  email              String
+  service            String
+  date               String
+  paymentMethod      String
+  status             String   @default("pending")
+  clerkUserId        String?
+  mpesaCheckoutId    String?
+  mpesaReceiptNumber String?
+  paidAmount         String?
+  attachmentUrl      String?
+  attachmentPublicId String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  @@map("bookings")
+}
+
+model Review {
+  id          String   @id @default(cuid())
+  clerkUserId String?
+  authorName  String
+  authorEmail String?
+  rating      Int
+  title       String
+  body        String
+  service     String?
+  approved    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  @@map("reviews")
+}
+
+model Quote {
+  id             String   @id @default(cuid())
+  clerkUserId    String?
+  name           String
+  email          String
+  phone          String
+  service        String
+  woodSpecies    String?
+  metalFinish    String?
+  dimensions     String?
+  budget         String
+  timeline       String
+  description    String
+  attachmentUrl  String?
+  status         String   @default("new")
+  adminNotes     String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("quotes")
+}
+
+model Order {
+  id                 String      @id @default(cuid())
+  clerkUserId        String?
+  name               String
+  email              String
+  phone              String
+  address            String?
+  items              Json
+  totalAmount        Int
+  paymentMethod      String
+  status             String      @default("pending")
+  mpesaCheckoutId    String?
+  mpesaReceiptNumber String?
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+
+  @@map("orders")
+}

@@ -1,0 +1,52 @@
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
+
+const ADMIN_USER_ID = "user_3ERVagEbBBtQoneJM1iKtwcw17C";
+
+const isAdminRoute = createRouteMatcher([
+  "/admin(.*)",
+  "/api/admin(.*)",
+]);
+
+const isProtectedRoute = createRouteMatcher([
+  "/dashboard(.*)",
+  "/chat-history(.*)",
+  "/checkout(.*)",
+  "/api/bookings(.*)",
+  "/api/quotes(.*)",
+  "/api/orders(.*)",
+  "/api/chat(.*)",
+  "/api/reviews(.*)",
+]);
+
+export default clerkMiddleware(async (auth, req) => {
+  // Admin routes — redirect non-admins to home
+  if (isAdminRoute(req)) {
+    const { userId } = await auth();
+    if (!userId) {
+      return NextResponse.redirect(new URL("/", req.url));
+    }
+    if (userId !== ADMIN_USER_ID) {
+      return NextResponse.redirect(new URL("/", req.url));
+    }
+    return NextResponse.next();
+  }
+
+  // Protected routes — require login
+  if (isProtectedRoute(req)) {
+    const { userId } = await auth();
+    if (!userId) {
+      return NextResponse.redirect(new URL("/", req.url));
+    }
+  }
+
+  return NextResponse.next();
+});
+
+export const config = {
+  matcher: [
+    "/((?!.*\\..*|_next).*)",
+    "/",
+    "/(api|trpc)(.*)",
+  ],
+};
