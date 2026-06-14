@@ -1,4 +1,3 @@
-Set-Content -LiteralPath "frontend\app\api\admin\bookings\route.ts" -Value @'
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
@@ -27,4 +26,3 @@ export async function PATCH(req: NextRequest) {
     return NextResponse.json({ error: "Failed to update booking." }, { status: 500 });
   }
 }
-'@
