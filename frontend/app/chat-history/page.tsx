@@ -58,7 +58,7 @@ export default function ChatHistoryPage() {
 
   const getSessionPreview = (session: ChatSession) => {
     const first = session.messages.find((m) => m.role === "user");
-    return first?.content?.slice(0, 60) + "..." ?? "New conversation";
+    return (first?.content?.slice(0, 60) ?? "New conversation") + "...";
   };
 
   const activeMessages =
