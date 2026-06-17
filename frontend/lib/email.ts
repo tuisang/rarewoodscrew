@@ -15,14 +15,16 @@ const ADMIN_EMAIL = process.env.ADMIN_EMAIL ?? "info@tuistech.co.ke";
 
 async function sendEmail(to: string, subject: string, html: string) {
   try {
-    await transporter.sendMail({
+    console.log(`📧 Sending email to ${to} via ${process.env.SMTP_HOST}:${process.env.SMTP_PORT} as ${process.env.SMTP_USER}`);
+    const info = await transporter.sendMail({
       from: `"Forge & Timber Atelier" <${FROM_EMAIL}>`,
       to,
       subject,
       html,
     });
+    console.log(`✅ Email sent: ${info.messageId}`);
   } catch (error) {
-    console.error("Email send error:", error);
+    console.error("❌ Email send error:", error);
   }
 }
 
