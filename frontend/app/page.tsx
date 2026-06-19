@@ -196,7 +196,10 @@ export default function HomePage() {
                     <button onClick={() => updateQuantity(tool.id, 1)} className="bg-white text-black w-8 h-8 rounded font-bold">+</button>
                   </div>
                   <button
-                    onClick={() => addToCart({ id: tool.id, name: tool.name, price: tool.price, priceLabel: `KSh ${tool.price.toLocaleString()}`, img: tool.image, quantity: quantities[tool.id] || 1 })}
+                    onClick={() => addToCart(
+  { id: tool.id, name: tool.name, price: tool.price, priceLabel: `KSh ${tool.price.toLocaleString()}`, img: tool.image },
+  quantities[tool.id] || 1
+)}
                     className="bg-[#e8bf9b] text-[#442b12] px-3 py-2 rounded w-full font-semibold text-sm"
                   >
                     Add to Cart
