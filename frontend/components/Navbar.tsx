@@ -28,20 +28,22 @@ export default function Navbar() {
   }, [searchOpen]);
 
   const links = [
-    { href: "/", label: "Home" },
-    { href: "/services", label: "Services" },
-    { href: "/portfolio", label: "Portfolio" },
-    { href: "/catalog", label: "Materials" },
-    { href: "/quote", label: "Get a Quote" },
-    { href: "/reviews", label: "Reviews" },
-    { href: "/contact", label: "Contact" },
-    { href: "/dashboard", label: "Dashboard" },
-  ];
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/blog", label: "Journal" },
+  { href: "/catalog", label: "Materials" },
+  { href: "/quote", label: "Get a Quote" },
+  { href: "/reviews", label: "Reviews" },
+  { href: "/contact", label: "Contact" },
+  { href: "/dashboard", label: "Dashboard" },
+];
 
   const searchPages = [
     { label: "Homepage", href: "/" },
     { label: "Services", href: "/services" },
     { label: "Portfolio", href: "/portfolio" },
+    { label: "Journal", href: "/blog" },
     { label: "Material Catalog", href: "/catalog" },
     { label: "Book Consultation", href: "/booking" },
     { label: "Reviews", href: "/reviews" },
