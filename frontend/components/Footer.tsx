@@ -188,27 +188,27 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                "Custom Furniture",
-                "Wood-Metal Décor",
-                "Industrial Fabrication",
-                "Restoration & Repairs",
-                "Precision Welding",
-                "Commercial Installations",
-              ].map((item) => (
-                <li key={item}>
-                  <Link
-                    href="/services"
-                    className="text-[#d3c4b9] hover:text-[#e8bf9b] transition-colors text-sm flex items-center gap-2 group"
-                  >
-                    <span className="w-0 group-hover:w-3 overflow-hidden transition-all duration-300">
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#e8bf9b" strokeWidth="2.5">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                      </svg>
-                    </span>
-                    {item}
-                  </Link>
-                </li>
-              ))}
+  { label: "Custom Furniture", anchor: "custom-furniture" },
+  { label: "Wood-Metal Décor", anchor: "wood-metal-decor" },
+  { label: "Industrial Fabrication", anchor: "industrial-fabrication" },
+  { label: "Restoration & Repairs", anchor: "restoration-repairs" },
+  { label: "Precision Welding", anchor: "precision-welding" },
+  { label: "Commercial Installations", anchor: "commercial-installations" },
+].map((item) => (
+  <li key={item.anchor}>
+    <Link
+      href={`/services#${item.anchor}`}
+      className="text-[#d3c4b9] hover:text-[#e8bf9b] transition-colors text-sm flex items-center gap-2 group"
+    >
+      <span className="w-0 group-hover:w-3 overflow-hidden transition-all duration-300">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#e8bf9b" strokeWidth="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </span>
+      {item.label}
+    </Link>
+  </li>
+))}
             </ul>
           </div>
 

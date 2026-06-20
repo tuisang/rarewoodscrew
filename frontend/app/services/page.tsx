@@ -53,7 +53,7 @@ export default function ServicesPage() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
 
           {/* 1. Custom Furniture - Large */}
-          <div className="md:col-span-8 group relative h-[500px] overflow-hidden border-t border-[#c3c7cb]/20 bg-[#20201f]">
+          <div id="custom-furniture" className="md:col-span-8 group relative h-[500px] overflow-hidden border-t border-[#c3c7cb]/20 bg-[#20201f]">
             <img
               alt="Custom Furniture"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
@@ -73,7 +73,7 @@ export default function ServicesPage() {
           </div>
 
           {/* 2. Wood-Metal Décor */}
-          <div className="md:col-span-4 group relative h-[500px] overflow-hidden border-t border-[#c3c7cb]/20 bg-[#20201f]">
+          <div id="wood-metal-decor" className="md:col-span-4 group relative h-[500px] overflow-hidden border-t border-[#c3c7cb]/20 bg-[#20201f]">
             <img
               alt="Wood-Metal Décor"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
@@ -92,7 +92,7 @@ export default function ServicesPage() {
           </div>
 
           {/* 3. Industrial Fabrication */}
-          <div className="md:col-span-4 group relative h-[400px] overflow-hidden border-t border-[#c3c7cb]/20 bg-[#20201f]">
+          <div id="industrial-fabrication" className="md:col-span-4 group relative h-[400px] overflow-hidden border-t border-[#c3c7cb]/20 bg-[#20201f]">
             <img
               alt="Industrial Fabrication"
               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-80"
@@ -108,7 +108,7 @@ export default function ServicesPage() {
           </div>
 
           {/* 4. Restoration */}
-          <div className="md:col-span-4 group relative h-[400px] overflow-hidden bg-[#2a2a2a]">
+          <div id="restoration-repairs" className="md:col-span-4 group relative h-[400px] overflow-hidden bg-[#2a2a2a]">
             <div className="p-8 flex flex-col h-full justify-between border border-[#4f453d]/20 hover:border-[#e8bf9b]/50 transition-colors">
               <div>
                 <span className="material-symbols-outlined text-4xl text-[#e8bf9b] mb-6 block">healing</span>
@@ -122,7 +122,7 @@ export default function ServicesPage() {
           </div>
 
           {/* 5. Welding */}
-          <div className="md:col-span-4 group relative h-[400px] overflow-hidden border-t border-[#c3c7cb]/20 bg-[#20201f]">
+          <div id="precision-welding" className="md:col-span-4 group relative h-[400px] overflow-hidden border-t border-[#c3c7cb]/20 bg-[#20201f]">
             <img
               alt="Welding"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-50"
@@ -140,7 +140,7 @@ export default function ServicesPage() {
           </div>
 
           {/* 6. Interior & Commercial */}
-          <div className="md:col-span-12 group relative h-[450px] overflow-hidden border-t border-[#c3c7cb]/20 bg-[#0e0e0e] mt-6">
+          <div id="commercial-installations" className="md:col-span-12 group relative h-[450px] overflow-hidden border-t border-[#c3c7cb]/20 bg-[#0e0e0e] mt-6">
             <div className="grid md:grid-cols-2 h-full">
               <div className="p-12 flex flex-col justify-center">
                 <h3 className="text-3xl font-semibold mb-6" style={{ fontFamily: "Playfair Display, serif" }}>
