@@ -9,7 +9,7 @@ Freshly cut Mvule heartwood is a pale yellow-gold, deepening to a rich golden-br
 - **Density:** Heavy and strong, with mechanical properties comparable to teak and mahogany
 - **Workability:** Works easily with both hand and power tools despite its strength
 - **Stability:** Seasons well with minimal warping when properly kiln-dried
-- **Durability:** Naturally resistant to termites and decay, even in ground contact — one of the most durable hardwoods available locally
+- **Durability:** Naturally resistant to termites and decay, even in ground contact - one of the most durable hardwoods available locally
 
 ### Best Uses
 Mvule's natural weather and pest resistance make it a favourite for outdoor and high-use pieces:
@@ -20,8 +20,8 @@ Mvule's natural weather and pest resistance make it a favourite for outdoor and 
 
 ### Care & Maintenance
 - **Cleaning:** Wipe with a soft, dry or slightly damp cloth. Avoid harsh detergents, which can strip natural oils from the finish.
-- **Oiling:** Reapply a quality furniture oil (teak oil or Danish oil) every 6–12 months for indoor pieces, and more frequently (every 3–4 months) for outdoor pieces exposed to sun and rain.
-- **Sunlight:** Direct, prolonged sun exposure will accelerate darkening of the wood — this is natural and often desirable, but rotate or shield pieces if an even tone is preferred.
+- **Oiling:** Reapply a quality furniture oil (teak oil or Danish oil) every 6-12 months for indoor pieces, and more frequently (every 3-4 months) for outdoor pieces exposed to sun and rain.
+- **Sunlight:** Direct, prolonged sun exposure will accelerate darkening of the wood - this is natural and often desirable, but rotate or shield pieces if an even tone is preferred.
 - **Moisture:** While naturally decay-resistant, standing water should still be wiped away promptly to preserve the finish and prevent surface staining.
 - **Scratches:** Light surface scratches can usually be buffed out with fine steel wool followed by a fresh coat of oil.
 

@@ -13,8 +13,8 @@ const FOLDER_KEYWORDS: Record<string, string[]> = {
     "walnut", "cherry", "tree", "plank", "board",
   ],
   steels: [
-    "steel", "metal", "iron", "mild steel", "stainless", "weld", "welding",
-    "fabricat", "forge", "alloy", "rust", "galvan",
+    "steel", "metal", "iron", "mild steel", "stainless", "gunmetal", "alloy",
+    "rust", "galvan",
   ],
   products: [
     "product", "furniture", "table", "chair", "shelf", "shelving", "desk",
@@ -24,12 +24,12 @@ const FOLDER_KEYWORDS: Record<string, string[]> = {
   services: [
     "service", "clean", "maintain", "maintenance", "repair", "restoration",
     "refinish", "inspect", "storage", "upholster", "care", "polish",
-    "outdoor care", "rust prevention", "seasonal",
+    "outdoor care", "rust prevention", "seasonal", "gunmetal", "powder coat",
   ],
   projects: [
     "project", "commission", "custom", "bespoke", "order", "bulk", "hotel",
     "restaurant", "office", "commercial", "interior", "fitout", "industrial",
-    "outdoor", "cabinetry", "design",
+    "outdoor", "cabinetry", "design", "weld", "welding", "fabricat", "forge",
   ],
   policies: [
     "policy", "warrant", "guarantee", "deliver", "payment", "quote",
@@ -83,7 +83,7 @@ export function loadRelevantData(userMessage: string): string {
     let matched = files.filter((f) => matchesQuery(f, query));
 
     // If no specific file matched, load all files in the relevant folder
-    // (folders are small — max ~12 files each, each file ~200 tokens)
+    // (folders are small - max ~12 files each, each file ~200 tokens)
     if (matched.length === 0) matched = files;
 
     const content = matched
