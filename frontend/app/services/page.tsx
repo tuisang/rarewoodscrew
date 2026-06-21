@@ -41,7 +41,7 @@ export default function ServicesPage() {
           </div>
           <div className="md:col-span-4 flex justify-end">
             <div className="text-right border-l border-[#4f453d]/30 pl-6 py-2">
-              <span className="block text-[#e8bf9b] text-2xl font-semibold" style={{ fontFamily: "Playfair Display, serif" }}>15+</span>
+              <span className="block text-[#e8bf9b] text-2xl font-semibold" style={{ fontFamily: "Playfair Display, serif" }}>7+</span>
               <span className="text-xs text-[#9c8e84] tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>Years of Mastery</span>
             </div>
           </div>
@@ -192,7 +192,7 @@ export default function ServicesPage() {
               <span className="material-symbols-outlined text-[#e8bf9b]">mail</span>
               <div className="text-left">
                 <p className="text-xs text-[#9c8e84] tracking-widest uppercase" style={{ fontFamily: "JetBrains Mono, monospace" }}>Email Us</p>
-                <p className="font-bold">alex2000rui@gmail.com</p>
+                <p className="font-bold">info@tuistech.co.ke</p>
               </div>
             </div>
           </div>

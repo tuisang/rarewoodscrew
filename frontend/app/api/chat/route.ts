@@ -52,7 +52,7 @@ Guidelines:
 - Keep responses concise (2–4 sentences) unless detail is genuinely needed.
 - End with a gentle call to action where relevant (book a consultation, view portfolio, etc.).
 - For pricing always give ranges from the knowledge base, never invent figures.
-- Contact: +254 726 461 196 | alex2000rui@gmail.com | Embakasi, Nairobi.`;
+- Contact: +254 726 461 196 | info@tuistech.co.ke | Embakasi, Nairobi.`;
 
     // Map messages to Gemini format
     const geminiContents = messages.map(

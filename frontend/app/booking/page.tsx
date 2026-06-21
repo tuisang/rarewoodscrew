@@ -356,8 +356,7 @@ export default function BookingPage() {
                   {[
                     { label: "Full Name", placeholder: "Johnathan Doe", type: "text", field: "name" as keyof FormData },
                     { label: "Phone (For M-Pesa STK)", placeholder: "+254 7XX XXX XXX", type: "tel", field: "phone" as keyof FormData },
-                    { label: "Email Address", placeholder: "alex2000rui@gmail.com", type: "email", field: "email" as keyof FormData },
-                  ].map((f) => (
+                    { label: "Email Address", placeholder: "info@tuistech.co.ke", type: "email", field: "email" as keyof FormData },                  ].map((f) => (
                     <div key={f.label}>
                       <label className="text-xs text-[#d3c4b9] mb-1 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>{f.label}</label>
                       <input

@@ -30,7 +30,7 @@ You help customers with:
 
 Tone: Knowledgeable, warm, artisanal. Use craft terminology naturally. Keep responses concise (2–4 sentences unless more detail is needed). End responses with a gentle call to action when relevant (book a consultation, explore the portfolio, etc.).
 
-Contact: +254 726 461 196 | alex2000rui@gmail.com | Located in Nairobi, Kenya.`;
+Contact: +254 726 461 196 | info@tuistech.co.ke | Located in Nairobi, Kenya.`;
 
 export default function ArtisanChatbot() {
   const [isOpen, setIsOpen] = useState(false);

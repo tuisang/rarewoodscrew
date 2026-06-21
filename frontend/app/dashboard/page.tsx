@@ -439,9 +439,9 @@ export default function DashboardPage() {
                     <span className="material-symbols-outlined text-[#e8bf9b] text-sm">call</span>
                     +254 726 461 196
                   </a>
-                  <a href="mailto:alex2000rui@gmail.com" className="flex items-center gap-3 text-sm text-[#d3c4b9] hover:text-[#e8bf9b] transition-colors">
+                    <a href="mailto:info@tuistech.co.ke" className="flex items-center gap-3 text-sm text-[#d3c4b9] hover:text-[#e8bf9b] transition-colors">
                     <span className="material-symbols-outlined text-[#e8bf9b] text-sm">mail</span>
-                    alex2000rui@gmail.com
+                    info@tuistech.co.ke
                   </a>
                 </div>
                 <div className="mt-6 pt-4 border-t border-[#4f453d]/30">
