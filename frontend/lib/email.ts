@@ -17,11 +17,12 @@ async function sendEmail(to: string, subject: string, html: string) {
   try {
     console.log(`📧 Sending email to ${to} via ${process.env.SMTP_HOST}:${process.env.SMTP_PORT} as ${process.env.SMTP_USER}`);
     const info = await transporter.sendMail({
-      from: `"Forge & Timber Atelier" <${FROM_EMAIL}>`,
-      to,
-      subject,
-      html,
-    });
+  from: `"Black Steel Crew" <${FROM_EMAIL}>`,
+  replyTo: ADMIN_EMAIL,
+  to,
+  subject,
+  html,
+});
     console.log(`✅ Email sent: ${info.messageId}`);
   } catch (error) {
     console.error("❌ Email send error:", error);
