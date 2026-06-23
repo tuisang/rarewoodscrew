@@ -5,7 +5,7 @@ const SHORTCODE = process.env.MPESA_SHORTCODE ?? "174379";
 const PASSKEY = process.env.MPESA_PASSKEY ?? "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
 const CONSUMER_KEY = process.env.MPESA_CONSUMER_KEY!;
 const CONSUMER_SECRET = process.env.MPESA_CONSUMER_SECRET!;
-const CALLBACK_URL = process.env.MPESA_CALLBACK_URL ?? "https://tuistech.co.ke/api/mpesa/callback";
+const CALLBACK_URL = process.env.MPESA_CALLBACK_URL ?? "https://blacksteelcrew.tuistech.co.ke/api/mpesa/callback";
 const IS_PRODUCTION = process.env.MPESA_ENVIRONMENT === "production";
 const MPESA_BASE = IS_PRODUCTION
   ? "https://api.safaricom.co.ke"
@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
 
     // Get booking to get amount
     const booking = await prisma.booking.findUnique({ where: { id: bookingId } });
-    const amount = IS_PRODUCTION ? 5000 : 1; // KES 2000 consultation 
+    const amount = IS_PRODUCTION ? 2000 : 1; // KES 2000 consultation 
     
     console.log("STK request body:", JSON.stringify({
   BusinessShortCode: SHORTCODE,
@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
         PartyB: SHORTCODE,
         PhoneNumber: formattedPhone,
         CallBackURL: CALLBACK_URL,
-        AccountReference: "ForgeTimber",
+        AccountReference: "BlackSteelCrew",
         TransactionDesc: "Consultation Fee",
       }),
     });

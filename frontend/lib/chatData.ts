@@ -7,7 +7,6 @@ const FOLDERS = ["policies", "products", "projects", "services", "steels", "wood
 
 // Keywords that map to specific folders
 const FOLDER_KEYWORDS: Record<string, string[]> = {
- const FOLDER_KEYWORDS: Record<string, string[]> = {
   woods: [
     "wood accent", "wood top", "wood finish", "tabletop", "wood seat",
     "cypress", "eucalyptus", "oak", "pine", "teak", "mvule", "mahogany",
@@ -40,7 +39,8 @@ const FOLDER_KEYWORDS: Record<string, string[]> = {
     "mpesa", "m-pesa", "visa", "paypal", "how long", "lead time",
   ],
 };
-};
+ 
+
 
 // Always include these as a lightweight base (they're short)
 const ALWAYS_INCLUDE: Array<{ folder: string; file: string }> = [];
