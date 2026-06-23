@@ -48,7 +48,7 @@ export async function POST(req: NextRequest) {
         cloudinary.uploader
           .upload_stream(
             {
-              folder: "forge-timber-bookings",
+              folder: "black-steel-crew-bookings",
               resource_type: "auto",
               allowed_formats: ["jpg", "jpeg", "png", "webp", "pdf"],
             },
