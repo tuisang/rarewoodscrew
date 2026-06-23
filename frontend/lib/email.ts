@@ -40,7 +40,7 @@ interface BookingEmailData {
 
 export async function sendBookingConfirmationEmail(data: BookingEmailData) {
   const { clientName, clientEmail, service, date, paymentMethod, bookingId } = data;
-  await sendEmail(clientEmail, "Booking Confirmed – Forge & Timber Atelier",
+  await sendEmail(clientEmail, "Booking Confirmed – Black Steel Crew",
     bookingClientHtml({ clientName, service, date, paymentMethod, bookingId }));
   await sendEmail(ADMIN_EMAIL, `New Booking – ${clientName} (${service})`,
     bookingAdminHtml({ clientName, clientEmail, service, date, paymentMethod, bookingId }));
@@ -64,7 +64,7 @@ interface OrderEmailData {
 
 export async function sendOrderConfirmationEmail(data: OrderEmailData) {
   const { clientName, clientEmail, orderId, items, totalAmount, paymentMethod, mpesaReceiptNumber } = data;
-  await sendEmail(clientEmail, "Order Confirmed – Forge & Timber Atelier",
+  await sendEmail(clientEmail, "Order Confirmed – Black Steel Crew",
     orderClientHtml({ clientName, orderId, items, totalAmount, paymentMethod, mpesaReceiptNumber }));
   await sendEmail(ADMIN_EMAIL, `New Shop Order – ${clientName} (KSh ${totalAmount.toLocaleString()})`,
     orderAdminHtml({ clientName, clientEmail, orderId, items, totalAmount, paymentMethod, mpesaReceiptNumber }));
@@ -74,7 +74,7 @@ const baseStyle = `background:#131313;font-family:Georgia,serif;margin:0;padding
 const headerHtml = (subtitle: string) => `
   <tr>
     <td style="background:#0e0e0e;border-top:3px solid #e8bf9b;padding:36px 40px;text-align:center;">
-      <h1 style="margin:0;color:#e8bf9b;font-size:26px;">Forge &amp; Timber</h1>
+      <h1 style="margin:0;color:#e8bf9b;font-size:26px;">Black Steel Crew</h1>
       <p style="margin:6px 0 0;color:#9c8e84;font-size:11px;font-family:monospace;">ATELIER &middot; NAIROBI</p>
       <p style="margin:12px 0 0;color:#ffb785;font-size:11px;font-family:monospace;">${subtitle}</p>
     </td>
@@ -83,7 +83,7 @@ const headerHtml = (subtitle: string) => `
 const footerHtml = `
   <tr>
     <td style="background:#0e0e0e;padding:24px 40px;border-top:1px solid rgba(79,69,61,0.3);">
-      <p style="color:#9c8e84;font-size:12px;margin:0 0 4px;">Forge &amp; Timber Atelier &middot; Nairobi, Kenya</p>
+      <p style="color:#9c8e84;font-size:12px;margin:0 0 4px;">Black Steel Crew &middot; Nairobi, Kenya</p>
       <p style="color:#4f453d;font-size:11px;margin:0;">+254 726 461 196 &middot; info@tuistech.co.ke</p>
     </td>
   </tr>`;
@@ -129,7 +129,7 @@ function bookingClientHtml(d: { clientName: string; service: string; date: strin
         ${detailRow("DATE", d.date)}
         ${detailRow("PAYMENT", d.paymentMethod)}
       </table>
-      ${ctaButton(`${process.env.NEXT_PUBLIC_APP_URL ?? "https://forgetimber.tuistech.co.ke"}/dashboard`, "VIEW MY DASHBOARD &rarr;")}
+      ${ctaButton(`${process.env.NEXT_PUBLIC_APP_URL ?? "https://blacksteelcrew.tuistech.co.ke"}/dashboard`, "VIEW MY DASHBOARD &rarr;")}
     </td></tr>`);
 }
 
