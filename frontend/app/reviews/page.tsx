@@ -37,8 +37,8 @@ function StarRating({ rating, interactive = false, onRate }: {
             width="20"
             height="20"
             viewBox="0 0 24 24"
-            fill={star <= (hovered || rating) ? "#e8bf9b" : "none"}
-            stroke="#e8bf9b"
+            fill={star <= (hovered || rating) ? "#00daf8" : "none"}
+            stroke="#00daf8"
             strokeWidth="2"
           >
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
@@ -132,7 +132,7 @@ export default function ReviewsPage() {
     new Date(d).toLocaleDateString("en-KE", { day: "numeric", month: "long", year: "numeric" });
 
   return (
-    <main className="bg-[#131313] text-[#e5e2e1] min-h-screen">
+    <main className="bg-[#131314] text-[#e5e2e3] min-h-screen">
       <div
         className="fixed inset-0 pointer-events-none z-0 opacity-[0.03]"
         style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/carbon-fibre.png')" }}
@@ -147,25 +147,25 @@ export default function ReviewsPage() {
           </span>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight" style={{ fontFamily: "Playfair Display, serif" }}>
+              <h1 className="text-4xl md:text-5xl font-bold leading-tight" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
                 What Our Clients Say
               </h1>
               <div className="flex items-center gap-4 mt-4">
                 <StarRating rating={Math.round(Number(avgRating))} />
-                <span className="text-2xl font-bold text-[#e8bf9b]">{avgRating}</span>
-                <span className="text-[#9c8e84] text-sm">({reviews.length} reviews)</span>
+                <span className="text-2xl font-bold text-[#00daf8]">{avgRating}</span>
+                <span className="text-[#859397] text-sm">({reviews.length} reviews)</span>
               </div>
             </div>
             {isLoaded && user ? (
               <button
                 onClick={() => setShowForm(!showForm)}
-                className="flex-shrink-0 bg-[#e8bf9b] text-[#442b12] px-8 py-3 text-sm font-semibold hover:brightness-110 transition-all flex items-center gap-2"
+                className="flex-shrink-0 bg-[#00daf8] text-[#001f25] px-8 py-3 text-sm font-semibold hover:brightness-110 transition-all flex items-center gap-2"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12h14"/></svg>
                 Write a Review
               </button>
             ) : (
-              <Link href="/" className="flex-shrink-0 border border-[#e8bf9b] text-[#e8bf9b] px-8 py-3 text-sm font-semibold hover:bg-[#e8bf9b]/10 transition-all">
+              <Link href="/" className="flex-shrink-0 border border-[#00daf8] text-[#00daf8] px-8 py-3 text-sm font-semibold hover:bg-[#00daf8]/10 transition-all">
                 Sign in to Review
               </Link>
             )}
@@ -174,35 +174,35 @@ export default function ReviewsPage() {
 
         {/* Success message */}
         {submitStatus === "success" && (
-          <div className="mb-8 p-6 bg-[#20201f] border-l-4 border-[#e8bf9b] flex items-center gap-4">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e8bf9b" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div className="mb-8 p-6 bg-[#201f20] border-l-4 border-[#00daf8] flex items-center gap-4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00daf8" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
             <div>
-              <p className="font-semibold text-[#e8bf9b]">Review Submitted!</p>
-              <p className="text-sm text-[#d3c4b9]">Your review is pending approval and will appear shortly.</p>
+              <p className="font-semibold text-[#00daf8]">Review Submitted!</p>
+              <p className="text-sm text-[#bac9cd]">Your review is pending approval and will appear shortly.</p>
             </div>
           </div>
         )}
 
         {/* Error message (submission failed after passing validation) */}
         {submitStatus === "error" && (
-          <div className="mb-8 p-6 bg-[#20201f] border-l-4 border-red-500 flex items-center gap-4">
+          <div className="mb-8 p-6 bg-[#201f20] border-l-4 border-red-500 flex items-center gap-4">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             <div>
               <p className="font-semibold text-red-400">Something went wrong.</p>
-              <p className="text-sm text-[#d3c4b9]">We couldn&apos;t submit your review. Please try again in a moment.</p>
+              <p className="text-sm text-[#bac9cd]">We couldn&apos;t submit your review. Please try again in a moment.</p>
             </div>
           </div>
         )}
 
         {/* Review Form */}
         {showForm && (
-          <div className="mb-12 bg-[#20201f] border border-[#4f453d]/40 border-t-2 border-t-[#e8bf9b] p-8">
-            <h2 className="text-2xl font-semibold mb-8" style={{ fontFamily: "Playfair Display, serif" }}>
+          <div className="mb-12 bg-[#201f20] border border-[#3b494c]/40 border-t-2 border-t-[#00daf8] p-8">
+            <h2 className="text-2xl font-semibold mb-8" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
               Share Your Experience
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div>
-                <label className="text-xs text-[#d3c4b9] mb-2 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>
+                <label className="text-xs text-[#bac9cd] mb-2 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>
                   Full Name *
                 </label>
                 <input
@@ -213,8 +213,8 @@ export default function ReviewsPage() {
                     setForm((prev) => ({ ...prev, authorName: e.target.value }));
                     if (errors.authorName) setErrors((prev) => ({ ...prev, authorName: undefined }));
                   }}
-                  className={`w-full bg-[#131313] border-b py-2 text-[#e5e2e1] placeholder-[#9c8e84] outline-none transition-colors ${
-                    errors.authorName ? "border-red-500" : "border-[#4f453d] focus:border-[#e8bf9b]"
+                  className={`w-full bg-[#131314] border-b py-2 text-[#e5e2e3] placeholder-[#859397] outline-none transition-colors ${
+                    errors.authorName ? "border-red-500" : "border-[#3b494c] focus:border-[#00daf8]"
                   }`}
                 />
                 {errors.authorName && (
@@ -222,7 +222,7 @@ export default function ReviewsPage() {
                 )}
               </div>
               <div>
-                <label className="text-xs text-[#d3c4b9] mb-2 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>
+                <label className="text-xs text-[#bac9cd] mb-2 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>
                   Email
                 </label>
                 <input
@@ -230,14 +230,14 @@ export default function ReviewsPage() {
                   placeholder="your@email.com"
                   value={form.authorEmail}
                   onChange={(e) => setForm((prev) => ({ ...prev, authorEmail: e.target.value }))}
-                  className="w-full bg-[#131313] border-b border-[#4f453d] focus:border-[#e8bf9b] py-2 text-[#e5e2e1] placeholder-[#9c8e84] outline-none transition-colors"
+                  className="w-full bg-[#131314] border-b border-[#3b494c] focus:border-[#00daf8] py-2 text-[#e5e2e3] placeholder-[#859397] outline-none transition-colors"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div>
-                <label className="text-xs text-[#d3c4b9] mb-2 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>YOUR RATING *</label>
+                <label className="text-xs text-[#bac9cd] mb-2 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>YOUR RATING *</label>
                 <StarRating
                   rating={form.rating}
                   interactive
@@ -251,24 +251,24 @@ export default function ReviewsPage() {
                 )}
               </div>
               <div>
-                <label className="text-xs text-[#d3c4b9] mb-2 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>SERVICE USED</label>
+                <label className="text-xs text-[#bac9cd] mb-2 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>SERVICE USED</label>
                 <select
                   value={form.service}
                   onChange={(e) => setForm((prev) => ({ ...prev, service: e.target.value }))}
-                  className="w-full bg-[#131313] border-b border-[#4f453d] focus:border-[#e8bf9b] py-2 text-[#e5e2e1] outline-none transition-colors"
+                  className="w-full bg-[#131314] border-b border-[#3b494c] focus:border-[#00daf8] py-2 text-[#e5e2e3] outline-none transition-colors"
                 >
                   <option value="">Select service</option>
-                  <option value="furniture">Bespoke Furniture</option>
-                  <option value="metal">Architectural Metal</option>
-                  <option value="restoration">Restoration</option>
-                  <option value="interior">Interior Installation</option>
+                  <option value="gates">Custom Gates</option>
+                  <option value="railings">Railings & Balustrades</option>
+                  <option value="staircases">Staircase Fabrication</option>
+                  <option value="furniture">Custom Furniture</option>
                   <option value="welding">Precision Welding</option>
                 </select>
               </div>
             </div>
 
             <div className="mb-6">
-              <label className="text-xs text-[#d3c4b9] mb-2 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>REVIEW TITLE *</label>
+              <label className="text-xs text-[#bac9cd] mb-2 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>REVIEW TITLE *</label>
               <input
                 type="text"
                 placeholder="e.g. 'Beautiful dining table, exceeded expectations'"
@@ -277,8 +277,8 @@ export default function ReviewsPage() {
                   setForm((prev) => ({ ...prev, title: e.target.value }));
                   if (errors.title) setErrors((prev) => ({ ...prev, title: undefined }));
                 }}
-                className={`w-full bg-[#131313] border-b py-2 text-[#e5e2e1] placeholder-[#9c8e84] outline-none transition-colors ${
-                  errors.title ? "border-red-500" : "border-[#4f453d] focus:border-[#e8bf9b]"
+                className={`w-full bg-[#131314] border-b py-2 text-[#e5e2e3] placeholder-[#859397] outline-none transition-colors ${
+                  errors.title ? "border-red-500" : "border-[#3b494c] focus:border-[#00daf8]"
                 }`}
               />
               {errors.title && (
@@ -287,17 +287,17 @@ export default function ReviewsPage() {
             </div>
 
             <div className="mb-8">
-              <label className="text-xs text-[#d3c4b9] mb-2 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>YOUR REVIEW *</label>
+              <label className="text-xs text-[#bac9cd] mb-2 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>YOUR REVIEW *</label>
               <textarea
-                placeholder="Tell us about your experience with Forge & Timber..."
+                placeholder="Tell us about your experience with Black Steel Crew..."
                 value={form.body}
                 onChange={(e) => {
                   setForm((prev) => ({ ...prev, body: e.target.value }));
                   if (errors.body) setErrors((prev) => ({ ...prev, body: undefined }));
                 }}
                 rows={4}
-                className={`w-full bg-[#131313] border p-4 text-[#e5e2e1] placeholder-[#9c8e84] outline-none transition-colors resize-none ${
-                  errors.body ? "border-red-500" : "border-[#4f453d] focus:border-[#e8bf9b]"
+                className={`w-full bg-[#131314] border p-4 text-[#e5e2e3] placeholder-[#859397] outline-none transition-colors resize-none ${
+                  errors.body ? "border-red-500" : "border-[#3b494c] focus:border-[#00daf8]"
                 }`}
               />
               {errors.body && (
@@ -309,7 +309,7 @@ export default function ReviewsPage() {
               <button
                 onClick={handleSubmit}
                 disabled={submitStatus === "submitting"}
-                className="bg-[#e8bf9b] text-[#442b12] px-10 py-3 text-sm font-semibold hover:brightness-110 transition-all disabled:opacity-50"
+                className="bg-[#00daf8] text-[#001f25] px-10 py-3 text-sm font-semibold hover:brightness-110 transition-all disabled:opacity-50"
                 style={{ fontFamily: "JetBrains Mono, monospace" }}
               >
                 {submitStatus === "submitting" ? "SUBMITTING..." : "SUBMIT REVIEW"}
@@ -319,7 +319,7 @@ export default function ReviewsPage() {
                   setShowForm(false);
                   setErrors({});
                 }}
-                className="border border-[#4f453d] text-[#d3c4b9] px-8 py-3 text-sm hover:border-[#e8bf9b] transition-colors"
+                className="border border-[#3b494c] text-[#bac9cd] px-8 py-3 text-sm hover:border-[#00daf8] transition-colors"
               >
                 Cancel
               </button>
@@ -332,21 +332,21 @@ export default function ReviewsPage() {
           <div className="flex justify-center py-20">
             <div className="flex gap-3">
               {[0,1,2].map((i) => (
-                <div key={i} className="w-3 h-3 bg-[#e8bf9b] rounded-full animate-bounce" style={{ animationDelay: `${i * 150}ms` }} />
+                <div key={i} className="w-3 h-3 bg-[#00daf8] rounded-full animate-bounce" style={{ animationDelay: `${i * 150}ms` }} />
               ))}
             </div>
           </div>
         ) : reviews.length === 0 ? (
           <div className="py-32 text-center">
-            <svg className="mx-auto mb-6 text-[#4f453d]" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <svg className="mx-auto mb-6 text-[#3b494c]" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
             </svg>
-            <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "Playfair Display, serif" }}>No reviews yet</h3>
-            <p className="text-[#9c8e84] mb-8">Be the first to share your Forge & Timber experience.</p>
+            <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>No reviews yet</h3>
+            <p className="text-[#859397] mb-8">Be the first to share your Black Steel Crew experience.</p>
             {user && (
               <button
                 onClick={() => setShowForm(true)}
-                className="bg-[#e8bf9b] text-[#442b12] px-10 py-3 text-sm font-semibold"
+                className="bg-[#00daf8] text-[#001f25] px-10 py-3 text-sm font-semibold"
               >
                 Write First Review
               </button>
@@ -355,30 +355,30 @@ export default function ReviewsPage() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {reviews.map((review) => (
-              <div key={review.id} className="bg-[#20201f] border border-[#4f453d]/40 p-6 flex flex-col hover:border-[#e8bf9b]/30 transition-colors">
+              <div key={review.id} className="bg-[#201f20] border border-[#3b494c]/40 p-6 flex flex-col hover:border-[#00daf8]/30 transition-colors">
                 <div className="flex justify-between items-start mb-4">
                   <StarRating rating={review.rating} />
                   {review.service && (
-                    <span className="text-[10px] px-2 py-1 border border-[#4f453d] text-[#9c8e84] capitalize" style={{ fontFamily: "JetBrains Mono, monospace" }}>
+                    <span className="text-[10px] px-2 py-1 border border-[#3b494c] text-[#859397] capitalize" style={{ fontFamily: "JetBrains Mono, monospace" }}>
                       {review.service}
                     </span>
                   )}
                 </div>
-                <h3 className="text-lg font-semibold mb-3" style={{ fontFamily: "Playfair Display, serif" }}>
+                <h3 className="text-lg font-semibold mb-3" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
                   {review.title}
                 </h3>
-                <p className="text-[#d3c4b9] text-sm leading-relaxed flex-1 mb-6">
+                <p className="text-[#bac9cd] text-sm leading-relaxed flex-1 mb-6">
                   &ldquo;{review.body}&rdquo;
                 </p>
-                <div className="flex items-center gap-3 pt-4 border-t border-[#4f453d]/30">
-                  <div className="w-8 h-8 bg-[#e8bf9b]/20 border border-[#e8bf9b]/30 flex items-center justify-center">
-                    <span className="text-[#e8bf9b] text-sm font-bold">
+                <div className="flex items-center gap-3 pt-4 border-t border-[#3b494c]/30">
+                  <div className="w-8 h-8 bg-[#00daf8]/20 border border-[#00daf8]/30 flex items-center justify-center">
+                    <span className="text-[#00daf8] text-sm font-bold">
                       {review.authorName.charAt(0).toUpperCase()}
                     </span>
                   </div>
                   <div>
                     <p className="text-sm font-semibold">{review.authorName}</p>
-                    <p className="text-xs text-[#9c8e84]">{formatDate(review.createdAt)}</p>
+                    <p className="text-xs text-[#859397]">{formatDate(review.createdAt)}</p>
                   </div>
                 </div>
               </div>
@@ -388,10 +388,10 @@ export default function ReviewsPage() {
 
         {/* CTA */}
         <div className="mt-20 text-center">
-          <p className="text-[#d3c4b9] mb-6">Ready to experience the Forge &amp; Timber difference?</p>
+          <p className="text-[#bac9cd] mb-6">Ready to experience the Black Steel Crew difference?</p>
           <Link
             href="/booking"
-            className="bg-[#e8bf9b] text-[#442b12] px-12 py-4 text-sm font-semibold hover:brightness-110 transition-all inline-block"
+            className="bg-[#00daf8] text-[#001f25] px-12 py-4 text-sm font-semibold hover:brightness-110 transition-all inline-block"
             style={{ fontFamily: "JetBrains Mono, monospace" }}
           >
             BOOK A CONSULTATION →

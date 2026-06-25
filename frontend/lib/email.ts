@@ -145,7 +145,36 @@ function bookingAdminHtml(d: { clientName: string; clientEmail: string; service:
         ${detailRow("DATE", d.date)}
         ${detailRow("PAYMENT", d.paymentMethod)}
       </table>
-      ${ctaButton(`${process.env.NEXT_PUBLIC_APP_URL ?? "https://forgetimber.tuistech.co.ke"}/admin`, "OPEN ADMIN PANEL &rarr;")}
+      ${ctaButton(`${process.env.NEXT_PUBLIC_APP_URL ?? "https://blacksteelcrew.tuistech.co.ke"}/admin`, "OPEN ADMIN PANEL &rarr;")}
+    </td></tr>`);
+}
+
+interface ContactFormData {
+  name: string;
+  email: string;
+  phone?: string;
+  message: string;
+}
+
+export async function sendContactFormEmail(data: ContactFormData) {
+  const { name, email, phone, message } = data;
+  await sendEmail(ADMIN_EMAIL, `New Contact Form Message – ${name}`,
+    contactAdminHtml({ name, email, phone, message }));
+}
+
+function contactAdminHtml(d: { name: string; email: string; phone?: string; message: string }) {
+  return wrap(`
+    ${headerHtml("NEW CONTACT MESSAGE")}
+    <tr><td style="background:#1c1b1c;padding:36px 40px;">
+      <table width="100%" cellpadding="0" cellspacing="0" style="background:#131314;border:1px solid #3b494c;margin-bottom:20px;">
+        ${detailRow("NAME", d.name)}
+        ${detailRow("EMAIL", d.email)}
+        ${detailRow("PHONE", d.phone || "Not provided")}
+      </table>
+      <table width="100%" cellpadding="0" cellspacing="0" style="background:#131314;border:1px solid #3b494c;margin-bottom:20px;">
+        <tr><td style="padding:16px 20px;color:#e5e2e3;white-space:pre-wrap;">${d.message}</td></tr>
+      </table>
+      ${ctaButton(`mailto:${d.email}`, "REPLY TO " + d.name.toUpperCase())}
     </td></tr>`);
 }
 
@@ -169,7 +198,7 @@ function orderClientHtml(d: { clientName: string; orderId: string; items: OrderI
         ${itemRows}
         <tr><td colspan="2" style="padding:14px 20px;color:#e8bf9b;font-size:16px;font-weight:bold;text-align:right;">KSh ${d.totalAmount.toLocaleString()}</td></tr>
       </table>
-      ${ctaButton(`${process.env.NEXT_PUBLIC_APP_URL ?? "https://forgetimber.tuistech.co.ke"}/dashboard`, "VIEW MY DASHBOARD &rarr;")}
+      ${ctaButton(`${process.env.NEXT_PUBLIC_APP_URL ?? "https://blacksteelcrew.tuistech.co.ke"}/dashboard`, "VIEW MY DASHBOARD &rarr;")}
     </td></tr>`);
 }
 
@@ -192,6 +221,6 @@ function orderAdminHtml(d: { clientName: string; clientEmail: string; orderId: s
       <table width="100%" cellpadding="0" cellspacing="0" style="background:#131313;border:1px solid #4f453d;margin-bottom:20px;">
         ${itemRows}
       </table>
-      ${ctaButton(`${process.env.NEXT_PUBLIC_APP_URL ?? "https://forgetimber.tuistech.co.ke"}/admin`, "OPEN ADMIN PANEL &rarr;")}
+      ${ctaButton(`${process.env.NEXT_PUBLIC_APP_URL ?? "https://blacksteelcrew.tuistech.co.ke"}/admin`, "OPEN ADMIN PANEL &rarr;")}
     </td></tr>`);
 }
