@@ -29,11 +29,9 @@ export default function Navbar() {
 
   const links = [
   { href: "/", label: "Home" },
+  { href: "/portfolio", label: "Projects" },
   { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/blog", label: "Journal" },
-  { href: "/catalog", label: "Materials" },
-  { href: "/quote", label: "Get a Quote" },
+  { href: "/ai-artisan", label: "AI Artisan" },
   { href: "/reviews", label: "Reviews" },
   { href: "/contact", label: "Contact" },
   { href: "/dashboard", label: "Dashboard" },
@@ -41,10 +39,9 @@ export default function Navbar() {
 
   const searchPages = [
     { label: "Homepage", href: "/" },
+    { label: "Projects", href: "/portfolio" },
     { label: "Services", href: "/services" },
-    { label: "Portfolio", href: "/portfolio" },
-    { label: "Journal", href: "/blog" },
-    { label: "Material Catalog", href: "/catalog" },
+    { label: "AI Artisan", href: "/ai-artisan" },
     { label: "Book Consultation", href: "/booking" },
     { label: "Reviews", href: "/reviews" },
     { label: "My Dashboard", href: "/dashboard" },
@@ -65,19 +62,19 @@ export default function Navbar() {
   const Logo = () => (
     <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
       {/* Outer hexagon - steel plate */}
-      <polygon points="18,2 32,10 32,26 18,34 4,26 4,10" fill="#20201f" stroke="#e8bf9b" strokeWidth="1.5"/>
+      <polygon points="18,2 32,10 32,26 18,34 4,26 4,10" fill="#201f20" stroke="#00daf8" strokeWidth="1.5"/>
       {/* Wood grain lines */}
-      <line x1="10" y1="13" x2="26" y2="13" stroke="#4f453d" strokeWidth="1" strokeLinecap="round"/>
-      <line x1="8" y1="17" x2="28" y2="17" stroke="#4f453d" strokeWidth="1" strokeLinecap="round"/>
-      <line x1="10" y1="21" x2="26" y2="21" stroke="#4f453d" strokeWidth="1" strokeLinecap="round"/>
+      <line x1="10" y1="13" x2="26" y2="13" stroke="#3b494c" strokeWidth="1" strokeLinecap="round"/>
+      <line x1="8" y1="17" x2="28" y2="17" stroke="#3b494c" strokeWidth="1" strokeLinecap="round"/>
+      <line x1="10" y1="21" x2="26" y2="21" stroke="#3b494c" strokeWidth="1" strokeLinecap="round"/>
       {/* Steel rivet / center mark */}
-      <circle cx="18" cy="17" r="4" fill="none" stroke="#e8bf9b" strokeWidth="1.5"/>
-      <circle cx="18" cy="17" r="1.5" fill="#e8bf9b"/>
+      <circle cx="18" cy="17" r="4" fill="none" stroke="#00daf8" strokeWidth="1.5"/>
+      <circle cx="18" cy="17" r="1.5" fill="#00daf8"/>
       {/* Corner rivets */}
-      <circle cx="10" cy="10" r="1.2" fill="#e8bf9b" opacity="0.6"/>
-      <circle cx="26" cy="10" r="1.2" fill="#e8bf9b" opacity="0.6"/>
-      <circle cx="10" cy="24" r="1.2" fill="#e8bf9b" opacity="0.6"/>
-      <circle cx="26" cy="24" r="1.2" fill="#e8bf9b" opacity="0.6"/>
+      <circle cx="10" cy="10" r="1.2" fill="#00daf8" opacity="0.6"/>
+      <circle cx="26" cy="10" r="1.2" fill="#00daf8" opacity="0.6"/>
+      <circle cx="10" cy="24" r="1.2" fill="#00daf8" opacity="0.6"/>
+      <circle cx="26" cy="24" r="1.2" fill="#00daf8" opacity="0.6"/>
     </svg>
   );
 
@@ -104,39 +101,30 @@ export default function Navbar() {
         .search-dropdown { animation: search-slide 0.2s ease forwards; }
       `}</style>
 
-      <nav className="fixed top-0 w-full z-50 border-b border-[#4f453d]/30"
+      <nav className="fixed top-0 w-full z-50 border-b border-[#3b494c]/30"
         style={{ background: "rgba(19,19,19,0.92)", backdropFilter: "blur(20px)" }}>
         <div className="flex justify-between items-center px-6 md:px-12 py-4 w-full max-w-[1440px] mx-auto">
 
           {/* Logo + Brand */}
-          <Link href="/" className="flex items-center gap-3 flex-shrink-0 group">
-            <Logo />
-            <div>
-              <span
-                className="font-bold tracking-tighter text-[#e5e2e1] text-2xl md:text-3xl block leading-none group-hover:text-[#e8bf9b] transition-colors"
-                style={{ fontFamily: "Playfair Display, serif" }}
-              >
-                Forge &amp; Timber
-              </span>
-              <span
-                className="text-[9px] text-[#9c8e84] tracking-[0.2em] leading-none"
-                style={{ fontFamily: "JetBrains Mono, monospace" }}
-              >
-                ATELIER · NAIROBI
-              </span>
-            </div>
+          <Link href="/" className="flex items-center flex-shrink-0 group">
+            <img
+              src="/logo.png"
+              alt="Black Steel Crew"
+              className="h-25 md:h-50 w-auto object-contain py-1"
+            />
           </Link>
 
           {/* Desktop Nav Links */}
-          <div className="hidden lg:flex gap-6 items-center">
+          
+            <div className="hidden lg:flex gap-8 items-center">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors duration-300 whitespace-nowrap ${
+                className={`text-base font-medium transition-colors duration-300 whitespace-nowrap ${
                   pathname === link.href
-                    ? "text-[#e8bf9b] font-bold border-b-2 border-[#e8bf9b] pb-1"
-                    : "text-[#d3c4b9] hover:text-[#e8bf9b]"
+                    ? "text-[#00daf8] font-bold border-b-2 border-[#00daf8] pb-1"
+                    : "text-[#bac9cd] hover:text-[#00daf8]"
                 }`}
               >
                 {link.label}
@@ -150,13 +138,13 @@ export default function Navbar() {
             <div className="relative">
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
-                className="text-[#d3c4b9] hover:text-[#e8bf9b] transition-colors p-1"
+                className="text-[#bac9cd] hover:text-[#00daf8] transition-colors p-1"
               >
                 <SearchIcon />
               </button>
               {searchOpen && (
-                <div className="search-dropdown absolute right-0 top-10 w-72 bg-[#0e0e0e] border border-[#4f453d] z-50">
-                  <div className="flex items-center gap-3 px-4 py-3 border-b border-[#4f453d]/40">
+                <div className="search-dropdown absolute right-0 top-10 w-72 bg-[#1c1b1c] border border-[#3b494c] z-50">
+                  <div className="flex items-center gap-3 px-4 py-3 border-b border-[#3b494c]/40">
                     <SearchIcon />
                     <input
                       ref={searchRef}
@@ -168,9 +156,9 @@ export default function Navbar() {
                         if (e.key === "Escape") { setSearchOpen(false); setSearchQuery(""); }
                         if (e.key === "Enter" && filtered.length > 0) handleSearchSelect(filtered[0].href);
                       }}
-                      className="bg-transparent outline-none text-sm text-[#e5e2e1] placeholder-[#9c8e84] flex-1"
+                      className="bg-transparent outline-none text-sm text-[#e5e2e3] placeholder-[#859397] flex-1"
                     />
-                    <button onClick={() => { setSearchOpen(false); setSearchQuery(""); }} className="text-[#9c8e84] hover:text-[#e8bf9b] text-lg">✕</button>
+                    <button onClick={() => { setSearchOpen(false); setSearchQuery(""); }} className="text-[#859397] hover:text-[#00daf8] text-lg">✕</button>
                   </div>
                   {filtered.length > 0 && (
                     <div>
@@ -178,16 +166,16 @@ export default function Navbar() {
                         <button
                           key={p.href}
                           onClick={() => handleSearchSelect(p.href)}
-                          className="w-full text-left px-4 py-3 text-sm text-[#d3c4b9] hover:bg-[#20201f] hover:text-[#e8bf9b] flex items-center gap-3 transition-colors border-b border-[#4f453d]/20"
+                          className="w-full text-left px-4 py-3 text-sm text-[#bac9cd] hover:bg-[#201f20] hover:text-[#00daf8] flex items-center gap-3 transition-colors border-b border-[#3b494c]/20"
                         >
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#e8bf9b" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00daf8" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                           {p.label}
                         </button>
                       ))}
                     </div>
                   )}
                   {searchQuery.length > 1 && filtered.length === 0 && (
-                    <p className="px-4 py-3 text-sm text-[#9c8e84]">No results found.</p>
+                    <p className="px-4 py-3 text-sm text-[#859397]">No results found.</p>
                   )}
                   {searchQuery.length <= 1 && (
                     <div className="p-3">
@@ -195,7 +183,7 @@ export default function Navbar() {
                         <button
                           key={p.href}
                           onClick={() => handleSearchSelect(p.href)}
-                          className="w-full text-left px-3 py-2 text-xs text-[#9c8e84] hover:text-[#e8bf9b] hover:bg-[#20201f] transition-colors"
+                          className="w-full text-left px-3 py-2 text-xs text-[#859397] hover:text-[#00daf8] hover:bg-[#201f20] transition-colors"
                           style={{ fontFamily: "JetBrains Mono, monospace" }}
                         >
                           {p.label}
@@ -209,12 +197,12 @@ export default function Navbar() {
 
             <button
               onClick={() => setCartOpen(true)}
-              className="relative text-[#d3c4b9] hover:text-[#e8bf9b] transition-colors"
+              className="relative text-[#bac9cd] hover:text-[#00daf8] transition-colors"
             >
               <CartIcon />
               {totalItems > 0 && (
                 <span
-                  className="absolute -top-2 -right-2 bg-[#e8bf9b] text-[#442b12] text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center"
+                  className="absolute -top-2 -right-2 bg-[#00daf8] text-[#001f25] text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center"
                   style={{ fontFamily: "JetBrains Mono, monospace" }}
                 >
                   {totalItems > 9 ? "9+" : totalItems}
@@ -224,14 +212,14 @@ export default function Navbar() {
 
             <Link
               href="/booking"
-              className="bg-[#e8bf9b] text-[#442b12] text-sm font-semibold px-6 py-2.5 hover:bg-[#e8bf9b]/90 transition-all active:scale-95 whitespace-nowrap"
+              className="bg-[#00daf8] text-[#001f25] text-sm font-semibold px-6 py-2.5 hover:bg-[#00daf8]/90 transition-all active:scale-95 whitespace-nowrap"
             >
               Book Consultation
             </Link>
 
             <SignedOut>
               <SignInButton>
-                <button className="text-[#d3c4b9] hover:text-[#e8bf9b] text-sm font-medium transition-colors whitespace-nowrap">
+                <button className="text-[#bac9cd] hover:text-[#00daf8] text-sm font-medium transition-colors whitespace-nowrap">
                   Login
                 </button>
               </SignInButton>
@@ -245,17 +233,17 @@ export default function Navbar() {
           <div className="flex lg:hidden items-center gap-3">
             <button
               onClick={() => setSearchOpen(!searchOpen)}
-              className="text-[#d3c4b9] hover:text-[#e8bf9b] transition-colors"
+              className="text-[#bac9cd] hover:text-[#00daf8] transition-colors"
             >
               <SearchIcon />
             </button>
             <button
               onClick={() => setCartOpen(true)}
-              className="relative text-[#d3c4b9] hover:text-[#e8bf9b] transition-colors"
+              className="relative text-[#bac9cd] hover:text-[#00daf8] transition-colors"
             >
               <CartIcon />
               {totalItems > 0 && (
-                <span className="absolute -top-2 -right-2 bg-[#e8bf9b] text-[#442b12] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                <span className="absolute -top-2 -right-2 bg-[#00daf8] text-[#001f25] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
                   {totalItems > 9 ? "9+" : totalItems}
                 </span>
               )}
@@ -265,9 +253,9 @@ export default function Navbar() {
               onClick={() => setMenuOpen(!menuOpen)}
               className="flex flex-col justify-center items-center w-8 h-8 gap-[5px] focus:outline-none"
             >
-              <span className="block w-5 h-[2px] bg-[#e8bf9b] transition-all duration-300" style={{ transform: menuOpen ? "translateY(7px) rotate(45deg)" : "none" }} />
-              <span className="block w-5 h-[2px] bg-[#e8bf9b] transition-all duration-300" style={{ opacity: menuOpen ? 0 : 1 }} />
-              <span className="block w-5 h-[2px] bg-[#e8bf9b] transition-all duration-300" style={{ transform: menuOpen ? "translateY(-7px) rotate(-45deg)" : "none" }} />
+              <span className="block w-5 h-[2px] bg-[#00daf8] transition-all duration-300" style={{ transform: menuOpen ? "translateY(7px) rotate(45deg)" : "none" }} />
+              <span className="block w-5 h-[2px] bg-[#00daf8] transition-all duration-300" style={{ opacity: menuOpen ? 0 : 1 }} />
+              <span className="block w-5 h-[2px] bg-[#00daf8] transition-all duration-300" style={{ transform: menuOpen ? "translateY(-7px) rotate(-45deg)" : "none" }} />
             </button>
           </div>
         </div>
@@ -275,7 +263,7 @@ export default function Navbar() {
         {/* Mobile Search Bar */}
         {searchOpen && (
           <div className="lg:hidden px-4 pb-4 relative">
-            <div className="flex items-center gap-3 bg-[#20201f] border border-[#4f453d] px-4 py-3">
+            <div className="flex items-center gap-3 bg-[#201f20] border border-[#3b494c] px-4 py-3">
               <SearchIcon />
               <input
                 type="text"
@@ -285,19 +273,19 @@ export default function Navbar() {
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && filtered.length > 0) handleSearchSelect(filtered[0].href);
                 }}
-                className="bg-transparent outline-none text-sm text-[#e5e2e1] placeholder-[#9c8e84] flex-1"
+                className="bg-transparent outline-none text-sm text-[#e5e2e3] placeholder-[#859397] flex-1"
                 autoFocus
               />
             </div>
             {filtered.length > 0 && (
-              <div className="bg-[#0e0e0e] border border-[#4f453d] border-t-0">
+              <div className="bg-[#1c1b1c] border border-[#3b494c] border-t-0">
                 {filtered.map((p) => (
                   <button
                     key={p.href}
                     onClick={() => handleSearchSelect(p.href)}
-                    className="w-full text-left px-4 py-3 text-sm text-[#d3c4b9] hover:bg-[#20201f] hover:text-[#e8bf9b] flex items-center gap-3 border-b border-[#4f453d]/20"
+                    className="w-full text-left px-4 py-3 text-sm text-[#bac9cd] hover:bg-[#201f20] hover:text-[#00daf8] flex items-center gap-3 border-b border-[#3b494c]/20"
                   >
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#e8bf9b" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00daf8" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     {p.label}
                   </button>
                 ))}
@@ -309,28 +297,28 @@ export default function Navbar() {
 
       {/* Mobile Overlay */}
       {menuOpen && (
-        <div className="fixed inset-0 bg-[#131313]/60 backdrop-blur-sm z-40 lg:hidden" onClick={() => setMenuOpen(false)} />
+        <div className="fixed inset-0 bg-[#131314]/60 backdrop-blur-sm z-40 lg:hidden" onClick={() => setMenuOpen(false)} />
       )}
 
       {/* Mobile Drawer */}
       <div
-        className="fixed top-0 right-0 h-full w-[80%] max-w-[320px] z-50 lg:hidden flex flex-col border-l border-[#4f453d]/40"
+        className="fixed top-0 right-0 h-full w-[80%] max-w-[320px] z-50 lg:hidden flex flex-col border-l border-[#3b494c]/40"
         style={{
           background: "rgba(14,14,14,0.98)",
           transform: menuOpen ? "translateX(0)" : "translateX(100%)",
           transition: "transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
-        <div className="flex items-center justify-between px-6 py-5 border-b border-[#4f453d]/40">
+        <div className="flex items-center justify-between px-6 py-5 border-b border-[#3b494c]/40">
           <div className="flex items-center gap-3">
             <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
-              <polygon points="18,2 32,10 32,26 18,34 4,26 4,10" fill="#20201f" stroke="#e8bf9b" strokeWidth="1.5"/>
-              <circle cx="18" cy="17" r="4" fill="none" stroke="#e8bf9b" strokeWidth="1.5"/>
-              <circle cx="18" cy="17" r="1.5" fill="#e8bf9b"/>
+              <polygon points="18,2 32,10 32,26 18,34 4,26 4,10" fill="#201f20" stroke="#00daf8" strokeWidth="1.5"/>
+              <circle cx="18" cy="17" r="4" fill="none" stroke="#00daf8" strokeWidth="1.5"/>
+              <circle cx="18" cy="17" r="1.5" fill="#00daf8"/>
             </svg>
-            <span className="text-[#e8bf9b] font-bold text-lg" style={{ fontFamily: "Playfair Display, serif" }}>Forge &amp; Timber</span>
+            <span className="text-[#00daf8] font-bold text-lg" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>Black Steel Crew</span>
           </div>
-          <button onClick={() => setMenuOpen(false)} className="text-[#9c8e84] hover:text-[#e8bf9b] transition-colors text-xl">✕</button>
+          <button onClick={() => setMenuOpen(false)} className="text-[#859397] hover:text-[#00daf8] transition-colors text-xl">✕</button>
         </div>
 
         <div className="flex flex-col px-6 py-8 gap-1 flex-1">
@@ -338,8 +326,8 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`py-4 text-lg font-medium border-b border-[#4f453d]/20 transition-colors ${
-                pathname === link.href ? "text-[#e8bf9b]" : "text-[#d3c4b9] hover:text-[#e8bf9b]"
+              className={`py-4 text-lg font-medium border-b border-[#3b494c]/20 transition-colors ${
+                pathname === link.href ? "text-[#00daf8]" : "text-[#bac9cd] hover:text-[#00daf8]"
               }`}
               style={{ transitionDelay: menuOpen ? `${i * 40}ms` : "0ms" }}
             >
@@ -348,16 +336,16 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="px-6 py-8 border-t border-[#4f453d]/40 flex flex-col gap-4">
-          <Link href="/booking" className="w-full bg-[#e8bf9b] text-[#442b12] text-sm font-semibold px-6 py-4 text-center hover:brightness-110 transition-all" style={{ fontFamily: "JetBrains Mono, monospace" }}>
+        <div className="px-6 py-8 border-t border-[#3b494c]/40 flex flex-col gap-4">
+          <Link href="/booking" className="w-full bg-[#00daf8] text-[#001f25] text-sm font-semibold px-6 py-4 text-center hover:brightness-110 transition-all" style={{ fontFamily: "JetBrains Mono, monospace" }}>
             BOOK CONSULTATION
           </Link>
           <SignedOut>
             <SignInButton>
-              <button className="w-full border border-[#4f453d] text-[#d3c4b9] text-sm font-medium py-4 hover:border-[#e8bf9b] hover:text-[#e8bf9b] transition-colors">Login</button>
+              <button className="w-full border border-[#3b494c] text-[#bac9cd] text-sm font-medium py-4 hover:border-[#00daf8] hover:text-[#00daf8] transition-colors">Login</button>
             </SignInButton>
           </SignedOut>
-          <p className="text-center text-xs text-[#4f453d] tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>HANDMADE IN KENYA</p>
+          <p className="text-center text-xs text-[#3b494c] tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>FORGED IN KENYA</p>
         </div>
       </div>
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />

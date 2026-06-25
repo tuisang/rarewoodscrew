@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo_Narrow, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "@/components/Navbar";
@@ -9,51 +9,59 @@ import { CartProvider } from "@/lib/CartContext";
 import { Suspense } from "react";
 import Loading from "@/app/loading";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const archivoNarrow = Archivo_Narrow({
+  variable: "--font-archivo-narrow",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+const jetBrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  weight: ["400", "600"],
+});
 
-const OG_IMAGE = "https://lh3.googleusercontent.com/aida-public/AB6AXuDKZkFB7nfJk6r7jmyQO-AVHnZdP7LJr29ZqN0oN7deW8u-FynV8eH49R4bubmO2QUoz08l5GAEmy704ZORM-htSo6QE8m1XQrNzsO9QWzsBJmHRZ7Y2DBUDqj62PuAbh-lASPFQ57rHdGz29cx9ckkpH4Zq2YmYd9he093plIplw7Okh7gZhohycXc2UdEF5He9qps9SX4cRwWOcjzKRvPvhskTw1ZJOvhJ2O_TXcdFP9WV_YbCCsPzmlJZwtHvC6fiB2l2pwLqsMT";
+const OG_IMAGE = "https://lh3.googleusercontent.com/aida-public/AB6AXuCskyV7BXgGvhV0SK0WdqRBihOtmDa-5mIZE8sO473g6uk7RVOkFZSGs2XSNfNppVIFRhfZzzbPCyQW_Zp6pXmDNwYtMTH_5jMIe-drRIWWNowg_oEfMokYlSjM8hYjyjdGtPLhlvZAuWUsSyx-mC43AbRJXOXkYJzGQqtSB1G7PXdbxSns4tdQWpVTveM0-C3_sul9iEU-1EQ1598uVMp1xwa28LYqm9WnzEbS4NylbWDP4cE4deCaTKf1FjwJx2at-lcAk6gOBjY";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"),
   title: {
-    default: "Forge & Timber Atelier | Bespoke Furniture & Metalwork Nairobi",
-    template: "%s | Forge & Timber Atelier",
+    default: "Black Steel Crew | Bespoke Steel Fabrication Nairobi",
+    template: "%s | Black Steel Crew",
   },
-  description: "Bespoke furniture and metalwork studio in Nairobi, Kenya. We combine African hardwoods with industrial steel to create timeless, handcrafted pieces. Custom orders, M-Pesa payments.",
+  description: "Bespoke steel fabrication studio in Nairobi, Kenya. Custom gates, railings, staircases, and steel-framed furniture, precision-welded and finished to last. Custom orders, M-Pesa payments.",
   keywords: [
-    "bespoke furniture Nairobi",
-    "custom furniture Kenya",
+    "steel fabrication Nairobi",
+    "custom gates Kenya",
     "metalwork Nairobi",
-    "timber furniture Kenya",
-    "steel furniture Nairobi",
-    "Forge Timber Atelier",
-    "handmade furniture Kenya",
-    "wood metal furniture",
-    "Mvule furniture",
-    "African hardwood furniture",
-    "furniture maker Nairobi",
-    "industrial furniture Kenya",
+    "steel railings Kenya",
+    "steel staircases Nairobi",
+    "Black Steel Crew",
+    "welding Nairobi",
+    "steel furniture Kenya",
+    "balustrades Nairobi",
+    "structural steel Kenya",
+    "gate fabrication Nairobi",
+    "industrial steel Kenya",
   ],
-  authors: [{ name: "Forge & Timber Atelier", url: "https://tuistech.co.ke" }],
-  creator: "Forge & Timber Atelier",
-  publisher: "Forge & Timber Atelier",
-  category: "Furniture & Home Decor",
+  authors: [{ name: "Black Steel Crew", url: "https://tuistech.co.ke" }],
+  creator: "Black Steel Crew",
+  publisher: "Black Steel Crew",
+  category: "Steel Fabrication & Metalwork",
   openGraph: {
     type: "website",
     locale: "en_KE",
-    url: "https://tuistech.co.ke",
-    siteName: "Forge & Timber Atelier",
-    title: "Forge & Timber Atelier | Bespoke Furniture & Metalwork Nairobi",
-    description: "Handcrafted furniture and metalwork in Nairobi, Kenya. African hardwoods meet industrial steel. Custom orders, M-Pesa payments accepted.",
-    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "Forge & Timber Atelier - Bespoke Furniture Nairobi" }],
+    url: "https://blacksteelcrew.tuistech.co.ke",
+    siteName: "Black Steel Crew",
+    title: "Black Steel Crew | Bespoke Steel Fabrication Nairobi",
+    description: "Custom gates, railings, staircases, and steel-framed furniture, forged in Nairobi. Precision welding, on-site measurement, M-Pesa payments accepted.",
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "Black Steel Crew - Bespoke Steel Fabrication Nairobi" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Forge & Timber Atelier | Bespoke Furniture Nairobi",
-    description: "Handcrafted furniture and metalwork in Nairobi, Kenya.",
+    title: "Black Steel Crew | Bespoke Steel Fabrication Nairobi",
+    description: "Custom gates, railings, staircases, and steel-framed furniture, forged in Nairobi.",
     images: [OG_IMAGE],
-    creator: "@forgeandtimber",
+    creator: "@blacksteelcrew",
   },
   robots: {
     index: true,
@@ -76,11 +84,11 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Forge & Timber Atelier",
-  description: "Bespoke furniture and metalwork studio in Nairobi, Kenya. Custom handcrafted pieces combining African hardwoods with industrial steel.",
-  url: "https://tuistech.co.ke",
+  name: "Black Steel Crew",
+  description: "Bespoke steel fabrication studio in Nairobi, Kenya. Custom gates, railings, staircases, and steel-framed furniture, precision-welded and finished to last.",
+  url: "https://blacksteelcrew.tuistech.co.ke",
   telephone: "+254726461196",
-  email: "alex2000rui@gmail.com",
+  email: "info@tuistech.co.ke",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Nairobi",
@@ -110,12 +118,12 @@ const jsonLd = {
   sameAs: [],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Bespoke Furniture & Metalwork Services",
+    name: "Bespoke Steel Fabrication Services",
     itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Custom Gates" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Railings & Balustrades" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Staircase Fabrication" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Custom Furniture" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Architectural Metalwork" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Wood-Metal Décor" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Restoration & Repairs" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Precision Welding" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial Installations" } },
     ],
@@ -127,14 +135,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <ClerkProvider>
       <html lang="en-KE" className="dark">
         <head>
-          <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
           <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-          <meta name="theme-color" content="#131313" />
-          <meta name="msapplication-TileColor" content="#131313" />
-          <link rel="canonical" href="https://tuistech.co.ke" />
+          <meta name="theme-color" content="#131314" />
+          <meta name="msapplication-TileColor" content="#131314" />
+          <link rel="canonical" href="https://blacksteelcrew.tuistech.co.ke" />
         </head>
-        <body className={`${geistSans.variable} ${geistMono.variable} bg-[#131313] text-[#e5e2e1]`}>
+        <body className={`${archivoNarrow.variable} ${jetBrainsMono.variable} bg-background text-on-surface`}>
           <CartProvider>
             <Navbar />
             <Suspense fallback={<Loading />}>
