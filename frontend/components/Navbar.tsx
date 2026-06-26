@@ -106,12 +106,26 @@ export default function Navbar() {
         <div className="flex justify-between items-center px-6 md:px-12 py-4 w-full max-w-[1440px] mx-auto">
 
           {/* Logo + Brand */}
-          <Link href="/" className="flex items-center flex-shrink-0 group">
+          <Link href="/" className="flex items-center gap-3 flex-shrink-0 group">
             <img
-              src="/logo.png"
+              src="/logo-icon.png"
               alt="Black Steel Crew"
-              className="h-12 md:h-20 w-auto object-contain py-1"
+              className="h-10 md:h-12 w-auto object-contain"
             />
+            <div>
+              <span
+                className="font-bold tracking-tighter text-[#e5e2e3] text-xl md:text-2xl block leading-none group-hover:text-[#00daf8] transition-colors"
+                style={{ fontFamily: "Archivo Narrow, sans-serif" }}
+              >
+                Black Steel Crew
+              </span>
+              <span
+                className="text-[9px] text-[#859397] tracking-[0.2em] leading-none"
+                style={{ fontFamily: "JetBrains Mono, monospace" }}
+              >
+                FABRICATION STUDIO &middot; NAIROBI
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav Links */}

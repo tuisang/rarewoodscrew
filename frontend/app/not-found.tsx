@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <main className="bg-[#131314] text-[#e5e2e3] min-h-screen flex flex-col items-center justify-center px-4 text-center">
       <div className="mb-8 opacity-40">
-        <img src="/logo.png" alt="Black Steel Crew" className="h-20 w-auto object-contain" />
+        <img src="/logo-icon.png" alt="Black Steel Crew" className="h-20 w-auto object-contain" />
       </div>
 
       <p className="text-xs text-[#00daf8] tracking-[0.3em] mb-4" style={{ fontFamily: "JetBrains Mono, monospace" }}>
