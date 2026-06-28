@@ -8,13 +8,13 @@ const FOLDERS = ["policies", "products", "projects", "services", "steels", "wood
 // Keywords that map to specific folders
 const FOLDER_KEYWORDS: Record<string, string[]> = {
   woods: [
-    "wood accent", "wood top", "wood finish", "tabletop", "wood seat",
+    "wood", "timber", "hardwood", "softwood", "lumber", "grain", "species",
     "cypress", "eucalyptus", "oak", "pine", "teak", "mvule", "mahogany",
-    "walnut", "cherry", "grain", "timber accent",
+    "walnut", "cherry", "tree", "plank", "board", "carpentry", "joinery",
   ],
   steels: [
-    "steel", "metal", "iron", "mild steel", "stainless", "gunmetal", "alloy",
-    "rust", "galvan", "gauge",
+    "steel accent", "steel leg", "steel hardware", "steel frame", "metal accent",
+    "mild steel", "stainless", "gunmetal", "rust",
   ],
   products: [
     "product", "furniture", "table", "chair", "shelf", "shelving", "desk",
@@ -24,14 +24,12 @@ const FOLDER_KEYWORDS: Record<string, string[]> = {
   services: [
     "service", "clean", "maintain", "maintenance", "repair", "restoration",
     "refinish", "inspect", "storage", "upholster", "care", "polish",
-    "outdoor care", "rust prevention", "seasonal", "powder coat",
+    "outdoor care", "seasonal", "door", "window", "hinge", "frame", "lock",
   ],
   projects: [
     "project", "commission", "custom", "bespoke", "order", "bulk", "hotel",
-    "restaurant", "office", "commercial", "interior", "fitout", "industrial",
-    "outdoor", "cabinetry", "design", "weld", "welding", "fabricat", "forge",
-    "gate", "railing", "staircase", "stairs", "balustrade", "balcony",
-    "fence", "fencing", "handrail", "balau", "structural", "load bearing",
+    "restaurant", "office", "commercial", "interior", "fitout", "design",
+    "cabinetry", "cabinet", "installation", "wardrobe install", "kitchen",
   ],
   policies: [
     "policy", "warrant", "guarantee", "deliver", "payment", "quote",

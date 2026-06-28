@@ -23,45 +23,31 @@ export default function Footer() {
   }
 };
 
-  const Logo = () => (
-    <svg width="40" height="40" viewBox="0 0 36 36" fill="none">
-      <polygon points="18,2 32,10 32,26 18,34 4,26 4,10" fill="#201f20" stroke="#00daf8" strokeWidth="1.5"/>
-      <line x1="10" y1="13" x2="26" y2="13" stroke="#3b494c" strokeWidth="1" strokeLinecap="round"/>
-      <line x1="8" y1="17" x2="28" y2="17" stroke="#3b494c" strokeWidth="1" strokeLinecap="round"/>
-      <line x1="10" y1="21" x2="26" y2="21" stroke="#3b494c" strokeWidth="1" strokeLinecap="round"/>
-      <circle cx="18" cy="17" r="4" fill="none" stroke="#00daf8" strokeWidth="1.5"/>
-      <circle cx="18" cy="17" r="1.5" fill="#00daf8"/>
-      <circle cx="10" cy="10" r="1.2" fill="#00daf8" opacity="0.6"/>
-      <circle cx="26" cy="10" r="1.2" fill="#00daf8" opacity="0.6"/>
-      <circle cx="10" cy="24" r="1.2" fill="#00daf8" opacity="0.6"/>
-      <circle cx="26" cy="24" r="1.2" fill="#00daf8" opacity="0.6"/>
-    </svg>
-  );
 
   return (
-    <footer style={{ background: "#0e0e0f", borderTop: "1px solid rgba(79,69,61,0.5)" }}>
+    <footer style={{ background: "#0e1c14", borderTop: "1px solid rgba(61,43,31,0.5)" }}>
 
       {/* Top CTA Banner */}
-      <div style={{ borderBottom: "1px solid rgba(79,69,61,0.3)", background: "rgba(232,191,155,0.04)" }}>
+      <div style={{ borderBottom: "1px solid rgba(61,43,31,0.3)", background: "rgba(217,160,91,0.06)" }}>
         <div className="max-w-[1440px] mx-auto px-4 md:px-16 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <p className="text-2xl font-bold" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
-              Ready to commission a masterpiece?
+            <p className="text-2xl font-bold" style={{ fontFamily: "Domine, serif" }}>
+              Ready to start your woodworking project?
             </p>
-            <p className="text-[#859397] text-sm mt-1">Speak with our master artisans today.</p>
+            <p className="text-[#737973] text-sm mt-1">Speak with our master craftsmen today.</p>
           </div>
           <div className="flex gap-4 flex-shrink-0">
             <Link
               href="/booking"
-              className="bg-[#00daf8] text-[#001f25] px-8 py-3 text-sm font-semibold hover:brightness-110 transition-all active:scale-95"
-              style={{ fontFamily: "JetBrains Mono, monospace" }}
+              className="bg-[#825516] text-[#ffffff] px-8 py-3 text-sm font-semibold hover:brightness-110 transition-all active:scale-95"
+              style={{ fontFamily: "Work Sans, sans-serif" }}
             >
               BOOK CONSULTATION
             </Link>
             <Link
               href="/portfolio"
-              className="border border-[#3b494c] text-[#bac9cd] px-8 py-3 text-sm font-semibold hover:border-[#00daf8] hover:text-[#00daf8] transition-all"
-              style={{ fontFamily: "JetBrains Mono, monospace" }}
+              className="border border-[#c3c8c1] text-[#434843] px-8 py-3 text-sm font-semibold hover:border-[#825516] hover:text-[#825516] transition-all"
+              style={{ fontFamily: "Work Sans, sans-serif" }}
             >
               VIEW PORTFOLIO
             </Link>
@@ -76,41 +62,43 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="md:col-span-4">
             <Link href="/" className="flex items-center gap-3 mb-6 group">
-              <Logo />
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                <span className="material-symbols-outlined text-surface-cream text-xl">carpenter</span>
+              </div>
               <div>
-                <p className="text-[#00daf8] font-bold text-xl leading-none" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
-                  Black Steel Crew
+                <p className="text-[#825516] font-bold text-xl leading-none" style={{ fontFamily: "Domine, serif" }}>
+                  Rarewoods Crew
                 </p>
-                <p className="text-[9px] text-[#859397] tracking-[0.2em] mt-0.5" style={{ fontFamily: "JetBrains Mono, monospace" }}>
-                  FABRICATION STUDIO · NAIROBI
+                <p className="text-[9px] text-[#737973] tracking-[0.2em] mt-0.5" style={{ fontFamily: "Work Sans, sans-serif" }}>
+                  MASTER CRAFTSMEN · NAIROBI
                 </p>
               </div>
             </Link>
-            <p className="text-[#bac9cd] text-sm leading-relaxed mb-8 max-w-xs">
-              A fabrication studio dedicated to the craft of enduring steelwork. Made for those who value precision welding and structural integrity.
+            <p className="text-[#434843] text-sm leading-relaxed mb-8 max-w-xs">
+              A craftsman studio dedicated to the art of fine woodworking. Made for those who value quality joinery and honest timelines.
             </p>
 
             {/* Single Contact Block */}
             <div className="space-y-3 mb-8">
               <a
                 href="tel:+254726461196"
-                className="flex items-center gap-3 text-sm text-[#bac9cd] hover:text-[#00daf8] transition-colors group"
+                className="flex items-center gap-3 text-sm text-[#434843] hover:text-[#825516] transition-colors group"
               >
-                <div className="w-8 h-8 border border-[#3b494c] group-hover:border-[#00daf8] flex items-center justify-center transition-colors flex-shrink-0">
+                <div className="w-8 h-8 border border-[#c3c8c1] group-hover:border-[#825516] flex items-center justify-center transition-colors flex-shrink-0">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                   </svg>
                 </div>
                 +254 726 461 196
               </a>
-              <div className="flex items-center gap-3 text-sm text-[#bac9cd]">
-                <div className="w-8 h-8 border border-[#3b494c] flex items-center justify-center flex-shrink-0">
+              <div className="flex items-center gap-3 text-sm text-[#434843]">
+                <div className="w-8 h-8 border border-[#c3c8c1] flex items-center justify-center flex-shrink-0">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                     <circle cx="12" cy="10" r="3"/>
                   </svg>
                 </div>
-                Industrial Area, Nairobi
+                Ngong Road, Nairobi
               </div>
             </div>
 
@@ -137,7 +125,7 @@ export default function Footer() {
     href={social.href ?? "#"}
     target={social.href ? "_blank" : undefined}
     rel={social.href ? "noopener noreferrer" : undefined}
-    className="w-9 h-9 border border-[#3b494c] hover:border-[#00daf8] flex items-center justify-center text-[#bac9cd] hover:text-[#00daf8] transition-all"
+    className="w-9 h-9 border border-[#c3c8c1] hover:border-[#825516] flex items-center justify-center text-[#434843] hover:text-[#825516] transition-all"
     aria-label={social.label}
   >
     <svg
@@ -160,8 +148,8 @@ export default function Footer() {
           {/* Navigation Links */}
           <div className="md:col-span-2">
             <h4
-              className="text-[#e5e2e3] text-xs font-medium tracking-widest mb-6"
-              style={{ fontFamily: "JetBrains Mono, monospace" }}
+              className="text-[#1b1c19] text-xs font-medium tracking-widest mb-6"
+              style={{ fontFamily: "Work Sans, sans-serif" }}
             >
               NAVIGATE
             </h4>
@@ -178,10 +166,10 @@ export default function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-[#bac9cd] hover:text-[#00daf8] transition-colors text-sm flex items-center gap-2 group"
+                    className="text-[#434843] hover:text-[#825516] transition-colors text-sm flex items-center gap-2 group"
                   >
                     <span className="w-0 group-hover:w-3 overflow-hidden transition-all duration-300">
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#00daf8" strokeWidth="2.5">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#825516" strokeWidth="2.5">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                       </svg>
                     </span>
@@ -195,8 +183,8 @@ export default function Footer() {
           {/* Services */}
           <div className="md:col-span-2">
             <h4
-              className="text-[#e5e2e3] text-xs font-medium tracking-widest mb-6"
-              style={{ fontFamily: "JetBrains Mono, monospace" }}
+              className="text-[#1b1c19] text-xs font-medium tracking-widest mb-6"
+              style={{ fontFamily: "Work Sans, sans-serif" }}
             >
               SERVICES
             </h4>
@@ -212,10 +200,10 @@ export default function Footer() {
   <li key={item.anchor}>
     <Link
       href={`/services#${item.anchor}`}
-      className="text-[#bac9cd] hover:text-[#00daf8] transition-colors text-sm flex items-center gap-2 group"
+      className="text-[#434843] hover:text-[#825516] transition-colors text-sm flex items-center gap-2 group"
     >
       <span className="w-0 group-hover:w-3 overflow-hidden transition-all duration-300">
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#00daf8" strokeWidth="2.5">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#825516" strokeWidth="2.5">
           <path d="M5 12h14M12 5l7 7-7 7"/>
         </svg>
       </span>
@@ -229,22 +217,22 @@ export default function Footer() {
           {/* Newsletter */}
           <div className="md:col-span-4">
             <h4
-              className="text-[#e5e2e3] text-xs font-medium tracking-widest mb-6"
-              style={{ fontFamily: "JetBrains Mono, monospace" }}
+              className="text-[#1b1c19] text-xs font-medium tracking-widest mb-6"
+              style={{ fontFamily: "Work Sans, sans-serif" }}
             >
               JOIN THE CREW
             </h4>
-            <p className="text-sm text-[#bac9cd] mb-6 leading-relaxed">
+            <p className="text-sm text-[#434843] mb-6 leading-relaxed">
               Subscribe for first access to completed projects, behind-the-scenes fabrication, and studio updates.
             </p>
 
             {subscribed ? (
-              <div className="border border-[#00daf8]/30 bg-[#00daf8]/5 px-6 py-4 flex items-center gap-3">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00daf8" strokeWidth="2">
+              <div className="border border-[#825516]/30 bg-[#825516]/5 px-6 py-4 flex items-center gap-3">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#825516" strokeWidth="2">
                   <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
                   <polyline points="22 4 12 14.01 9 11.01"/>
                 </svg>
-                <p className="text-sm text-[#00daf8]">You&apos;re on the list. Welcome to the Crew.</p>
+                <p className="text-sm text-[#825516]">You&apos;re on the list. Welcome to the Crew.</p>
               </div>
             ) : (
               <div>
@@ -255,16 +243,16 @@ export default function Footer() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
-                    className="bg-[#131314] border border-[#3b494c] focus:border-[#00daf8] outline-none px-4 py-3 flex-grow text-sm text-[#e5e2e3] placeholder-[#859397] transition-all"
+                    className="bg-[#fbf9f4] border border-[#c3c8c1] focus:border-[#825516] outline-none px-4 py-3 flex-grow text-sm text-[#1b1c19] placeholder-[#737973] transition-all"
                   />
                   <button
                     onClick={handleSubscribe}
-                    className="bg-[#00daf8] text-[#001f25] px-6 py-3 text-sm font-semibold hover:brightness-110 transition-all flex-shrink-0"
+                    className="bg-[#825516] text-[#ffffff] px-6 py-3 text-sm font-semibold hover:brightness-110 transition-all flex-shrink-0"
                   >
                     Subscribe
                   </button>
                 </div>
-                <p className="text-xs text-[#3b494c] mt-2">No spam. Unsubscribe anytime.</p>
+                <p className="text-xs text-[#c3c8c1] mt-2">No spam. Unsubscribe anytime.</p>
               </div>
             )}
 
@@ -288,13 +276,13 @@ export default function Footer() {
                   sub: "Local craftsmanship",
                 },
               ].map((badge) => (
-                <div key={badge.label} className="flex items-center gap-3 p-3 border border-[#3b494c]/40">
+                <div key={badge.label} className="flex items-center gap-3 p-3 border border-[#c3c8c1]/40">
                   <svg
                     width="16"
                     height="16"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#00daf8"
+                    stroke="#825516"
                     strokeWidth="1.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -303,8 +291,8 @@ export default function Footer() {
                     <path d={badge.icon} />
                   </svg>
                   <div>
-                    <p className="text-xs font-semibold text-[#e5e2e3]">{badge.label}</p>
-                    <p className="text-[10px] text-[#859397]">{badge.sub}</p>
+                    <p className="text-xs font-semibold text-[#1b1c19]">{badge.label}</p>
+                    <p className="text-[10px] text-[#737973]">{badge.sub}</p>
                   </div>
                 </div>
               ))}
@@ -314,25 +302,25 @@ export default function Footer() {
       </div>
 
       {/* Map Section */}
-      <div style={{ borderTop: "1px solid rgba(79,69,61,0.3)" }}>
+      <div style={{ borderTop: "1px solid rgba(61,43,31,0.3)" }}>
         <div className="max-w-[1440px] mx-auto px-4 md:px-16 py-12">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
 
             {/* Contact Info */}
             <div className="md:col-span-4 space-y-6">
               <div>
-                <h3 className="text-lg font-semibold mb-4" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
+                <h3 className="text-lg font-semibold mb-4" style={{ fontFamily: "Domine, serif" }}>
                   Find Our Studio
                 </h3>
-                <p className="text-[#bac9cd] text-sm leading-relaxed">
-                  Visit our workshop in Embakasi, Nairobi. We welcome clients by appointment — book a consultation to arrange a visit.
+                <p className="text-[#434843] text-sm leading-relaxed">
+                  Visit our workshop along Ngong Road, Nairobi. We welcome clients by appointment — book a consultation to arrange a visit.
                 </p>
               </div>
               <div className="space-y-3">
                 {[
                   {
                     icon: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z",
-                    label: "Industrial Area, Nairobi",
+                    label: "Ngong Road, Nairobi",
                   },
                   {
                     icon: "M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z M12 6v6l4 2",
@@ -340,13 +328,13 @@ export default function Footer() {
                   },
                 ].map((item) => (
                   <div key={item.label} className="flex items-start gap-3">
-                    <div className="w-8 h-8 border border-[#3b494c] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-8 h-8 border border-[#c3c8c1] flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg
                         width="14"
                         height="14"
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke="#00daf8"
+                        stroke="#825516"
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -354,7 +342,7 @@ export default function Footer() {
                         <path d={item.icon} />
                       </svg>
                     </div>
-                    <p className="text-sm text-[#bac9cd] leading-relaxed">{item.label}</p>
+                    <p className="text-sm text-[#434843] leading-relaxed">{item.label}</p>
                   </div>
                 ))}
               </div>
@@ -362,8 +350,8 @@ export default function Footer() {
                 href="https://www.google.com/maps/dir/?api=1&destination=-1.2921,36.8219"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs text-[#00daf8] border border-[#00daf8]/30 px-4 py-2 hover:bg-[#00daf8]/10 transition-colors"
-                style={{ fontFamily: "JetBrains Mono, monospace" }}
+                className="inline-flex items-center gap-2 text-xs text-[#825516] border border-[#825516]/30 px-4 py-2 hover:bg-[#825516]/10 transition-colors"
+                style={{ fontFamily: "Work Sans, sans-serif" }}
               >
                 GET DIRECTIONS →
               </a>
@@ -372,7 +360,7 @@ export default function Footer() {
             {/* Google Map Embed */}
             <div className="md:col-span-8">
               <div
-                className="relative w-full overflow-hidden rounded-xl border border-[#3b494c]/40"
+                className="relative w-full overflow-hidden rounded-xl border border-[#c3c8c1]/40"
                 style={{ height: "320px" }}
               >
                 <iframe
@@ -387,16 +375,16 @@ export default function Footer() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Black Steel Crew Location"
+                  title="Rarewoods Crew Location"
                 />
                 {/* Overlay badge */}
-                <div className="absolute top-4 left-4 bg-[#1c1b1c]/90 border border-[#00daf8]/30 px-3 py-2 flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#00daf8] rounded-full animate-pulse" />
+                <div className="absolute top-4 left-4 bg-[#ffffff]/90 border border-[#825516]/30 px-3 py-2 flex items-center gap-2">
+                  <div className="w-2 h-2 bg-[#825516] rounded-full animate-pulse" />
                   <span
-                    className="text-xs text-[#00daf8]"
-                    style={{ fontFamily: "JetBrains Mono, monospace" }}
+                    className="text-xs text-[#825516]"
+                    style={{ fontFamily: "Work Sans, sans-serif" }}
                   >
-                    EMBAKASI · NAIROBI
+                    NGONG ROAD · NAIROBI
                   </span>
                 </div>
               </div>
@@ -406,25 +394,25 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div style={{ borderTop: "1px solid rgba(79,69,61,0.3)", background: "rgba(0,0,0,0.4)" }}>
+      <div style={{ borderTop: "1px solid rgba(61,43,31,0.3)", background: "rgba(14,28,20,0.95)" }}>
         <div className="max-w-[1440px] mx-auto px-4 md:px-16 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[#859397] text-xs text-center md:text-left">
-            © {new Date().getFullYear()} Black Steel Crew. All Rights Reserved.
+          <p className="text-[#737973] text-xs text-center md:text-left">
+            © {new Date().getFullYear()} Rarewoods Crew. All Rights Reserved.
           </p>
           <div className="flex items-center gap-6">
             {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item) => (
-              <a key={item} href="#" className="text-[#859397] hover:text-[#00daf8] text-xs transition-colors">
+              <a key={item} href="#" className="text-[#737973] hover:text-[#825516] text-xs transition-colors">
                 {item}
               </a>
             ))}
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-[#00daf8] rounded-full animate-pulse" />
+            <div className="w-2 h-2 bg-[#825516] rounded-full animate-pulse" />
             <span
-              className="text-xs text-[#859397]"
-              style={{ fontFamily: "JetBrains Mono, monospace" }}
+              className="text-xs text-[#737973]"
+              style={{ fontFamily: "Work Sans, sans-serif" }}
             >
-              FORGED IN KENYA
+              CRAFTED IN KENYA
             </span>
           </div>
         </div>

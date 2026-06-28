@@ -9,8 +9,8 @@ interface Message {
 }
 
 const SUGGESTED_QUESTIONS = [
-  "What finish options do you offer?",
-  "How long does a custom gate take?",
+  "What wood types do you work with?",
+  "How long does a custom cabinet take?",
   "Do you offer M-Pesa payment?",
   "What is your pricing range?",
 ];
@@ -149,7 +149,7 @@ export default function ArtisanChatbot() {
         .typing-dot:nth-child(3) { animation: typing-dot 1.2s ease-in-out 0.4s infinite; }
         .chat-messages::-webkit-scrollbar { width: 3px; }
         .chat-messages::-webkit-scrollbar-track { background: transparent; }
-        .chat-messages::-webkit-scrollbar-thumb { background: #3b494c; border-radius: 2px; }
+        .chat-messages::-webkit-scrollbar-thumb { background: #c3c8c1; border-radius: 2px; }
       `}</style>
 
       <div
@@ -171,9 +171,9 @@ export default function ArtisanChatbot() {
               left: "0",
               width: "360px",
               maxHeight: "520px",
-              background: "#131314",
-              border: "1px solid rgba(232, 191, 155, 0.25)",
-              borderTop: "2px solid #00daf8",
+              background: "#fbf9f4",
+              border: "1px solid rgba(216,160,91,0.3)",
+              borderTop: "2px solid #825516",
               display: "flex",
               flexDirection: "column",
               overflow: "hidden",
@@ -184,7 +184,7 @@ export default function ArtisanChatbot() {
             <div
               style={{
                 padding: "16px 20px",
-                background: "#1c1b1c",
+                background: "#ffffff",
                 borderBottom: "1px solid rgba(79, 69, 61, 0.5)",
                 display: "flex",
                 alignItems: "center",
@@ -196,13 +196,13 @@ export default function ArtisanChatbot() {
                   style={{
                     width: "36px",
                     height: "36px",
-                    background: "linear-gradient(135deg, #001f25, #0e0e0f)",
+                    background: "linear-gradient(135deg, #ffffff, #0e1c14)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                   }}
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00daf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#825516" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                   </svg>
                 </div>
@@ -213,25 +213,25 @@ export default function ArtisanChatbot() {
                     right: "1px",
                     width: "8px",
                     height: "8px",
-                    background: "#ffb785",
+                    background: "#fec078",
                     borderRadius: "50%",
-                    border: "1.5px solid #1c1b1c",
+                    border: "1.5px solid #ffffff",
                   }}
                 />
               </div>
               <div style={{ flex: 1 }}>
-                <p style={{ margin: 0, fontSize: "14px", fontWeight: 600, color: "#00daf8", fontFamily: "Archivo Narrow, sans-serif", letterSpacing: "0.01em" }}>
+                <p style={{ margin: 0, fontSize: "14px", fontWeight: 600, color: "#825516", fontFamily: "Domine, serif", letterSpacing: "0.01em" }}>
                   The AI Artisan
                 </p>
-                <p style={{ margin: 0, fontSize: "11px", color: "#859397", fontFamily: "JetBrains Mono, monospace", letterSpacing: "0.08em" }}>
-                  BLACK STEEL CREW · ONLINE
+                <p style={{ margin: 0, fontSize: "11px", color: "#737973", fontFamily: "Work Sans, sans-serif", letterSpacing: "0.08em" }}>
+                  RAREWOODS CREW · ONLINE
                 </p>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                style={{ background: "none", border: "none", cursor: "pointer", color: "#859397", fontSize: "20px", padding: "4px", display: "flex", alignItems: "center", transition: "color 0.2s" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#00daf8")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#859397")}
+                style={{ background: "none", border: "none", cursor: "pointer", color: "#737973", fontSize: "20px", padding: "4px", display: "flex", alignItems: "center", transition: "color 0.2s" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#825516")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "#737973")}
               >
                 ✕
               </button>
@@ -247,14 +247,14 @@ export default function ArtisanChatbot() {
                 <div className="message-bubble">
                   <div
                     style={{
-                      background: "#201f20",
-                      border: "1px solid rgba(79,69,61,0.5)",
-                      borderLeft: "3px solid #00daf8",
+                      background: "#f0eee9",
+                      border: "1px solid rgba(61,43,31,0.5)",
+                      borderLeft: "3px solid #825516",
                       padding: "12px 14px",
                       maxWidth: "90%",
                     }}
                   >
-                    <p style={{ margin: 0, fontSize: "13px", color: "#e5e2e3", lineHeight: "1.6" }}>
+                    <p style={{ margin: 0, fontSize: "13px", color: "#1b1c19", lineHeight: "1.6" }}>
                       Karibu! Please sign in to chat with the AI Artisan — this lets us save your conversation and link it to your bookings.
                     </p>
                   </div>
@@ -262,10 +262,10 @@ export default function ArtisanChatbot() {
                     <SignInButton mode="modal">
                       <button
                         style={{
-                          background: "#00daf8",
+                          background: "#825516",
                           border: "none",
                           padding: "9px 16px",
-                          color: "#001f25",
+                          color: "#ffffff",
                           fontSize: "13px",
                           fontWeight: 600,
                           cursor: "pointer",
@@ -283,15 +283,15 @@ export default function ArtisanChatbot() {
                 <div className="message-bubble">
                   <div
                     style={{
-                      background: "#201f20",
-                      border: "1px solid rgba(79,69,61,0.5)",
-                      borderLeft: "3px solid #00daf8",
+                      background: "#f0eee9",
+                      border: "1px solid rgba(61,43,31,0.5)",
+                      borderLeft: "3px solid #825516",
                       padding: "12px 14px",
                       maxWidth: "90%",
                     }}
                   >
-                    <p style={{ margin: 0, fontSize: "13px", color: "#e5e2e3", lineHeight: "1.6" }}>
-                      Karibu. I'm the AI Artisan — trained on structural steel fabrication and precision welding. Ask me anything about gates, railings, staircases, furniture, pricing, or book a consultation.
+                    <p style={{ margin: 0, fontSize: "13px", color: "#1b1c19", lineHeight: "1.6" }}>
+                      Karibu. I'm the AI Artisan — trained in fine woodworking and carpentry. Ask me anything about furniture, cabinetry, repairs, pricing, or book a consultation.
                     </p>
                   </div>
                   <div style={{ marginTop: "10px", display: "flex", flexDirection: "column", gap: "6px" }}>
@@ -301,23 +301,23 @@ export default function ArtisanChatbot() {
                         onClick={() => sendMessage(q)}
                         style={{
                           background: "none",
-                          border: "1px solid rgba(79,69,61,0.6)",
+                          border: "1px solid rgba(61,43,31,0.6)",
                           padding: "7px 12px",
-                          color: "#bac9cd",
+                          color: "#434843",
                           fontSize: "12px",
                           cursor: "pointer",
                           textAlign: "left",
                           transition: "all 0.2s",
-                          fontFamily: "Archivo Narrow, sans-serif",
+                          fontFamily: "Domine, serif",
                         }}
                         onMouseEnter={(e) => {
-                          e.currentTarget.style.borderColor = "#00daf8";
-                          e.currentTarget.style.color = "#00daf8";
-                          e.currentTarget.style.background = "rgba(0,218,248,0.1)";
+                          e.currentTarget.style.borderColor = "#825516";
+                          e.currentTarget.style.color = "#825516";
+                          e.currentTarget.style.background = "rgba(130,85,22,0.1)";
                         }}
                         onMouseLeave={(e) => {
-                          e.currentTarget.style.borderColor = "rgba(79,69,61,0.6)";
-                          e.currentTarget.style.color = "#bac9cd";
+                          e.currentTarget.style.borderColor = "rgba(61,43,31,0.6)";
+                          e.currentTarget.style.color = "#434843";
                           e.currentTarget.style.background = "none";
                         }}
                       >
@@ -337,8 +337,8 @@ export default function ArtisanChatbot() {
                       fontSize: "13px",
                       lineHeight: "1.6",
                       ...(msg.role === "user"
-                        ? { background: "#00daf8", color: "#0e0e0f", fontWeight: 500 }
-                        : { background: "#201f20", color: "#e5e2e3", border: "1px solid rgba(79,69,61,0.5)", borderLeft: "3px solid #00daf8" }),
+                        ? { background: "#825516", color: "#0e1c14", fontWeight: 500 }
+                        : { background: "#f0eee9", color: "#1b1c19", border: "1px solid rgba(61,43,31,0.5)", borderLeft: "3px solid #825516" }),
                     }}
                   >
                     {msg.content}
@@ -348,17 +348,17 @@ export default function ArtisanChatbot() {
 
               {isLoading && (
                 <div className="message-bubble" style={{ display: "flex" }}>
-                  <div style={{ background: "#201f20", border: "1px solid rgba(79,69,61,0.5)", borderLeft: "3px solid #00daf8", padding: "12px 16px", display: "flex", gap: "5px", alignItems: "center" }}>
+                  <div style={{ background: "#f0eee9", border: "1px solid rgba(61,43,31,0.5)", borderLeft: "3px solid #825516", padding: "12px 16px", display: "flex", gap: "5px", alignItems: "center" }}>
                     {[0, 1, 2].map((i) => (
-                      <div key={i} className="typing-dot" style={{ width: "6px", height: "6px", background: "#00daf8", borderRadius: "50%" }} />
+                      <div key={i} className="typing-dot" style={{ width: "6px", height: "6px", background: "#825516", borderRadius: "50%" }} />
                     ))}
                   </div>
                 </div>
               )}
               {!isLoading && messages.length > 0 && messages[messages.length - 1].role === "assistant" && messages[messages.length - 1].content === "" && (
                 <div className="message-bubble" style={{ display: "flex" }}>
-                  <div style={{ background: "#201f20", border: "1px solid rgba(79,69,61,0.5)", borderLeft: "3px solid #00daf8", padding: "12px 16px" }}>
-                    <span style={{ display: "inline-block", width: "2px", height: "14px", background: "#00daf8", animation: "typing-dot 0.8s ease-in-out infinite" }} />
+                  <div style={{ background: "#f0eee9", border: "1px solid rgba(61,43,31,0.5)", borderLeft: "3px solid #825516", padding: "12px 16px" }}>
+                    <span style={{ display: "inline-block", width: "2px", height: "14px", background: "#825516", animation: "typing-dot 0.8s ease-in-out infinite" }} />
                   </div>
                 </div>
               )}
@@ -369,8 +369,8 @@ export default function ArtisanChatbot() {
             <div
               style={{
                 padding: "12px 16px",
-                borderTop: "1px solid rgba(79,69,61,0.4)",
-                background: "#1c1b1c",
+                borderTop: "1px solid rgba(61,43,31,0.4)",
+                background: "#ffffff",
                 display: "flex",
                 gap: "8px",
                 alignItems: "center",
@@ -382,32 +382,32 @@ export default function ArtisanChatbot() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder={isSignedIn ? "Ask about gates, railings, staircases..." : "Sign in to chat"}
+                placeholder={isSignedIn ? "Ask about furniture, cabinets, repairs..." : "Sign in to chat"}
                 disabled={isLoading || !isSignedIn}
                 style={{
                   flex: 1,
-                  background: "#201f20",
-                  border: "1px solid rgba(79,69,61,0.5)",
+                  background: "#f0eee9",
+                  border: "1px solid rgba(61,43,31,0.5)",
                   padding: "10px 14px",
-                  color: "#e5e2e3",
+                  color: "#1b1c19",
                   fontSize: "13px",
                   outline: "none",
                   transition: "border-color 0.2s",
-                  fontFamily: "Archivo Narrow, sans-serif",
+                  fontFamily: "Domine, serif",
                 }}
-                onFocus={(e) => (e.target.style.borderColor = "#00daf8")}
-                onBlur={(e) => (e.target.style.borderColor = "rgba(79,69,61,0.5)")}
+                onFocus={(e) => (e.target.style.borderColor = "#825516")}
+                onBlur={(e) => (e.target.style.borderColor = "rgba(61,43,31,0.5)")}
               />
               <button
                 onClick={() => sendMessage(input)}
                 disabled={isLoading || !input.trim() || !isSignedIn}
                 style={{
-                  background: input.trim() && isSignedIn ? "#00daf8" : "#353535",
+                  background: input.trim() && isSignedIn ? "#825516" : "#353535",
                   border: "none",
                   width: "40px",
                   height: "40px",
                   cursor: input.trim() && isSignedIn ? "pointer" : "default",
-                  color: input.trim() && isSignedIn ? "#001f25" : "#859397",
+                  color: input.trim() && isSignedIn ? "#ffffff" : "#737973",
                   fontSize: "18px",
                   display: "flex",
                   alignItems: "center",
@@ -429,8 +429,8 @@ export default function ArtisanChatbot() {
           style={{
             width: "60px",
             height: "60px",
-            background: isOpen ? "#00daf8" : "#131314",
-            border: `2px solid ${isOpen ? "#00daf8" : "rgba(0,218,248,0.5)"}`,
+            background: isOpen ? "#825516" : "#fbf9f4",
+            border: `2px solid ${isOpen ? "#825516" : "rgba(130,85,22,0.5)"}`,
             cursor: "pointer",
             display: "flex",
             alignItems: "center",
@@ -440,21 +440,21 @@ export default function ArtisanChatbot() {
           }}
           onMouseEnter={(e) => {
             if (!isOpen) {
-              e.currentTarget.style.background = "#201f20";
-              e.currentTarget.style.borderColor = "#00daf8";
+              e.currentTarget.style.background = "#f0eee9";
+              e.currentTarget.style.borderColor = "#825516";
             }
           }}
           onMouseLeave={(e) => {
             if (!isOpen) {
-              e.currentTarget.style.background = "#131314";
-              e.currentTarget.style.borderColor = "rgba(0,218,248,0.5)";
+              e.currentTarget.style.background = "#fbf9f4";
+              e.currentTarget.style.borderColor = "rgba(130,85,22,0.5)";
             }
           }}
         >
           {isOpen ? (
-            <span style={{ fontSize: "20px", color: "#001f25" }}>✕</span>
+            <span style={{ fontSize: "20px", color: "#ffffff" }}>✕</span>
           ) : (
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00daf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#825516" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
               <line x1="9" y1="10" x2="15" y2="10" />
               <line x1="9" y1="14" x2="13" y2="14" />
@@ -468,9 +468,9 @@ export default function ArtisanChatbot() {
                 right: "6px",
                 width: "10px",
                 height: "10px",
-                background: "#ffb785",
+                background: "#fec078",
                 borderRadius: "50%",
-                border: "2px solid #131314",
+                border: "2px solid #fbf9f4",
               }}
             />
           )}
@@ -482,9 +482,9 @@ export default function ArtisanChatbot() {
               position: "absolute",
               bottom: "70px",
               left: "0",
-              background: "#1c1b1c",
-              border: "1px solid rgba(0,218,248,0.3)",
-              borderLeft: "3px solid #00daf8",
+              background: "#ffffff",
+              border: "1px solid rgba(130,85,22,0.3)",
+              borderLeft: "3px solid #825516",
               padding: "6px 12px",
               whiteSpace: "nowrap",
               pointerEvents: "none",
@@ -493,7 +493,7 @@ export default function ArtisanChatbot() {
             }}
             className="chat-tooltip"
           >
-            <p style={{ margin: 0, fontSize: "11px", color: "#00daf8", fontFamily: "JetBrains Mono, monospace", letterSpacing: "0.08em" }}>
+            <p style={{ margin: 0, fontSize: "11px", color: "#825516", fontFamily: "Work Sans, sans-serif", letterSpacing: "0.08em" }}>
               AI ARTISAN · ASK ANYTHING
             </p>
           </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo_Narrow, JetBrains_Mono } from "next/font/google";
+import { Domine, Work_Sans } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "@/components/Navbar";
@@ -9,59 +9,59 @@ import { CartProvider } from "@/lib/CartContext";
 import { Suspense } from "react";
 import Loading from "@/app/loading";
 
-const archivoNarrow = Archivo_Narrow({
-  variable: "--font-archivo-narrow",
+const domine = Domine({
+  variable: "--font-domine",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+});
+const workSans = Work_Sans({
+  variable: "--font-work-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
-const jetBrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  weight: ["400", "600"],
-});
 
-const OG_IMAGE = "https://blacksteelcrew.tuistech.co.ke/logo-icon.png";
+const OG_IMAGE = "https://lh3.googleusercontent.com/aida-public/AB6AXuBeeOgIEcSOvgIAQAKIj8DoMZUHQaq5YJYWWFIuGirFGKSjr9XHTzYiNPT1ZJBBjSgOtxqltgj9WRkLfy0jXZTjNcGp1epgzf_its1rja7SMPNdjwrEEZwDAFO57gBKB4D3y3ApFFmCvl1MnJLwQXtCpW-fw8Sih0B7P9PrSvi9Z4uHFaZGbmXB-KGxcrd-3PMtzuj8JmHK-bq4tlutQzyfeC6qMqCnEKMl-6TyyoU3cKcn3je0AJVrsaBRieRorqcGbmijQWMQnKI_";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"),
   title: {
-    default: "Black Steel Crew | Bespoke Steel Fabrication Nairobi",
-    template: "%s | Black Steel Crew",
+    default: "Rarewoods Crew | Bespoke Woodworking Nairobi",
+    template: "%s | Rarewoods Crew",
   },
-  description: "Bespoke steel fabrication studio in Nairobi, Kenya. Custom gates, railings, staircases, and steel-framed furniture, precision-welded and finished to last. Custom orders, M-Pesa payments.",
+  description: "Master craftsman woodworking studio in Nairobi, Kenya. Custom cabinetry, furniture repairs, and bespoke woodwork built to last. On-call across Nairobi, M-Pesa payments accepted.",
   keywords: [
-    "steel fabrication Nairobi",
-    "custom gates Kenya",
-    "metalwork Nairobi",
-    "steel railings Kenya",
-    "steel staircases Nairobi",
-    "Black Steel Crew",
-    "welding Nairobi",
-    "steel furniture Kenya",
-    "balustrades Nairobi",
-    "structural steel Kenya",
-    "gate fabrication Nairobi",
-    "industrial steel Kenya",
+    "woodworking Nairobi",
+    "custom carpentry Kenya",
+    "furniture repair Nairobi",
+    "cabinet installation Kenya",
+    "bespoke furniture Nairobi",
+    "Rarewoods Crew",
+    "carpenter Nairobi",
+    "custom woodwork Kenya",
+    "door window maintenance Nairobi",
+    "fundi Nairobi",
+    "wood furniture Kenya",
+    "carpentry services Nairobi",
   ],
-  authors: [{ name: "Black Steel Crew", url: "https://tuistech.co.ke" }],
-  creator: "Black Steel Crew",
-  publisher: "Black Steel Crew",
-  category: "Steel Fabrication & Metalwork",
+  authors: [{ name: "Rarewoods Crew", url: "https://tuistech.co.ke" }],
+  creator: "Rarewoods Crew",
+  publisher: "Rarewoods Crew",
+  category: "Woodworking & Carpentry",
   openGraph: {
     type: "website",
     locale: "en_KE",
-    url: "https://blacksteelcrew.tuistech.co.ke",
-    siteName: "Black Steel Crew",
-    title: "Black Steel Crew | Bespoke Steel Fabrication Nairobi",
-    description: "Custom gates, railings, staircases, and steel-framed furniture, forged in Nairobi. Precision welding, on-site measurement, M-Pesa payments accepted.",
-    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "Black Steel Crew - Bespoke Steel Fabrication Nairobi" }],
+    url: "https://rarewoodscrew.tuistech.co.ke",
+    siteName: "Rarewoods Crew",
+    title: "Rarewoods Crew | Bespoke Woodworking Nairobi",
+    description: "Custom cabinetry, furniture repairs, and bespoke woodwork, built to last in Nairobi. On-call service, M-Pesa payments accepted.",
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "Rarewoods Crew - Bespoke Woodworking Nairobi" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Black Steel Crew | Bespoke Steel Fabrication Nairobi",
-    description: "Custom gates, railings, staircases, and steel-framed furniture, forged in Nairobi.",
+    title: "Rarewoods Crew | Bespoke Woodworking Nairobi",
+    description: "Custom cabinetry, furniture repairs, and bespoke woodwork, built to last in Nairobi.",
     images: [OG_IMAGE],
-    creator: "@blacksteelcrew",
+    creator: "@rarewoodscrew",
   },
   robots: {
     index: true,
@@ -84,10 +84,10 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Black Steel Crew",
-  description: "Bespoke steel fabrication studio in Nairobi, Kenya. Custom gates, railings, staircases, and steel-framed furniture, precision-welded and finished to last.",
-  url: "https://blacksteelcrew.tuistech.co.ke",
-  telephone: "+254726461196",
+  name: "Rarewoods Crew",
+  description: "Master craftsman woodworking studio in Nairobi, Kenya. Custom cabinetry, furniture repairs, and bespoke woodwork built to last.",
+  url: "https://rarewoodscrew.tuistech.co.ke",
+  telephone: "+254700000000",
   email: "info@tuistech.co.ke",
   address: {
     "@type": "PostalAddress",
@@ -113,19 +113,19 @@ const jsonLd = {
       closes: "15:00",
     },
   ],
-  priceRange: "KSh 15,000 - KSh 500,000+",
+  priceRange: "KSh 4,500 - KSh 500,000+",
   image: OG_IMAGE,
   sameAs: [],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Bespoke Steel Fabrication Services",
+    name: "Bespoke Woodworking Services",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Custom Gates" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Railings & Balustrades" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Staircase Fabrication" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Custom Furniture" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Precision Welding" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial Installations" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Furniture Repairs" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Cabinet Installation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Custom Woodwork" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Door & Window Maintenance" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Full Maintenance" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Custom Pieces" } },
     ],
   },
 };
@@ -133,15 +133,15 @@ const jsonLd = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <ClerkProvider>
-      <html lang="en-KE" className="dark">
+      <html lang="en-KE">
         <head>
           <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-          <meta name="theme-color" content="#131314" />
-          <meta name="msapplication-TileColor" content="#131314" />
-          <link rel="canonical" href="https://blacksteelcrew.tuistech.co.ke" />
+          <meta name="theme-color" content="#fbf9f4" />
+          <meta name="msapplication-TileColor" content="#0e1c14" />
+          <link rel="canonical" href="https://rarewoodscrew.tuistech.co.ke" />
         </head>
-        <body className={`${archivoNarrow.variable} ${jetBrainsMono.variable} bg-background text-on-surface`}>
+        <body className={`${domine.variable} ${workSans.variable} bg-background text-on-surface`}>
           <CartProvider>
             <Navbar />
             <Suspense fallback={<Loading />}>

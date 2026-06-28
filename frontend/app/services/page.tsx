@@ -1,188 +1,182 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Services | Black Steel Crew Nairobi",
-  description: "Custom gates, railings and balustrades, staircase fabrication, steel furniture, precision welding and commercial installations in Nairobi, Kenya.",
+  title: "Services | Rarewoods Crew Nairobi",
+  description: "Furniture repairs, cabinet installation, custom woodwork, and door and window maintenance in Nairobi, Kenya.",
   openGraph: {
-    title: "Services | Black Steel Crew Nairobi",
-    description: "Custom gates, railings and balustrades, staircase fabrication, steel furniture, precision welding and commercial installations in Nairobi, Kenya.",
-    url: "https://blacksteelcrew.tuistech.co.ke/services",
-    images: ["https://blacksteelcrew.tuistech.co.ke/logo-icon.png"],
+    title: "Services | Rarewoods Crew Nairobi",
+    description: "Furniture repairs, cabinet installation, custom woodwork, and door and window maintenance in Nairobi, Kenya.",
+    url: "https://rarewoodscrew.tuistech.co.ke/services",
+    images: ["https://lh3.googleusercontent.com/aida-public/AB6AXuBeeOgIEcSOvgIAQAKIj8DoMZUHQaq5YJYWWFIuGirFGKSjr9XHTzYiNPT1ZJBBjSgOtxqltgj9WRkLfy0jXZTjNcGp1epgzf_its1rja7SMPNdjwrEEZwDAFO57gBKB4D3y3ApFFmCvl1MnJLwQXtCpW-fw8Sih0B7P9PrSvi9Z4uHFaZGbmXB-KGxcrd-3PMtzuj8JmHK-bq4tlutQzyfeC6qMqCnEKMl-6TyyoU3cKcn3je0AJVrsaBRieRorqcGbmijQWMQnKI_"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Services | Black Steel Crew Nairobi",
-    description: "Custom gates, railings and balustrades, staircase fabrication, steel furniture, precision welding and commercial installations in Nairobi, Kenya.",
+    title: "Services | Rarewoods Crew Nairobi",
+    description: "Furniture repairs, cabinet installation, custom woodwork, and door and window maintenance in Nairobi, Kenya.",
   },
 };
 
 import Link from "next/link";
 import Footer from "@/components/Footer";
 
+const WORKSHOP_IMAGE =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuCMi_CjqFKhoLcpfQ5IuPAgn1yTZBT_3s9Zwp0c1twVqJXtxhYDWNVL2cQZz3OTM9m7kf76Yvy3c7ffmiXPBRgQbECFgLTQylV2s9zdSvvcVyQ1st9EsI-aGmBC4MPsvuzfXBPoTOljV4ZefihLFO9H06AfuGN6-EOWQN-pn4jy9hbull_yfYRPZMGb1_b9UanG83jgfvaCY1TuJsy_O5JV0C2BSJtoWJ3tRXqGYHuX64aGLb6os5u4aIU6K6M4cO4X34v77d5TGKsj";
+
 export default function ServicesPage() {
   return (
     <main className="bg-background text-on-surface pt-24">
-      <section className="px-margin-mobile md:px-margin-desktop py-24 max-w-container-max mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-end">
-          <div className="md:col-span-8">
-            <span className="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-4 block">
-              Our Expertise
+      <section className="px-margin-mobile md:px-margin-desktop py-16 max-w-container-max mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+          <div className="md:col-span-7">
+            <span className="font-label-md text-label-md text-secondary tracking-widest uppercase mb-4 block">
+              Expertise in Nairobi
             </span>
-            <h1 className="font-display-lg text-display-lg leading-tight">
-              Precision Fabrication <br /> Forging the Future.
+            <h1 className="font-headline-md text-headline-md md:text-display-lg text-primary leading-tight">
+              Precision Woodwork &amp; Reliable Repairs
             </h1>
             <p className="text-body-lg text-on-surface-variant mt-6 max-w-2xl leading-relaxed">
-              From structural gates to refined furniture, we blend precision welding with modern industrial finishing to create bespoke steelwork that stands the test of time.
+              From restoring heirloom furniture to custom workshop-grade installations, we bring industrial reliability to your home and office. On-call across all Nairobi neighborhoods.
             </p>
           </div>
-          <div className="md:col-span-4 flex justify-end">
-            <div className="text-right border-l border-outline-variant/30 pl-6 py-2">
-              <span className="block font-headline-lg text-headline-lg text-primary">7+</span>
-              <span className="font-label-caps text-label-caps text-on-surface-variant tracking-widest">Years of Mastery</span>
-            </div>
+          <div className="md:col-span-5">
+            <img
+              src={WORKSHOP_IMAGE}
+              alt="Workshop bench"
+              className="w-full h-auto rounded-2xl shadow-xl border-4 border-white object-cover aspect-[4/3]"
+            />
           </div>
         </div>
       </section>
 
-      <section className="px-margin-mobile md:px-margin-desktop pb-24 max-w-container-max mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-
-          <div id="custom-gates" className="md:col-span-8 group relative h-[500px] rounded-xl overflow-hidden border-t border-outline/20 bg-surface-container">
-            <img
-              alt="Custom Gates"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80"
-              src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=1200&q=80"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60" />
-            <div className="absolute bottom-0 left-0 p-10 w-full md:w-2/3">
-              <div className="bg-primary/20 backdrop-blur-sm border border-primary/30 px-3 py-1 rounded-lg inline-block mb-4">
-                <span className="font-label-caps text-label-caps text-primary tracking-widest">SIGNATURE SERVICE</span>
-              </div>
-              <h2 className="font-headline-lg text-headline-lg mb-2">Custom Gates</h2>
-              <p className="text-on-surface-variant mb-6">Bespoke driveway and security gates, laser-cut geometric patterns or traditional forge-work, engineered for strength and curb appeal.</p>
-              <button className="flex items-center gap-2 bg-on-surface text-background px-6 py-3 rounded-lg text-body-sm font-semibold hover:bg-primary hover:text-on-primary transition-colors active:scale-95">
-                Request Quote <span className="material-symbols-outlined text-sm">arrow_forward</span>
-              </button>
-            </div>
-          </div>
-
-          <div id="railings-balustrades" className="md:col-span-4 group relative h-[500px] rounded-xl overflow-hidden border-t border-outline/20 bg-surface-container">
-            <img
-              alt="Railings and Balustrades"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
-              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=80"
-            />
-            <div className="absolute inset-0 glass-panel opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-center p-8 text-center">
-              <h3 className="font-headline-lg text-headline-lg-mobile mb-4">Railings &amp; Balustrades</h3>
-              <p className="text-on-surface-variant mb-8">Premium stainless steel and glass balustrades designed for safety, aesthetics, and long-term industrial durability.</p>
-              <button className="border border-primary text-primary px-6 py-2 rounded-lg text-body-sm font-semibold hover:bg-primary hover:text-on-primary transition-all">
-                Explore Designs
-              </button>
-            </div>
-            <div className="absolute bottom-6 left-6 group-hover:opacity-0 transition-opacity">
-              <h3 className="font-headline-lg text-headline-lg-mobile">Railings &amp; Balustrades</h3>
-            </div>
-          </div>
-
-          <div id="staircase-fabrication" className="md:col-span-4 group relative h-[400px] rounded-xl overflow-hidden border-t border-outline/20 bg-surface-container">
-            <img
-              alt="Staircase Fabrication"
-              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-80"
-              src="https://images.unsplash.com/photo-1486304873000-235643847519?w=900&q=80"
-            />
-            <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-background via-transparent">
-              <h3 className="font-headline-lg text-headline-lg-mobile mb-2">Staircase Fabrication</h3>
-              <p className="text-on-surface-variant text-body-sm mb-4">Internal and external staircase solutions, including floating, spiral, and heavy-duty industrial spine designs.</p>
-              <a href="#" className="font-label-caps text-label-caps text-primary flex items-center gap-2 tracking-widest font-medium">
-                VIEW SPECS <span className="material-symbols-outlined text-xs">north_east</span>
-              </a>
-            </div>
-          </div>
-
-          <div id="custom-furniture" className="md:col-span-4 group relative h-[400px] rounded-xl overflow-hidden bg-surface-container-high">
-            <div className="p-8 flex flex-col h-full justify-between border border-outline-variant/20 hover:border-primary/50 rounded-xl transition-colors">
-              <div>
-                <span className="material-symbols-outlined text-4xl text-primary mb-6 block">chair</span>
-                <h3 className="font-headline-lg text-headline-lg-mobile mb-4">Custom Furniture</h3>
-                <p className="text-on-surface-variant">Hand-forged steel furniture for high-end residential and commercial spaces, some pieces finished with warm wood-accent tabletops.</p>
-              </div>
-              <button className="w-full py-4 border-b border-on-surface-variant hover:text-primary transition-colors text-left flex justify-between items-center text-body-sm font-semibold">
-                Request Assessment <span className="material-symbols-outlined">add</span>
-              </button>
-            </div>
-          </div>
-
-          <div id="precision-welding" className="md:col-span-4 group relative h-[400px] rounded-xl overflow-hidden border-t border-outline/20 bg-surface-container">
-            <img
-              alt="Precision Welding"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-50"
-              src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=900&q=80"
-            />
-            <div className="absolute top-8 left-8">
-              <h3 className="font-headline-lg text-headline-lg-mobile">Precision Welding</h3>
-            </div>
-            <div className="absolute bottom-8 left-8 right-8">
-              <div className="glass-panel rounded-lg p-4 border-l-4 border-primary">
-                <p className="font-label-caps text-label-caps text-primary uppercase mb-1 tracking-widest">Capabilities</p>
-                <p className="text-body-sm">TIG, MIG &amp; Arc welding for bespoke structural needs.</p>
-              </div>
-            </div>
-          </div>
-
-          <div id="commercial-installations" className="md:col-span-12 group relative h-[450px] rounded-xl overflow-hidden border-t border-outline/20 bg-surface-container-lowest mt-6">
-            <div className="grid md:grid-cols-2 h-full">
-              <div className="p-12 flex flex-col justify-center">
-                <h3 className="font-headline-lg text-headline-lg mb-6">
-                  Commercial Installations
-                </h3>
-                <p className="text-on-surface-variant mb-8 max-w-md leading-relaxed">
-                  Full-scale structural and architectural steelwork. We design, fabricate, and install gates, railings, and fixture systems for residences, hotels, and corporate sites.
-                </p>
-                <div className="flex gap-4">
-                  <Link href="/booking" className="bg-secondary-container text-white px-8 py-3 rounded-lg text-body-sm font-semibold active:scale-95 transition-transform">
-                    Book a Walkthrough
-                  </Link>
-                  <Link href="/portfolio" className="border border-outline-variant text-on-surface px-8 py-3 rounded-lg text-body-sm font-semibold hover:border-primary transition-colors">
-                    Case Studies
-                  </Link>
-                </div>
-              </div>
-              <div className="relative overflow-hidden rounded-r-xl hidden md:block">
-                <img
-                  alt="Commercial Installations"
-                  className="w-full h-full object-cover transition-transform duration-[3000ms] group-hover:scale-110"
-                  src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-surface-container-lowest to-transparent" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-surface-container-lowest border-t border-outline-variant/30 py-24">
-        <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center">
-          <h2 className="font-display-lg text-display-lg mb-8">
-            Ready to Forge Your Vision?
-          </h2>
-          <p className="text-on-surface-variant max-w-2xl mx-auto mb-12 leading-relaxed">
-            Connect with our fabrication team today to discuss your bespoke project requirements and receive a personalized quotation.
+      <section className="px-margin-mobile md:px-margin-desktop pb-20 max-w-container-max mx-auto">
+        <div className="text-center mb-10">
+          <h2 className="font-headline-sm text-headline-sm text-primary">Our Specializations</h2>
+          <p className="text-body-md text-on-surface-variant mt-2">
+            High-end reliability for every corner of your property.
           </p>
-          <div className="flex flex-col md:flex-row justify-center gap-6">
-            <div className="flex items-center gap-4 bg-background px-8 py-4 rounded-lg border border-outline-variant">
-              <span className="material-symbols-outlined text-primary">call</span>
-              <div className="text-left">
-                <p className="font-label-caps text-label-caps text-on-surface-variant tracking-widest uppercase">Call Us</p>
-                <p className="font-bold">+254 726 461 196</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+          <div id="furniture-repairs" className="md:col-span-8 group relative h-[420px] rounded-xl overflow-hidden tactile-card">
+            <img
+              alt="Furniture Repairs"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              src={WORKSHOP_IMAGE}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+            <div className="absolute bottom-0 left-0 p-10 w-full md:w-2/3 text-surface-cream">
+              <h2 className="font-headline-md text-headline-md mb-2">Furniture Repairs</h2>
+              <p className="mb-6 text-body-md opacity-90">
+                Restoring structural integrity and aesthetic beauty to your prized pieces. We specialize in joint tightening, veneer repairs, and precision finishing that lasts for decades.
+              </p>
+              <div className="flex items-center justify-between max-w-md">
+                <span className="font-label-md text-label-md text-oak">Starting from KES 4,500</span>
+                <Link href="/quote" className="flex items-center gap-2 bg-surface-cream text-primary px-6 py-3 rounded-lg font-label-md text-label-md hover:bg-oak transition-colors">
+                  Request Quote <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                </Link>
               </div>
             </div>
-            <div className="flex items-center gap-4 bg-background px-8 py-4 rounded-lg border border-outline-variant">
-              <span className="material-symbols-outlined text-primary">mail</span>
-              <div className="text-left">
-                <p className="font-label-caps text-label-caps text-on-surface-variant tracking-widest uppercase">Email Us</p>
-                <p className="font-bold">info@tuistech.co.ke</p>
+          </div>
+
+          <div id="cabinet-installation" className="md:col-span-4 group relative h-[420px] rounded-xl overflow-hidden bg-forest-deep text-surface-cream p-8 flex flex-col justify-center">
+            <span className="material-symbols-outlined text-4xl mb-6 text-oak">kitchen</span>
+            <h3 className="font-headline-sm text-headline-sm mb-4">Cabinet Installation</h3>
+            <p className="text-body-md text-surface-dim">
+              Modular and custom cabinetry for kitchens and offices. Level, plumb, and built to withstand Nairobi&apos;s varying humidity.
+            </p>
+            <span className="mt-6 font-label-md text-label-md text-oak">Professional Fit-out</span>
+          </div>
+
+          <div id="custom-woodwork" className="md:col-span-4 group relative h-[320px] rounded-xl overflow-hidden tactile-card p-8 flex flex-col justify-between">
+            <div>
+              <span className="material-symbols-outlined text-4xl mb-6 text-secondary">handyman</span>
+              <h3 className="font-headline-sm text-headline-sm mb-4">Custom Woodwork</h3>
+              <p className="text-body-md text-on-surface-variant">
+                Unique shelving, custom partitions, and architectural features designed specifically for your space&apos;s dimensions.
+              </p>
+            </div>
+            <span className="inline-block mt-4 bg-primary text-surface-cream px-3 py-1 rounded-full font-label-md text-label-md w-fit">
+              BESPOKE
+            </span>
+          </div>
+
+          <div id="door-window-maintenance" className="md:col-span-8 group relative h-[320px] rounded-xl overflow-hidden tactile-card flex">
+            <img
+              alt="Door and window hardware"
+              className="w-1/3 h-full object-cover hidden md:block"
+              src={WORKSHOP_IMAGE}
+            />
+            <div className="p-8 flex-1 flex flex-col justify-center">
+              <span className="material-symbols-outlined text-4xl mb-4 text-secondary">door_front</span>
+              <h3 className="font-headline-sm text-headline-sm mb-3">Door &amp; Window Maintenance</h3>
+              <p className="text-body-md text-on-surface-variant mb-4">
+                Solving sticky doors, broken frames, and window seals. Our maintenance service ensures security and smooth operation throughout the year.
+              </p>
+              <div className="flex gap-2 flex-wrap">
+                {["Hinges", "Frames", "Locks"].map((tag) => (
+                  <span key={tag} className="flex items-center gap-1 text-label-md font-label-md text-mpesa-green">
+                    <span className="material-symbols-outlined text-sm">check_circle</span>
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-forest-deep text-surface-cream py-12">
+        <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <span className="font-label-md text-label-md text-oak uppercase tracking-widest mb-2 block">
+              On-Call Across Nairobi
+            </span>
+            <p className="text-body-lg max-w-2xl">
+              Whether you are in Karen, Westlands, Kilimani, or Syokimau, our mobile workshop is ready to respond. We honor deadlines and provide upfront, honest pricing for all residential and commercial calls.
+            </p>
+          </div>
+          
+            href="tel:+254700000000"
+            className="bg-secondary text-on-secondary px-8 py-4 rounded-lg font-label-md text-label-md flex items-center gap-2 flex-shrink-0 hover:opacity-90 transition-all"
+          >
+            <span className="material-symbols-outlined">call</span>
+            Call for Immediate Service
+          </a>
+        </div>
+      </section>
+
+      <section className="px-margin-mobile md:px-margin-desktop py-16 max-w-container-max mx-auto">
+        <div className="bg-white rounded-xl border border-walnut/10 shadow-sm p-8 flex flex-col md:flex-row items-center gap-8">
+          <div className="flex-1">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="material-symbols-outlined text-mpesa-green">smartphone</span>
+              <h3 className="font-label-md text-label-md uppercase tracking-widest text-primary">Secure M-Pesa Payment</h3>
+            </div>
+            <p className="text-body-md text-on-surface-variant mb-6">
+              We offer seamless mobile payments for all our services. Please follow these steps to confirm your booking or settle an invoice.
+            </p>
+            <div className="space-y-3">
+              {[
+                { step: "1", text: <>Go to M-Pesa menu and select <strong>Lipa na M-Pesa</strong>.</> },
+                { step: "2", text: <>Select <strong>Buy Goods and Services</strong>.</> },
+                { step: "3", text: "Enter the Till Number below:" },
+              ].map((item) => (
+                <div key={item.step} className="flex items-center gap-4">
+                  <span className="w-7 h-7 rounded-full bg-primary text-surface-cream flex items-center justify-center font-label-md text-label-md flex-shrink-0">
+                    {item.step}
+                  </span>
+                  <p className="text-body-md">{item.text}</p>
+                </div>
+              ))}
+              <div className="ml-11 flex items-center gap-3 bg-surface-container-low rounded-lg px-4 py-2 w-fit">
+                <span className="font-headline-sm text-headline-sm text-primary font-bold">000000</span>
+                <span className="material-symbols-outlined text-on-surface-variant text-sm cursor-pointer">content_copy</span>
+              </div>
+            </div>
+          </div>
+          <div className="bg-secondary-container/40 rounded-xl p-6 text-center flex-shrink-0">
+            <span className="material-symbols-outlined text-4xl text-secondary">payments</span>
+            <p className="text-caption mt-2 max-w-[160px]">Instant receipt and SMS confirmation for all transactions.</p>
           </div>
         </div>
       </section>
