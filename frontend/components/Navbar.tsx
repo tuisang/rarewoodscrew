@@ -82,8 +82,8 @@ export default function Navbar() {
         .search-dropdown { animation: search-slide 0.2s ease forwards; }
       `}</style>
 
-      <nav className="fixed top-0 w-full z-50 border-b border-[#c3c8c1]/30"
-        style={{ background: "rgba(251,249,244,0.92)", backdropFilter: "blur(20px)" }}>
+      <nav className="fixed top-0 w-full z-50 border-b border-outline-variant/30 glass-header"
+        style={{ background: "rgba(254,248,241,0.92)" }}>
         <div className="flex justify-between items-center px-6 md:px-12 py-4 w-full max-w-[1440px] mx-auto">
 
           {/* Logo + Brand */}
@@ -93,14 +93,12 @@ export default function Navbar() {
             </div>
             <div>
               <span
-                className="font-bold tracking-tighter text-[#1b1c19] text-xl md:text-2xl block leading-none group-hover:text-[#825516] transition-colors"
-                style={{ fontFamily: "Domine, serif" }}
+                className="font-headline-md font-extrabold tracking-tight text-on-background text-xl md:text-2xl block leading-none group-hover:text-primary transition-colors"
               >
                 Rarewoods Crew
               </span>
               <span
-                className="text-[9px] text-[#737973] tracking-[0.2em] leading-none"
-                style={{ fontFamily: "Work Sans, sans-serif" }}
+                className="font-label-caps text-[9px] text-outline tracking-[0.2em] leading-none"
               >
                 MASTER CRAFTSMEN &middot; NAIROBI
               </span>
@@ -116,8 +114,8 @@ export default function Navbar() {
                 href={link.href}
                 className={`text-base font-medium transition-colors duration-300 whitespace-nowrap ${
                   pathname === link.href
-                    ? "text-[#825516] font-bold border-b-2 border-[#825516] pb-1"
-                    : "text-[#434843] hover:text-[#825516]"
+                    ? "text-primary font-bold border-b-2 border-primary pb-1"
+                    : "text-on-surface-variant hover:text-primary"
                 }`}
               >
                 {link.label}
@@ -131,13 +129,13 @@ export default function Navbar() {
             <div className="relative">
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
-                className="text-[#434843] hover:text-[#825516] transition-colors p-1"
+                className="text-on-surface-variant hover:text-primary transition-colors p-1"
               >
                 <SearchIcon />
               </button>
               {searchOpen && (
-                <div className="search-dropdown absolute right-0 top-10 w-72 bg-[#ffffff] border border-[#c3c8c1] z-50">
-                  <div className="flex items-center gap-3 px-4 py-3 border-b border-[#c3c8c1]/40">
+                <div className="search-dropdown absolute right-0 top-10 w-72 bg-surface-container-lowest border border-outline-variant z-50 rounded-lg shadow-ambient">
+                  <div className="flex items-center gap-3 px-4 py-3 border-b border-outline-variant/40">
                     <SearchIcon />
                     <input
                       ref={searchRef}
@@ -149,9 +147,9 @@ export default function Navbar() {
                         if (e.key === "Escape") { setSearchOpen(false); setSearchQuery(""); }
                         if (e.key === "Enter" && filtered.length > 0) handleSearchSelect(filtered[0].href);
                       }}
-                      className="bg-transparent outline-none text-sm text-[#1b1c19] placeholder-[#737973] flex-1"
+                      className="bg-transparent outline-none text-sm text-on-surface placeholder-outline flex-1"
                     />
-                    <button onClick={() => { setSearchOpen(false); setSearchQuery(""); }} className="text-[#737973] hover:text-[#825516] text-lg">✕</button>
+                    <button onClick={() => { setSearchOpen(false); setSearchQuery(""); }} className="text-outline hover:text-primary text-lg">✕</button>
                   </div>
                   {filtered.length > 0 && (
                     <div>
@@ -159,16 +157,16 @@ export default function Navbar() {
                         <button
                           key={p.href}
                           onClick={() => handleSearchSelect(p.href)}
-                          className="w-full text-left px-4 py-3 text-sm text-[#434843] hover:bg-[#f0eee9] hover:text-[#825516] flex items-center gap-3 transition-colors border-b border-[#c3c8c1]/20"
+                          className="w-full text-left px-4 py-3 text-sm text-on-surface-variant hover:bg-surface-container hover:text-primary flex items-center gap-3 transition-colors border-b border-outline-variant/20"
                         >
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#825516" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#994700" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                           {p.label}
                         </button>
                       ))}
                     </div>
                   )}
                   {searchQuery.length > 1 && filtered.length === 0 && (
-                    <p className="px-4 py-3 text-sm text-[#737973]">No results found.</p>
+                    <p className="px-4 py-3 text-sm text-outline">No results found.</p>
                   )}
                   {searchQuery.length <= 1 && (
                     <div className="p-3">
@@ -176,8 +174,7 @@ export default function Navbar() {
                         <button
                           key={p.href}
                           onClick={() => handleSearchSelect(p.href)}
-                          className="w-full text-left px-3 py-2 text-xs text-[#737973] hover:text-[#825516] hover:bg-[#f0eee9] transition-colors"
-                          style={{ fontFamily: "Work Sans, sans-serif" }}
+                          className="w-full text-left px-3 py-2 text-xs font-label-caps text-outline hover:text-primary hover:bg-surface-container transition-colors"
                         >
                           {p.label}
                         </button>
@@ -190,13 +187,12 @@ export default function Navbar() {
 
             <button
               onClick={() => setCartOpen(true)}
-              className="relative text-[#434843] hover:text-[#825516] transition-colors"
+              className="relative text-on-surface-variant hover:text-primary transition-colors"
             >
               <CartIcon />
               {totalItems > 0 && (
                 <span
-                  className="absolute -top-2 -right-2 bg-[#825516] text-[#ffffff] text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center"
-                  style={{ fontFamily: "Work Sans, sans-serif" }}
+                  className="absolute -top-2 -right-2 bg-primary text-on-primary text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center"
                 >
                   {totalItems > 9 ? "9+" : totalItems}
                 </span>
@@ -205,14 +201,14 @@ export default function Navbar() {
 
             <Link
               href="/booking"
-              className="bg-[#825516] text-[#ffffff] text-sm font-semibold px-6 py-2.5 hover:bg-[#825516]/90 transition-all active:scale-95 whitespace-nowrap"
+              className="bg-primary text-on-primary text-sm font-bold px-6 py-2.5 rounded-lg hover:bg-primary-container transition-all active:scale-95 whitespace-nowrap"
             >
               Book Consultation
             </Link>
 
             <SignedOut>
               <SignInButton>
-                <button className="text-[#434843] hover:text-[#825516] text-sm font-medium transition-colors whitespace-nowrap">
+                <button className="text-on-surface-variant hover:text-primary text-sm font-medium transition-colors whitespace-nowrap">
                   Login
                 </button>
               </SignInButton>
@@ -226,17 +222,17 @@ export default function Navbar() {
           <div className="flex lg:hidden items-center gap-3">
             <button
               onClick={() => setSearchOpen(!searchOpen)}
-              className="text-[#434843] hover:text-[#825516] transition-colors"
+              className="text-on-surface-variant hover:text-primary transition-colors"
             >
               <SearchIcon />
             </button>
             <button
               onClick={() => setCartOpen(true)}
-              className="relative text-[#434843] hover:text-[#825516] transition-colors"
+              className="relative text-on-surface-variant hover:text-primary transition-colors"
             >
               <CartIcon />
               {totalItems > 0 && (
-                <span className="absolute -top-2 -right-2 bg-[#825516] text-[#ffffff] text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                <span className="absolute -top-2 -right-2 bg-primary text-on-primary text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
                   {totalItems > 9 ? "9+" : totalItems}
                 </span>
               )}
@@ -246,9 +242,9 @@ export default function Navbar() {
               onClick={() => setMenuOpen(!menuOpen)}
               className="flex flex-col justify-center items-center w-8 h-8 gap-[5px] focus:outline-none"
             >
-              <span className="block w-5 h-[2px] bg-[#825516] transition-all duration-300" style={{ transform: menuOpen ? "translateY(7px) rotate(45deg)" : "none" }} />
-              <span className="block w-5 h-[2px] bg-[#825516] transition-all duration-300" style={{ opacity: menuOpen ? 0 : 1 }} />
-              <span className="block w-5 h-[2px] bg-[#825516] transition-all duration-300" style={{ transform: menuOpen ? "translateY(-7px) rotate(-45deg)" : "none" }} />
+              <span className="block w-5 h-[2px] bg-primary transition-all duration-300" style={{ transform: menuOpen ? "translateY(7px) rotate(45deg)" : "none" }} />
+              <span className="block w-5 h-[2px] bg-primary transition-all duration-300" style={{ opacity: menuOpen ? 0 : 1 }} />
+              <span className="block w-5 h-[2px] bg-primary transition-all duration-300" style={{ transform: menuOpen ? "translateY(-7px) rotate(-45deg)" : "none" }} />
             </button>
           </div>
         </div>
@@ -256,7 +252,7 @@ export default function Navbar() {
         {/* Mobile Search Bar */}
         {searchOpen && (
           <div className="lg:hidden px-4 pb-4 relative">
-            <div className="flex items-center gap-3 bg-[#f0eee9] border border-[#c3c8c1] px-4 py-3">
+            <div className="flex items-center gap-3 bg-surface-container border border-outline-variant px-4 py-3 rounded-lg">
               <SearchIcon />
               <input
                 type="text"
@@ -266,19 +262,19 @@ export default function Navbar() {
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && filtered.length > 0) handleSearchSelect(filtered[0].href);
                 }}
-                className="bg-transparent outline-none text-sm text-[#1b1c19] placeholder-[#737973] flex-1"
+                className="bg-transparent outline-none text-sm text-on-surface placeholder-outline flex-1"
                 autoFocus
               />
             </div>
             {filtered.length > 0 && (
-              <div className="bg-[#ffffff] border border-[#c3c8c1] border-t-0">
+              <div className="bg-surface-container-lowest border border-outline-variant border-t-0 rounded-b-lg">
                 {filtered.map((p) => (
                   <button
                     key={p.href}
                     onClick={() => handleSearchSelect(p.href)}
-                    className="w-full text-left px-4 py-3 text-sm text-[#434843] hover:bg-[#f0eee9] hover:text-[#825516] flex items-center gap-3 border-b border-[#c3c8c1]/20"
+                    className="w-full text-left px-4 py-3 text-sm text-on-surface-variant hover:bg-surface-container hover:text-primary flex items-center gap-3 border-b border-outline-variant/20"
                   >
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#825516" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#994700" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     {p.label}
                   </button>
                 ))}
@@ -290,26 +286,26 @@ export default function Navbar() {
 
       {/* Mobile Overlay */}
       {menuOpen && (
-        <div className="fixed inset-0 bg-[#fbf9f4]/60 backdrop-blur-sm z-40 lg:hidden" onClick={() => setMenuOpen(false)} />
+        <div className="fixed inset-0 bg-background/60 backdrop-blur-sm z-40 lg:hidden" onClick={() => setMenuOpen(false)} />
       )}
 
       {/* Mobile Drawer */}
       <div
-        className="fixed top-0 right-0 h-full w-[80%] max-w-[320px] z-50 lg:hidden flex flex-col border-l border-[#c3c8c1]/40"
+        className="fixed top-0 right-0 h-full w-[80%] max-w-[320px] z-50 lg:hidden flex flex-col border-l border-outline-variant/40"
         style={{
           background: "rgba(255,255,255,0.98)",
           transform: menuOpen ? "translateX(0)" : "translateX(100%)",
           transition: "transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
-        <div className="flex items-center justify-between px-6 py-5 border-b border-[#c3c8c1]/40">
+        <div className="flex items-center justify-between px-6 py-5 border-b border-outline-variant/40">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
               <span className="material-symbols-outlined text-surface-cream text-lg">carpenter</span>
             </div>
-            <span className="text-[#825516] font-bold text-lg" style={{ fontFamily: "Domine, serif" }}>Rarewoods Crew</span>
+            <span className="font-headline-md text-primary font-bold text-lg">Rarewoods Crew</span>
           </div>
-          <button onClick={() => setMenuOpen(false)} className="text-[#737973] hover:text-[#825516] transition-colors text-xl">✕</button>
+          <button onClick={() => setMenuOpen(false)} className="text-outline hover:text-primary transition-colors text-xl">✕</button>
         </div>
 
         <div className="flex flex-col px-6 py-8 gap-1 flex-1">
@@ -317,8 +313,8 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`py-4 text-lg font-medium border-b border-[#c3c8c1]/20 transition-colors ${
-                pathname === link.href ? "text-[#825516]" : "text-[#434843] hover:text-[#825516]"
+              className={`py-4 text-lg font-medium border-b border-outline-variant/20 transition-colors ${
+                pathname === link.href ? "text-primary" : "text-on-surface-variant hover:text-primary"
               }`}
               style={{ transitionDelay: menuOpen ? `${i * 40}ms` : "0ms" }}
             >
@@ -327,16 +323,16 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="px-6 py-8 border-t border-[#c3c8c1]/40 flex flex-col gap-4">
-          <Link href="/booking" className="w-full bg-[#825516] text-[#ffffff] text-sm font-semibold px-6 py-4 text-center hover:brightness-110 transition-all" style={{ fontFamily: "Work Sans, sans-serif" }}>
+        <div className="px-6 py-8 border-t border-outline-variant/40 flex flex-col gap-4">
+          <Link href="/booking" className="w-full bg-primary text-on-primary text-sm font-bold px-6 py-4 rounded-lg text-center hover:bg-primary-container transition-all">
             BOOK CONSULTATION
           </Link>
           <SignedOut>
             <SignInButton>
-              <button className="w-full border border-[#c3c8c1] text-[#434843] text-sm font-medium py-4 hover:border-[#825516] hover:text-[#825516] transition-colors">Login</button>
+              <button className="w-full border border-outline-variant text-on-surface-variant text-sm font-medium py-4 rounded-lg hover:border-primary hover:text-primary transition-colors">Login</button>
             </SignInButton>
           </SignedOut>
-          <p className="text-center text-xs text-[#c3c8c1] tracking-widest" style={{ fontFamily: "Work Sans, sans-serif" }}>CRAFTED IN KENYA</p>
+          <p className="font-label-caps text-center text-xs text-outline tracking-widest">CRAFTED IN KENYA</p>
         </div>
       </div>
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />

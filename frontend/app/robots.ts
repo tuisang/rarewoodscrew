@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin", "/api/", "/dashboard", "/chat-history"],
       },
     ],
-    sitemap: "https://tuistech.co.ke/sitemap.xml",
+    sitemap: "https://rarewoodscrew.tuistech.co.ke/sitemap.xml",
   };
 }

@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const {
       name, email, phone, service,
-      woodSpecies, metalFinish, dimensions,
+      woodSpecies, finish, metalFinish, dimensions,
       budget, timeline, description, attachmentUrl,
     } = body;
 
@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
       data: {
         name, email, phone, service,
         woodSpecies: woodSpecies ?? null,
-        metalFinish: metalFinish ?? null,
+        metalFinish: finish ?? metalFinish ?? null,
         dimensions: dimensions ?? null,
         budget, timeline, description,
         attachmentUrl: attachmentUrl ?? null,

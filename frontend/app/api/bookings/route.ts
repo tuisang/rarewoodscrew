@@ -12,13 +12,13 @@ export async function POST(req: NextRequest) {
       attachmentUrl,
     } = body;
 
-    if (!name || !phone || !email || !service || !date || !paymentMethod) {
+    if (!name || !phone || !service || !date || !paymentMethod) {
       return NextResponse.json({ error: "Missing required fields." }, { status: 400 });
     }
 
     const booking = await prisma.booking.create({
       data: {
-        name, phone, email, service,
+        name, phone, email: email || "", service,
         date, paymentMethod,
         clerkUserId: userId ?? null,
         attachmentUrl: attachmentUrl ?? null,

@@ -26,18 +26,18 @@ export default function ProductModal({ product, onClose }: Props) {
 
   return (
     <>
-      <div className="fixed inset-0 bg-[#131313]/80 backdrop-blur-sm z-[80]" onClick={onClose} />
+      <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-[80]" onClick={onClose} />
       <div
-        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[90] w-full max-w-lg bg-[#0e0e0e] border border-[#4f453d] rounded-xl overflow-hidden"
+        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[90] w-full max-w-lg bg-background border border-outline-variant rounded-xl overflow-hidden"
         style={{ animation: "fade-up 0.25s ease forwards" }}
       >
         {/* Image */}
         <div className="h-56 overflow-hidden relative">
           <img src={product.img} alt={product.name} className="w-full h-full object-cover rounded-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0e0e0e] to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface-container-lowest)] to-transparent" />
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 w-8 h-8 bg-[#131313]/80 flex items-center justify-center text-[#9c8e84] hover:text-[#e8bf9b] transition-colors rounded-full"
+            className="absolute top-4 right-4 w-8 h-8 bg-background/80 flex items-center justify-center text-outline hover:text-primary transition-colors rounded-full"
           >
             ✕
           </button>
@@ -46,36 +46,36 @@ export default function ProductModal({ product, onClose }: Props) {
         {/* Content */}
         <div className="p-6">
           <div className="flex justify-between items-start mb-3">
-            <h2 className="text-2xl font-semibold" style={{ fontFamily: "Playfair Display, serif" }}>
+            <h2 className="text-2xl font-semibold" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
               {product.name}
             </h2>
-            <span className="text-[#e8bf9b] font-bold text-lg">{product.priceLabel}</span>
+            <span className="text-primary font-bold text-lg">{product.priceLabel}</span>
           </div>
 
-          <p className="text-[#d3c4b9] text-sm leading-relaxed mb-6">
-            Premium quality craftsmanship tool, hand-selected by the Forge &amp; Timber atelier team for professional and home workshop use.
+          <p className="text-on-surface-variant text-sm leading-relaxed mb-6">
+            Premium quality craftsmanship tool, hand-selected by the Rarewoods Crew team for professional and home workshop use.
           </p>
 
           {/* Quantity */}
           <div className="flex items-center gap-4 mb-6">
-            <span className="text-xs text-[#9c8e84] tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>QTY</span>
-            <div className="flex items-center border border-[#4f453d]">
+            <span className="text-xs text-outline tracking-widest" style={{ fontFamily: "Libre Franklin, sans-serif" }}>QTY</span>
+            <div className="flex items-center border border-outline-variant">
               <button
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                className="w-10 h-10 flex items-center justify-center text-[#d3c4b9] hover:text-[#e8bf9b] hover:bg-[#131313] transition-colors text-xl"
+                className="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-background transition-colors text-xl"
               >
                 −
               </button>
               <span className="w-10 text-center font-bold">{quantity}</span>
               <button
                 onClick={() => setQuantity(quantity + 1)}
-                className="w-10 h-10 flex items-center justify-center text-[#d3c4b9] hover:text-[#e8bf9b] hover:bg-[#131313] transition-colors text-xl"
+                className="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-background transition-colors text-xl"
               >
                 +
               </button>
             </div>
-            <span className="text-sm text-[#9c8e84]">
-              = <span className="text-[#e8bf9b] font-bold">KSh {(product.price * quantity).toLocaleString()}</span>
+            <span className="text-sm text-outline">
+              = <span className="text-primary font-bold">KSh {(product.price * quantity).toLocaleString()}</span>
             </span>
           </div>
 
@@ -85,9 +85,9 @@ export default function ProductModal({ product, onClose }: Props) {
             disabled={added}
             className="w-full py-4 text-sm font-semibold transition-all active:scale-[0.98] flex items-center justify-center gap-3"
             style={{
-              background: added ? "#4ade80" : "#e8bf9b",
-              color: added ? "#14532d" : "#442b12",
-              fontFamily: "JetBrains Mono, monospace",
+              background: added ? "#16a34a" : "#994700",
+              color: added ? "#14532d" : "var(--color-on-primary)",
+              fontFamily: "Libre Franklin, sans-serif",
             }}
           >
             {added ? (

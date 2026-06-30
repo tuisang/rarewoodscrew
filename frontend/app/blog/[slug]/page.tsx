@@ -16,7 +16,7 @@ const POSTS: Record<string, BlogPost> = {
     title: "Caring for Oiled Mvule Furniture",
     category: "Wood Care",
     readTime: "4 min read",
-    description: "How to care for oiled Mvule furniture — Kenya's prized, termite-resistant hardwood. Cleaning, oiling frequency, and sunlight tips from Forge & Timber Atelier.",
+    description: "How to care for oiled Mvule furniture — Kenya's prized, termite-resistant hardwood. Cleaning, oiling frequency, and sunlight tips from Rarewoods Crew.",
     content: [
       {
         body: "Mvule, also known as Iroko or African Teak, is one of the most respected furniture timbers in East Africa — and for good reason. Naturally resistant to termites and decay even in demanding conditions, it's the wood we reach for when a piece needs to last for generations, not just years. But like any fine hardwood, an oiled Mvule finish rewards a little regular attention.",
@@ -35,7 +35,7 @@ const POSTS: Record<string, BlogPost> = {
       },
       {
         heading: "A Note on Sourcing",
-        body: "Because Mvule is so sought-after, it's increasingly classified as near-threatened in parts of its native range. At Forge & Timber, we source kiln-dried Mvule exclusively from responsible local suppliers, and we're always happy to discuss provenance with clients commissioning larger pieces.",
+        body: "Because Mvule is so sought-after, it's increasingly classified as near-threatened in parts of its native range. At Rarewoods Crew, we source kiln-dried Mvule exclusively from responsible local suppliers, and we're always happy to discuss provenance with clients commissioning larger pieces.",
       },
     ],
   },
@@ -44,7 +44,7 @@ const POSTS: Record<string, BlogPost> = {
     title: "The Essential Wood Furniture Care Guide",
     category: "Wood Care",
     readTime: "3 min read",
-    description: "A practical guide to caring for mahogany, oak, and teak furniture — cleaning, sunlight protection, and polishing tips from Forge & Timber Atelier in Nairobi.",
+    description: "A practical guide to caring for mahogany, oak, and teak furniture — cleaning, sunlight protection, and polishing tips from Rarewoods Crew in Nairobi.",
     content: [
       {
         body: "Good wood furniture is an investment, and like any investment, it pays you back in proportion to how well you look after it. Whether you've commissioned a mahogany dining table, an oak console, or a teak outdoor bench, the fundamentals of care are largely the same — and refreshingly simple.",
@@ -72,7 +72,7 @@ const POSTS: Record<string, BlogPost> = {
     title: "Preventing Rust on Steel Furniture",
     category: "Metal Care",
     readTime: "3 min read",
-    description: "How to prevent rust on mild steel and outdoor steel furniture. Practical maintenance tips from Forge & Timber Atelier's metalwork studio in Nairobi.",
+    description: "How to prevent rust on mild steel and outdoor steel furniture. Practical maintenance tips from Rarewoods Crew's metalwork studio in Nairobi.",
     content: [
       {
         body: "Steel brings a kind of structural confidence to furniture that's hard to replicate in any other material — but it has one well-known weakness: moisture. The good news is that rust is almost entirely preventable with a handful of simple habits, whether you're maintaining an indoor steel-framed console or a garden bench that lives outside year-round.",
@@ -103,9 +103,9 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const post = POSTS[params.slug];
-  if (!post) return { title: "Post Not Found | Forge & Timber Atelier" };
+  if (!post) return { title: "Post Not Found | Rarewoods Crew" };
   return {
-    title: `${post.title} | Forge & Timber Atelier`,
+    title: `${post.title} | Rarewoods Crew`,
     description: post.description,
   };
 }
@@ -116,23 +116,23 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
   return (
     <main
-      className="bg-[#131313] text-[#e5e2e1] pt-24 min-h-screen"
-      style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/dark-matter.png')" }}
+      className="bg-background text-on-surface pt-24 min-h-screen"
+      style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/oak.png')" }}
     >
       <article className="px-4 md:px-16 py-24 max-w-[800px] mx-auto">
         <Link
           href="/blog"
-          className="text-xs text-[#e8bf9b] hover:underline flex items-center gap-2 mb-10"
-          style={{ fontFamily: "JetBrains Mono, monospace" }}
+          className="text-xs text-primary hover:underline flex items-center gap-2 mb-10"
+          style={{ fontFamily: "Libre Franklin, sans-serif" }}
         >
           ← BACK TO JOURNAL
         </Link>
 
-        <span className="text-[10px] text-[#e8bf9b] tracking-widest uppercase mb-4 block" style={{ fontFamily: "JetBrains Mono, monospace" }}>
+        <span className="text-[10px] text-primary tracking-widest uppercase mb-4 block" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
           {post.category} · {post.readTime}
         </span>
 
-        <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-10" style={{ fontFamily: "Playfair Display, serif" }}>
+        <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-10" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
           {post.title}
         </h1>
 
@@ -140,21 +140,21 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           {post.content.map((block, i) => (
             <div key={i}>
               {block.heading && (
-                <h2 className="text-xl font-semibold mb-3 text-[#e8bf9b]" style={{ fontFamily: "Playfair Display, serif" }}>
+                <h2 className="text-xl font-semibold mb-3 text-primary" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
                   {block.heading}
                 </h2>
               )}
-              <p className="text-[#d3c4b9] leading-relaxed">{block.body}</p>
+              <p className="text-on-surface-variant leading-relaxed">{block.body}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 pt-10 border-t border-[#4f453d]/30 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-[#d3c4b9]">Have a piece that needs attention?</p>
+        <div className="mt-16 pt-10 border-t border-outline-variant/30 flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-on-surface-variant">Have a piece that needs attention?</p>
           <Link
             href="/booking"
-            className="bg-[#e8bf9b] text-[#442b12] px-8 py-3 text-sm font-semibold hover:brightness-110 transition-all"
-            style={{ fontFamily: "JetBrains Mono, monospace" }}
+            className="bg-primary text-on-primary rounded-lg px-8 py-3 text-sm font-semibold hover:brightness-110 transition-all"
+            style={{ fontFamily: "Libre Franklin, sans-serif" }}
           >
             BOOK A CONSULTATION →
           </Link>

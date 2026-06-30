@@ -17,7 +17,7 @@ interface ChatSessionSummary {
 
 const SUGGESTED_QUESTIONS = [
   "What finish options do you offer?",
-  "How long does a custom gate take?",
+  "How long does a custom dining table take?",
   "Do you offer M-Pesa payment?",
   "What is your pricing range?",
 ];
@@ -233,7 +233,7 @@ export default function AIArtisanPage() {
             {isSignedIn && messages.length === 0 && (
               <div className="glass-panel rounded-xl p-6 max-w-lg border-l-4 border-primary">
                 <p className="text-body-sm mb-4 leading-relaxed">
-                  Karibu. I&apos;m the AI Artisan, trained on structural steel fabrication and precision welding. Ask me anything about gates, railings, staircases, furniture, pricing, or book a consultation.
+                  Karibu. I&apos;m the AI Artisan, trained on fine woodworking and joinery. Ask me anything about furniture, cabinetry, staircases, wood species, pricing, or book a consultation.
                 </p>
                 <div className="flex flex-col gap-2">
                   {SUGGESTED_QUESTIONS.map((q) => (

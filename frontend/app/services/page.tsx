@@ -135,7 +135,7 @@ export default function ServicesPage() {
               Whether you are in Karen, Westlands, Kilimani, or Syokimau, our mobile workshop is ready to respond. We honor deadlines and provide upfront, honest pricing for all residential and commercial calls.
             </p>
           </div>
-          
+          <a
             href="tel:+254700000000"
             className="bg-secondary text-on-secondary px-8 py-4 rounded-lg font-label-md text-label-md flex items-center gap-2 flex-shrink-0 hover:opacity-90 transition-all"
           >

@@ -1,0 +1,8 @@
+[35mapp/context/CartContext..tsx[m[36m:[m[32m7[m[36m:[mexport function [1;31mCartProvider[m({ children }: { children: React.ReactNode }) {
+[35mapp/layout.tsx[m[36m:[m[32m8[m[36m:[mimport { [1;31mCartProvider[m } from "@/lib/CartContext";
+[35mapp/layout.tsx[m[36m:[m[32m145[m[36m:[m          <[1;31mCartProvider[m>
+[35mapp/layout.tsx[m[36m:[m[32m152[m[36m:[m          </[1;31mCartProvider[m>
+[35mcontext/CartContext.tsx[m[36m:[m[32m7[m[36m:[mexport function [1;31mCartProvider[m({
+[35mcontext/CartContext.tsx[m[36m:[m[32m34[m[36m:[m    throw new Error("useCart must be used inside [1;31mCartProvider[m");
+[35mlib/CartContext.tsx[m[36m:[m[32m26[m[36m:[mexport function [1;31mCartProvider[m({ children }: { children: ReactNode }) {
+[35mlib/CartContext.tsx[m[36m:[m[32m72[m[36m:[m  if (!ctx) throw new Error("useCart must be used within [1;31mCartProvider[m");

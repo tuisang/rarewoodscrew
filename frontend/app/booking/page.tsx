@@ -1,12 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import Link from "next/link";
 import Footer from "@/components/Footer";
 
 interface FormData {
   name: string;
-  phone: string;
-  email: string;
+  contact: string;
+  location: string;
+  description: string;
 }
 
 type SubmitStatus = "idle" | "creating" | "stk_sent" | "confirmed" | "error";
@@ -16,30 +18,41 @@ const MONTH_NAMES = [
   "July", "August", "September", "October", "November", "December",
 ];
 
+const WEEKDAYS = ["M", "T", "W", "T", "F", "S", "S"];
+
 function getDaysInMonth(year: number, month: number) {
   return new Date(year, month + 1, 0).getDate();
 }
 
-function getFirstWeekday(year: number, month: number) {
-  return new Date(year, month, 1).getDay();
+function getFirstWeekdayOffset(year: number, month: number) {
+  const day = new Date(year, month, 1).getDay();
+  return (day + 6) % 7;
 }
 
+const CONSULTATION_TYPES = [
+  { id: "phone", icon: "call", label: "Phone" },
+  { id: "whatsapp", icon: "chat", label: "WhatsApp" },
+  { id: "video", icon: "videocam", label: "Video Call" },
+  { id: "onsite", icon: "location_on", label: "On-site Visit" },
+];
+
+const AVAILABLE_SLOTS = ["09:00 AM", "11:30 AM", "02:00 PM", "04:30 PM"];
+
 export default function BookingPage() {
-  const [selectedService, setSelectedService] = useState<string | null>(null);
-  const [paymentMethod, setPaymentMethod] = useState("mpesa");
+  const [consultationType, setConsultationType] = useState<string | null>(null);
   const today = new Date();
   const [viewMonth, setViewMonth] = useState(today.getMonth());
   const [viewYear, setViewYear] = useState(today.getFullYear());
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [formData, setFormData] = useState<FormData>({ name: "", phone: "", email: "" });
+  const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
+  const [formData, setFormData] = useState<FormData>({ name: "", contact: "", location: "", description: "" });
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [bookingId, setBookingId] = useState<string | null>(null);
   const [checkoutId, setCheckoutId] = useState<string | null>(null);
-  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
-  const [uploadPreview, setUploadPreview] = useState<string | null>(null);
-  const [isUploading, setIsUploading] = useState(false);
-  const [uploadedUrl, setUploadedUrl] = useState<string | null>(null);
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+  const [uploadPreviews, setUploadPreviews] = useState<string[]>([]);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleInput = (field: keyof FormData, value: string) =>
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -62,31 +75,39 @@ export default function BookingPage() {
     }
   };
 
-  const formatSelectedDate = (date: Date | null) => {
-    if (!date) return "Not selected";
-    return date.toLocaleDateString("en-KE", { day: "numeric", month: "short", year: "numeric" });
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files ?? []).slice(0, 3 - uploadedFiles.length);
+    if (files.length === 0) return;
+    setUploadedFiles((prev) => [...prev, ...files]);
+    files.forEach((file) => {
+      const reader = new FileReader();
+      reader.onload = () => setUploadPreviews((prev) => [...prev, reader.result as string]);
+      reader.readAsDataURL(file);
+    });
+  };
+
+  const removeImage = (idx: number) => {
+    setUploadedFiles((prev) => prev.filter((_, i) => i !== idx));
+    setUploadPreviews((prev) => prev.filter((_, i) => i !== idx));
   };
 
   const handleSubmit = async () => {
-    if (!selectedService) return setErrorMsg("Please select a service.");
-    if (!formData.name || !formData.phone || !formData.email)
-      return setErrorMsg("Please fill in all contact fields.");
+    if (!consultationType) return setErrorMsg("Please choose a consultation type.");
+    if (!selectedDate || !selectedSlot) return setErrorMsg("Please select a date and time.");
+    if (!formData.name || !formData.contact)
+      return setErrorMsg("Please fill in your name and contact info.");
 
     setErrorMsg(null);
     setSubmitStatus("creating");
 
     try {
-      // Step 1: Create booking in DB
-      // Upload file first if present
-      let attachmentUrl = null;
-      if (uploadedFile) {
-        setIsUploading(true);
+      let attachmentUrl: string | null = null;
+      if (uploadedFiles.length > 0) {
         const fd = new FormData();
-        fd.append("file", uploadedFile);
+        fd.append("file", uploadedFiles[0]);
         const uploadRes = await fetch("/api/upload", { method: "POST", body: fd });
         const uploadData = await uploadRes.json();
         if (uploadData.url) attachmentUrl = uploadData.url;
-        setIsUploading(false);
       }
 
       const bookingRes = await fetch("/api/bookings", {
@@ -94,11 +115,14 @@ export default function BookingPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
-          service: selectedService,
+          phone: formData.contact,
+          email: formData.contact.includes("@") ? formData.contact : "",
+          service: consultationType,
+          location: formData.location,
+          description: formData.description,
           date: selectedDate ? selectedDate.toISOString() : "TBD",
-          paymentMethod,
+          slot: selectedSlot,
+          paymentMethod: "mpesa",
           attachmentUrl,
         }),
       });
@@ -107,30 +131,16 @@ export default function BookingPage() {
       const { booking } = await bookingRes.json();
       setBookingId(booking.id);
 
-      // Step 2: If M-Pesa, trigger STK push
-      if (paymentMethod === "mpesa") {
-        setSubmitStatus("stk_sent");
-
-        const stkRes = await fetch("/api/mpesa/stk-push", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            phone: formData.phone,
-            bookingId: booking.id,
-          }),
-        });
-
-        const stkData = await stkRes.json();
-
-        if (!stkRes.ok) throw new Error(stkData.error ?? "STK push failed.");
-
-        setCheckoutId(stkData.checkoutRequestId);
-
-        // Poll for payment confirmation every 3 seconds
-        pollPaymentStatus(booking.id);
-      } else {
-        setSubmitStatus("confirmed");
-      }
+      setSubmitStatus("stk_sent");
+      const stkRes = await fetch("/api/mpesa/stk-push", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ phone: formData.contact, bookingId: booking.id }),
+      });
+      const stkData = await stkRes.json();
+      if (!stkRes.ok) throw new Error(stkData.error ?? "STK push failed.");
+      setCheckoutId(stkData.checkoutRequestId);
+      pollPaymentStatus(booking.id);
     } catch (err: unknown) {
       setErrorMsg(err instanceof Error ? err.message : "Something went wrong.");
       setSubmitStatus("error");
@@ -148,7 +158,6 @@ export default function BookingPage() {
           setSubmitStatus("confirmed");
           clearInterval(interval);
         } else if (data.booking?.status === "pending" && attempts > 5) {
-          // Payment likely cancelled
           setSubmitStatus("error");
           setErrorMsg("Payment was not completed. Please try again.");
           clearInterval(interval);
@@ -163,318 +172,283 @@ export default function BookingPage() {
   const isSubmitting = submitStatus === "creating" || submitStatus === "stk_sent";
 
   return (
-    <main className="bg-[#131314] text-[#e5e2e3] relative">
-      <div
-        className="fixed inset-0 pointer-events-none z-0 opacity-[0.05]"
-        style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/dark-matter.png')" }}
-      />
+    <main className="bg-background text-on-surface min-h-screen">
+      <div className="max-w-2xl mx-auto px-6 md:px-0 pt-28 pb-20">
+        <Link href="/" className="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors mb-6 text-sm">
+          <span className="material-symbols-outlined text-lg">arrow_back</span>
+          Rarewoods Crew
+        </Link>
 
-      <div className="relative z-10 pt-32 pb-24 max-w-[1440px] mx-auto px-4 md:px-16">
-        {/* Header */}
-        <header className="mb-16">
-          <span className="text-xs text-[#ffb785] uppercase tracking-[0.2em] mb-4 block" style={{ fontFamily: "JetBrains Mono, monospace" }}>
-            Secure Reservation
+        <header className="mb-10">
+          <span className="font-label-caps text-xs text-primary uppercase tracking-[0.2em] mb-3 block">
+            Consultation
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 max-w-3xl leading-tight" style={{ fontFamily: "Archivo Narrow, sans-serif", letterSpacing: "-0.02em" }}>
-            Secure Your Fabrication Consultation.
+          <h1 className="font-headline-lg text-4xl md:text-5xl font-extrabold mb-4 leading-[1.1] tracking-tight text-on-background">
+            Start Your Heritage Journey
           </h1>
-          <p className="text-lg text-[#bac9cd] max-w-2xl leading-relaxed">
-            Connect with our fabrication team to discuss your custom steelwork project.
+          <p className="font-body-md text-on-surface-variant leading-relaxed">
+            Select your preferred way to connect with our master craftsmen and begin designing your bespoke heirloom.
           </p>
         </header>
 
-        {/* STK Push Waiting State */}
         {submitStatus === "stk_sent" && (
-          <div className="mb-10 p-8 bg-[#201f20] border border-[#3b494c] border-l-4 border-l-[#39b54a]">
-            <div className="flex items-start gap-6">
-              <div className="w-14 h-14 bg-[#39b54a]/10 border border-[#39b54a]/30 flex items-center justify-center flex-shrink-0">
-                <span className="text-2xl">📱</span>
+          <div className="mb-8 p-6 bg-surface-container-low rounded-lg border-l-4 border-l-primary ghost-border">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <span className="material-symbols-outlined text-primary text-2xl">phone_iphone</span>
               </div>
               <div>
-                <p className="font-semibold text-lg text-[#39b54a] mb-2" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
-                  Check Your Phone
+                <p className="font-headline-md font-semibold text-lg text-primary mb-1">Check Your Phone</p>
+                <p className="font-body-md text-on-surface-variant text-sm mb-2">
+                  An M-Pesa STK push has been sent to <span className="font-semibold text-on-surface">{formData.contact}</span>. Enter your M-Pesa PIN to confirm payment of <span className="font-semibold text-on-surface">KES 2,000</span>.
                 </p>
-                <p className="text-[#bac9cd] mb-3">
-                  An M-Pesa STK push has been sent to <span className="text-[#00daf8] font-semibold">{formData.phone}</span>. Enter your M-Pesa PIN to confirm payment of <span className="text-[#00daf8] font-semibold">KES 2,000</span>.
-                </p>
-                <div className="flex items-center gap-3 text-sm text-[#859397]">
+                <div className="flex items-center gap-2 text-xs text-outline">
                   <div className="flex gap-1">
-                    {[0,1,2].map((i) => (
-                      <div key={i} className="w-2 h-2 bg-[#39b54a] rounded-full animate-bounce" style={{ animationDelay: `${i * 150}ms` }} />
+                    {[0, 1, 2].map((i) => (
+                      <div key={i} className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style={{ animationDelay: `${i * 150}ms` }} />
                     ))}
                   </div>
-                  <span style={{ fontFamily: "JetBrains Mono, monospace" }}>WAITING FOR CONFIRMATION...</span>
+                  <span className="font-label-caps tracking-widest">WAITING FOR CONFIRMATION</span>
                 </div>
-                {checkoutId && (
-                  <p className="text-xs text-[#3b494c] mt-3" style={{ fontFamily: "JetBrains Mono, monospace" }}>
-                    REF: {checkoutId}
-                  </p>
-                )}
+                {checkoutId && <p className="text-xs text-outline mt-2">Ref: {checkoutId}</p>}
               </div>
             </div>
           </div>
         )}
 
-        {/* Success State */}
         {submitStatus === "confirmed" && (
-          <div className="mb-10 p-8 bg-[#201f20] border border-[#3b494c] border-l-4 border-l-[#00daf8]">
-            <div className="flex items-start gap-6">
-              <div className="w-14 h-14 bg-[#00daf8]/10 border border-[#00daf8]/30 flex items-center justify-center flex-shrink-0">
-                <span className="material-symbols-outlined text-[#00daf8] text-3xl">check_circle</span>
+          <div className="mb-8 p-6 bg-surface-container-low rounded-lg border-l-4 border-l-primary ghost-border">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <span className="material-symbols-outlined text-primary text-2xl">check_circle</span>
               </div>
               <div>
-                <p className="font-semibold text-xl text-[#00daf8] mb-2" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
-                  Booking Confirmed!
+                <p className="font-headline-md font-semibold text-lg text-primary mb-1">Consultation Confirmed</p>
+                <p className="font-body-md text-on-surface-variant text-sm">
+                  We&apos;ll reach out to confirm your {consultationType} consultation. Thank you for choosing Rarewoods Crew.
                 </p>
-                <p className="text-[#bac9cd] mb-2">
-                  Your consultation has been booked successfully. We&apos;ll reach out to{" "}
-                  <span className="text-[#00daf8]">{formData.email}</span> shortly.
-                </p>
-                {bookingId && (
-                  <p className="text-xs text-[#859397]" style={{ fontFamily: "JetBrains Mono, monospace" }}>
-                    BOOKING ID: {bookingId}
-                  </p>
-                )}
+                {bookingId && <p className="text-xs text-outline mt-2">Booking ID: {bookingId}</p>}
               </div>
             </div>
           </div>
         )}
 
-        {/* Error State */}
         {(submitStatus === "error" || errorMsg) && (
-          <div className="mb-10 p-6 bg-[#201f20] border-l-4 border-red-500 flex items-center gap-4">
-            <span className="material-symbols-outlined text-red-400 text-3xl">error</span>
+          <div className="mb-8 p-5 bg-error-container/40 rounded-lg border-l-4 border-l-error flex items-center gap-4">
+            <span className="material-symbols-outlined text-error text-2xl">error</span>
             <div>
-              <p className="font-semibold text-red-400">Error</p>
-              <p className="text-sm text-[#bac9cd]">{errorMsg ?? "Something went wrong. Please try again."}</p>
+              <p className="font-semibold text-on-error-container text-sm">Error</p>
+              <p className="text-sm text-on-error-container/80">{errorMsg ?? "Something went wrong. Please try again."}</p>
             </div>
           </div>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Left: Form */}
-          <div className="lg:col-span-7 space-y-12">
+        {/* Step 1: Consultation Type */}
+        <section className="mb-12">
+          <h2 className="font-headline-md text-xl font-bold mb-5 flex items-center gap-3">
+            <span className="step-number w-7 h-7 rounded-full bg-primary text-on-primary text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            Consultation Type
+          </h2>
+          <div className="grid grid-cols-2 gap-4">
+            {CONSULTATION_TYPES.map((type) => (
+              <button
+                key={type.id}
+                type="button"
+                onClick={() => !isSubmitting && setConsultationType(type.id)}
+                className={`tactile-card rounded-lg p-6 flex flex-col items-center gap-3 transition-all ${
+                  consultationType === type.id ? "border-primary ring-1 ring-primary" : "hover:border-primary/50"
+                }`}
+              >
+                <span className={`material-symbols-outlined text-2xl ${consultationType === type.id ? "text-primary" : "text-on-surface-variant"}`}>
+                  {type.icon}
+                </span>
+                <span className="font-body-md text-sm font-medium text-on-surface">{type.label}</span>
+              </button>
+            ))}
+          </div>
+        </section>
 
-            {/* Step 1: Service */}
-            <section className="p-8 md:p-12 relative overflow-hidden" style={{ background: "rgba(32,32,31,0.7)", backdropFilter: "blur(20px)", borderTop: "1px solid rgba(232,191,155,0.1)" }}>
-              <div className="absolute top-0 right-0 p-4 opacity-10">
-                <span className="material-symbols-outlined text-9xl">carpenter</span>
+        {/* Step 2: Date & Time */}
+        <section className="mb-12">
+          <h2 className="font-headline-md text-xl font-bold mb-5 flex items-center gap-3">
+            <span className="step-number w-7 h-7 rounded-full bg-primary text-on-primary text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            Select Date &amp; Time
+          </h2>
+          <div className="tactile-card rounded-lg p-5">
+            <div className="flex justify-between items-center mb-5">
+              <span className="font-body-md font-semibold text-on-surface">{MONTH_NAMES[viewMonth]} {viewYear}</span>
+              <div className="flex gap-3">
+                <button type="button" onClick={goToPrevMonth} className="text-on-surface-variant hover:text-primary transition-colors">
+                  <span className="material-symbols-outlined">chevron_left</span>
+                </button>
+                <button type="button" onClick={goToNextMonth} className="text-on-surface-variant hover:text-primary transition-colors">
+                  <span className="material-symbols-outlined">chevron_right</span>
+                </button>
               </div>
-              <h2 className="text-3xl font-semibold mb-8 flex items-center gap-3" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
-                <span className="text-[#00daf8] text-xl font-medium" style={{ fontFamily: "JetBrains Mono, monospace" }}>01</span>
-                Service Selection
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[
-                  { id: "gates", icon: "fence", title: "Custom Gates", desc: "Driveway and security gates, laser-cut patterns or traditional forge-work." },
-                  { id: "railings", icon: "architecture", title: "Railings & Balustrades", desc: "Stainless steel and glass balustrades for safety and aesthetics." },
-                  { id: "staircases", icon: "stairs", title: "Staircase Fabrication", desc: "Floating, spiral, or heavy-duty industrial spine designs." },
-                  { id: "furniture", icon: "chair_alt", title: "Custom Furniture", desc: "Hand-forged steel furniture, some with warm wood-accent tabletops." },
-                  { id: "welding", icon: "precision_manufacturing", title: "Precision Welding", desc: "TIG, MIG and Arc welding for bespoke structural needs." },
-                ].map((service) => (
-                  <div
-                    key={service.id}
-                    onClick={() => !isSubmitting && setSelectedService(service.id)}
-                    className={`cursor-pointer border p-6 transition-all bg-[#1c1b1c] ${
-                      selectedService === service.id ? "border-[#00daf8]" : "border-[#3b494c] hover:border-[#00daf8]"
+            </div>
+            <div className="grid grid-cols-7 gap-1 text-center text-xs font-label-caps text-outline mb-3">
+              {WEEKDAYS.map((d, i) => <span key={i}>{d}</span>)}
+            </div>
+            <div className="grid grid-cols-7 gap-1 text-center text-sm">
+              {Array.from({ length: getFirstWeekdayOffset(viewYear, viewMonth) }, (_, i) => (
+                <div key={`empty-${i}`} />
+              ))}
+              {Array.from({ length: getDaysInMonth(viewYear, viewMonth) }, (_, i) => i + 1).map((d) => {
+                const cellDate = new Date(viewYear, viewMonth, d);
+                const isPast = cellDate < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+                const isSelected =
+                  selectedDate &&
+                  selectedDate.getDate() === d &&
+                  selectedDate.getMonth() === viewMonth &&
+                  selectedDate.getFullYear() === viewYear;
+
+                return (
+                  <button
+                    type="button"
+                    key={d}
+                    onClick={() => !isSubmitting && !isPast && setSelectedDate(cellDate)}
+                    disabled={isPast}
+                    className={`py-2 rounded-md transition-colors ${
+                      isPast
+                        ? "text-outline/40 cursor-not-allowed"
+                        : isSelected
+                        ? "bg-primary text-on-primary font-bold"
+                        : "text-on-surface hover:bg-primary/10 hover:text-primary"
                     }`}
                   >
-                    <div className="flex justify-between items-start mb-4">
-                      <span className="material-symbols-outlined text-[#00daf8] text-3xl">{service.icon}</span>
-                      <div className={`w-4 h-4 rounded-full border transition-colors ${selectedService === service.id ? "bg-[#00daf8] border-[#00daf8]" : "border-[#859397]"}`} />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>{service.title}</h3>
-                    <p className="text-[#bac9cd] text-sm">{service.desc}</p>
+                    {d}
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="mt-6">
+              <p className="font-label-caps text-xs text-outline tracking-widest mb-3">AVAILABLE SLOTS</p>
+              <div className="grid grid-cols-2 gap-3">
+                {AVAILABLE_SLOTS.map((slot) => (
+                  <button
+                    type="button"
+                    key={slot}
+                    onClick={() => !isSubmitting && setSelectedSlot(slot)}
+                    className={`py-3 rounded-lg text-sm font-medium border transition-all ${
+                      selectedSlot === slot
+                        ? "bg-primary-container text-on-primary-container border-primary-container font-bold"
+                        : "border-outline-variant text-on-surface-variant hover:border-primary"
+                    }`}
+                  >
+                    {slot}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Step 3: Project Details */}
+        <section className="mb-12">
+          <h2 className="font-headline-md text-xl font-bold mb-5 flex items-center gap-3">
+            <span className="step-number w-7 h-7 rounded-full bg-primary text-on-primary text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            Project Details
+          </h2>
+          <div className="space-y-5">
+            <div>
+              <label className="font-label-caps text-xs text-outline tracking-widest mb-2 block">FULL NAME</label>
+              <input
+                type="text"
+                placeholder="e.g. Alistair Thorne"
+                value={formData.name}
+                onChange={(e) => handleInput("name", e.target.value)}
+                disabled={isSubmitting}
+                className="w-full px-4 py-3 bg-surface-container-lowest rounded-lg border border-outline-variant focus:border-primary outline-none text-on-surface placeholder-outline transition-all disabled:opacity-50"
+              />
+            </div>
+            <div>
+              <label className="font-label-caps text-xs text-outline tracking-widest mb-2 block">CONTACT INFO (PHONE/EMAIL)</label>
+              <input
+                type="text"
+                placeholder="Your preferred contact detail"
+                value={formData.contact}
+                onChange={(e) => handleInput("contact", e.target.value)}
+                disabled={isSubmitting}
+                className="w-full px-4 py-3 bg-surface-container-lowest rounded-lg border border-outline-variant focus:border-primary outline-none text-on-surface placeholder-outline transition-all disabled:opacity-50"
+              />
+            </div>
+            <div>
+              <label className="font-label-caps text-xs text-outline tracking-widest mb-2 block">PROJECT LOCATION</label>
+              <div className="relative">
+                <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-lg">location_on</span>
+                <input
+                  type="text"
+                  placeholder="Enter city or post code"
+                  value={formData.location}
+                  onChange={(e) => handleInput("location", e.target.value)}
+                  disabled={isSubmitting}
+                  className="w-full pl-11 pr-4 py-3 bg-surface-container-lowest rounded-lg border border-outline-variant focus:border-primary outline-none text-on-surface placeholder-outline transition-all disabled:opacity-50"
+                />
+              </div>
+            </div>
+            <div>
+              <label className="font-label-caps text-xs text-outline tracking-widest mb-2 block">DESCRIPTION OF THE PIECE</label>
+              <textarea
+                placeholder="Briefly describe the style, wood type, and dimensions you have in mind..."
+                value={formData.description}
+                onChange={(e) => handleInput("description", e.target.value)}
+                disabled={isSubmitting}
+                rows={4}
+                className="w-full px-4 py-3 bg-surface-container-lowest rounded-lg border border-outline-variant focus:border-primary outline-none text-on-surface placeholder-outline transition-all disabled:opacity-50 resize-none"
+              />
+            </div>
+
+            <div>
+              <label className="font-label-caps text-xs text-outline tracking-widest mb-2 block">INSPIRATION GALLERY</label>
+              <div className="grid grid-cols-3 gap-3">
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  disabled={isSubmitting || uploadedFiles.length >= 3}
+                  className="aspect-square rounded-lg border-2 border-dashed border-outline-variant flex items-center justify-center text-outline hover:border-primary hover:text-primary transition-colors disabled:opacity-40"
+                >
+                  <span className="material-symbols-outlined text-2xl">add_a_photo</span>
+                </button>
+                <input ref={fileInputRef} type="file" accept="image/*" multiple onChange={handleFileSelect} className="hidden" />
+                {uploadPreviews.map((src, i) => (
+                  <div key={i} className="relative aspect-square rounded-lg overflow-hidden ghost-border">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={src} alt={`Inspiration ${i + 1}`} className="w-full h-full object-cover" />
+                    <button
+                      type="button"
+                      onClick={() => removeImage(i)}
+                      className="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-inverse-surface/80 text-inverse-on-surface flex items-center justify-center text-xs"
+                    >
+                      ✕
+                    </button>
                   </div>
                 ))}
               </div>
-            </section>
-
-            {/* Step 2: Schedule & Contact */}
-            <section className="p-8 md:p-12" style={{ background: "rgba(32,32,31,0.7)", backdropFilter: "blur(20px)", borderTop: "1px solid rgba(232,191,155,0.1)" }}>
-              <h2 className="text-3xl font-semibold mb-8 flex items-center gap-3" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
-                <span className="text-[#00daf8] text-xl font-medium" style={{ fontFamily: "JetBrains Mono, monospace" }}>02</span>
-                Schedule &amp; Contact
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                {/* Calendar */}
-                <div>
-                  <label className="text-xs text-[#bac9cd] mb-4 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>Select Date</label>
-                  <div className="bg-[#2a2a2b] p-4 border border-[#3b494c]">
-                    <div className="flex justify-between items-center mb-6 px-2">
-                      <span className="font-bold">{MONTH_NAMES[viewMonth]} {viewYear}</span>
-                      <div className="flex gap-4">
-                        <span
-                          onClick={goToPrevMonth}
-                          className="material-symbols-outlined cursor-pointer hover:text-[#00daf8]"
-                        >
-                          chevron_left
-                        </span>
-                        <span
-                          onClick={goToNextMonth}
-                          className="material-symbols-outlined cursor-pointer hover:text-[#00daf8]"
-                        >
-                          chevron_right
-                        </span>
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-7 gap-2 text-center text-xs text-[#859397] mb-4" style={{ fontFamily: "JetBrains Mono, monospace" }}>
-                      {["S","M","T","W","T","F","S"].map((d, i) => <span key={i}>{d}</span>)}
-                    </div>
-                    <div className="grid grid-cols-7 gap-2 text-center text-sm">
-                      {Array.from({ length: getFirstWeekday(viewYear, viewMonth) }, (_, i) => (
-                        <div key={`empty-${i}`} />
-                      ))}
-                      {Array.from({ length: getDaysInMonth(viewYear, viewMonth) }, (_, i) => i + 1).map((d) => {
-                        const cellDate = new Date(viewYear, viewMonth, d);
-                        const isPast = cellDate < new Date(today.getFullYear(), today.getMonth(), today.getDate());
-                        const isSelected =
-                          selectedDate &&
-                          selectedDate.getDate() === d &&
-                          selectedDate.getMonth() === viewMonth &&
-                          selectedDate.getFullYear() === viewYear;
-
-                        return (
-                          <div
-                            key={d}
-                            onClick={() => !isSubmitting && !isPast && setSelectedDate(cellDate)}
-                            className={`py-2 transition-colors ${
-                              isPast
-                                ? "text-[#3b494c] cursor-not-allowed"
-                                : isSelected
-                                ? "bg-[#00daf8] text-[#001f25] font-bold cursor-pointer"
-                                : "cursor-pointer hover:bg-[#00b8d4]/30 hover:text-[#00daf8]"
-                            }`}
-                          >
-                            {d}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Contact Fields */}
-                <div className="space-y-6">
-                  {[
-                    { label: "Full Name", placeholder: "Johnathan Doe", type: "text", field: "name" as keyof FormData },
-                    { label: "Phone (For M-Pesa STK)", placeholder: "+254 7XX XXX XXX", type: "tel", field: "phone" as keyof FormData },
-                    { label: "Email Address", placeholder: "info@tuistech.co.ke", type: "email", field: "email" as keyof FormData },                  ].map((f) => (
-                    <div key={f.label}>
-                      <label className="text-xs text-[#bac9cd] mb-1 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>{f.label}</label>
-                      <input
-                        type={f.type}
-                        placeholder={f.placeholder}
-                        value={formData[f.field]}
-                        onChange={(e) => handleInput(f.field, e.target.value)}
-                        disabled={isSubmitting}
-                        className="w-full py-2 bg-transparent border-b border-[#3b494c] focus:border-[#ffb785] outline-none text-[#e5e2e3] placeholder-[#859397] transition-all disabled:opacity-50"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
-          </div>
-
-          {/* Right: Summary & Payment */}
-          <aside className="lg:col-span-5">
-            <div className="sticky top-32">
-              <div className="bg-[#2a2a2b] border border-[#3b494c] p-8">
-                <h3 className="text-2xl font-semibold mb-6 pb-4 border-b border-[#3b494c]" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
-                  Booking Summary
-                </h3>
-                <div className="space-y-4 mb-8">
-                  <div className="flex justify-between">
-                    <span className="text-[#bac9cd]">Service</span>
-                    <span className="text-xs tracking-widest capitalize" style={{ fontFamily: "JetBrains Mono, monospace" }}>
-                      {selectedService ?? "Not selected"}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-[#bac9cd]">Date</span>
-                    <span className="text-xs tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>
-                      {formatSelectedDate(selectedDate)}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-[#bac9cd]">Consultation Fee</span>
-                    <span className="text-xs tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>KES 2,000.00</span>
-                  </div>
-                  <div className="flex justify-between text-[#00daf8] font-bold pt-4 border-t border-[#3b494c]/30">
-                    <span>Total Payable</span>
-                    <span>KES 2,000.00</span>
-                  </div>
-                </div>
-
-                {/* Payment Methods */}
-                <div className="space-y-4 mb-8">
-                  <label className="text-xs text-[#bac9cd] mb-2 block tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>
-                    Payment Method
-                  </label>
-                  {[
-                    { id: "mpesa", label: "M-Pesa STK Push", badge: <span className="h-6 w-12 bg-[#39b54a] flex items-center justify-center text-[8px] font-bold text-white">M-PESA</span> },
-                    { id: "card", label: "Visa / Mastercard", badge: <span className="material-symbols-outlined text-xl">credit_card</span> },
-                    { id: "paypal", label: "PayPal", badge: <span className="material-symbols-outlined text-xl">payments</span> },
-                  ].map((method) => (
-                    <label
-                      key={method.id}
-                      onClick={() => !isSubmitting && setPaymentMethod(method.id)}
-                      className="flex items-center justify-between p-4 border border-[#3b494c] cursor-pointer hover:bg-[#201f20] transition-colors"
-                    >
-                      <div className="flex items-center gap-4">
-                        <div className={`w-4 h-4 rounded-full border transition-colors ${paymentMethod === method.id ? "bg-[#00daf8] border-[#00daf8]" : "border-[#859397]"}`} />
-                        <span className="font-semibold text-sm">{method.label}</span>
-                      </div>
-                      {method.badge}
-                    </label>
-                  ))}
-                </div>
-
-                {/* M-Pesa info banner */}
-                {paymentMethod === "mpesa" && submitStatus === "idle" && (
-                  <div className="mb-6 p-4 bg-[#39b54a]/10 border border-[#39b54a]/30 flex gap-3">
-                    <span className="text-lg">📱</span>
-                    <p className="text-xs text-[#bac9cd] leading-relaxed">
-                      You will receive an M-Pesa prompt on <span className="text-[#00daf8]">{formData.phone || "your phone"}</span>. Enter your PIN to complete payment.
-                    </p>
-                  </div>
-                )}
-
-                <button
-                  onClick={handleSubmit}
-                  disabled={isSubmitting || submitStatus === "confirmed"}
-                  className="w-full py-4 text-sm font-semibold uppercase tracking-widest transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
-                  style={{
-                    background: submitStatus === "confirmed" ? "#3b494c" : "#00daf8",
-                    color: submitStatus === "confirmed" ? "#859397" : "#001f25",
-                    fontFamily: "JetBrains Mono, monospace",
-                  }}
-                >
-                  {submitStatus === "creating" && "Creating Booking..."}
-                  {submitStatus === "stk_sent" && "⏳ Waiting for M-Pesa..."}
-                  {submitStatus === "confirmed" && "✓ Booking Confirmed"}
-                  {submitStatus === "error" && "Try Again"}
-                  {submitStatus === "idle" && (paymentMethod === "mpesa" ? "Pay with M-Pesa" : "Complete Reservation")}
-                </button>
-
-                {/* Trust Badges */}
-                <div className="mt-8 grid grid-cols-2 gap-4">
-                  {[
-                    { icon: "shield", label: "SSL Secured", sub: "256-bit encryption" },
-                    { icon: "verified", label: "Certified", sub: "Studio Verified" },
-                  ].map((badge) => (
-                    <div key={badge.label} className="flex flex-col items-center p-4 border border-[#3b494c]/30 text-center">
-                      <span className="material-symbols-outlined text-[#00daf8] mb-2">{badge.icon}</span>
-                      <p className="text-xs font-semibold">{badge.label}</p>
-                      <p className="text-[10px] text-[#859397]">{badge.sub}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <p className="text-xs text-outline mt-2">Upload images of spaces or furniture styles that inspire you.</p>
             </div>
-          </aside>
-        </div>
+          </div>
+        </section>
+
+        <button
+          onClick={handleSubmit}
+          disabled={isSubmitting || submitStatus === "confirmed"}
+          className="w-full py-4 rounded-lg font-body-md text-base font-bold flex items-center justify-center gap-2 transition-all active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed bg-primary text-on-primary hover:bg-primary-container"
+        >
+          {submitStatus === "creating" && "Creating Booking..."}
+          {submitStatus === "stk_sent" && "Waiting for M-Pesa..."}
+          {submitStatus === "confirmed" && "Booking Confirmed"}
+          {submitStatus === "error" && "Try Again"}
+          {submitStatus === "idle" && (
+            <>
+              Confirm Consultation
+              <span className="material-symbols-outlined text-lg">event_available</span>
+            </>
+          )}
+        </button>
+        <p className="text-center text-xs text-outline mt-4">
+          By booking, you agree to our heritage craftsmanship terms and privacy policy.
+        </p>
       </div>
       <Footer />
     </main>

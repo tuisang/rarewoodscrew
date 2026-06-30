@@ -22,11 +22,11 @@ interface ChatSession {
 }
 
 const STATUS_COLORS: Record<string, string> = {
-  pending: "#ffb785",
-  awaiting_payment: "#facc15",
-  confirmed: "#4ade80",
-  completed: "#60a5fa",
-  cancelled: "#f87171",
+  pending: "#994700",
+  awaiting_payment: "#ca8a04",
+  confirmed: "#16a34a",
+  completed: "#2563eb",
+  cancelled: "#dc2626",
 };
 
 const STATUS_ICONS: Record<string, string> = {
@@ -40,7 +40,7 @@ const STATUS_ICONS: Record<string, string> = {
 const ORDER_STEPS = [
   { key: "pending", label: "Received" },
   { key: "confirmed", label: "Confirmed" },
-  { key: "in_progress", label: "In Fabrication" },
+  { key: "in_progress", label: "In Progress" },
   { key: "quality_check", label: "Quality Check" },
   { key: "completed", label: "Ready" },
 ];
@@ -97,10 +97,10 @@ export default function DashboardPage() {
 
   if (!isLoaded) {
     return (
-      <div className="min-h-screen bg-[#131314] flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="flex gap-3">
           {[0, 1, 2].map((i) => (
-            <div key={i} className="w-3 h-3 bg-[#00daf8] rounded-full animate-bounce" style={{ animationDelay: `${i * 150}ms` }} />
+            <div key={i} className="w-3 h-3 bg-primary rounded-full animate-bounce" style={{ animationDelay: `${i * 150}ms` }} />
           ))}
         </div>
       </div>
@@ -109,12 +109,12 @@ export default function DashboardPage() {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-[#131314] flex flex-col items-center justify-center text-[#e5e2e3] gap-6">
-        <span className="material-symbols-outlined text-6xl text-[#3b494c]">lock</span>
-        <h2 className="text-2xl font-semibold" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center text-on-surface gap-6">
+        <span className="material-symbols-outlined text-6xl text-[var(--color-outline-variant)]">lock</span>
+        <h2 className="text-2xl font-semibold" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
           Sign in to access your dashboard
         </h2>
-        <Link href="/" className="bg-[#00daf8] text-[#001f25] px-8 py-3 text-sm font-semibold">
+        <Link href="/" className="bg-primary text-on-primary px-8 py-3 text-sm font-semibold">
           Go to Home
         </Link>
       </div>
@@ -122,10 +122,10 @@ export default function DashboardPage() {
   }
 
   return (
-    <main className="bg-[#131314] text-[#e5e2e3] min-h-screen">
+    <main className="bg-background text-on-surface min-h-screen">
       <div
         className="fixed inset-0 pointer-events-none z-0 opacity-[0.03]"
-        style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/carbon-fibre.png')" }}
+        style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/oak.png')" }}
       />
 
       <div className="relative z-10 pt-32 pb-24 max-w-[1440px] mx-auto px-4 md:px-16">
@@ -133,25 +133,25 @@ export default function DashboardPage() {
         {/* Welcome Header */}
         <header className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
-            <span className="text-xs text-[#ffb785] uppercase tracking-[0.2em] mb-3 block" style={{ fontFamily: "JetBrains Mono, monospace" }}>
+            <span className="text-xs text-primary uppercase tracking-[0.2em] mb-3 block" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
               Welcome Back
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
               {user.firstName ? `${user.firstName}'s Workshop` : "Your Workshop"}
             </h1>
-            <p className="text-[#859397] mt-2">{user.primaryEmailAddress?.emailAddress}</p>
+            <p className="text-outline mt-2">{user.primaryEmailAddress?.emailAddress}</p>
           </div>
           <div className="flex gap-3">
             <Link
               href="/booking"
-              className="bg-[#00daf8] text-[#001f25] px-6 py-3 text-sm font-semibold hover:brightness-110 transition-all flex items-center gap-2"
+              className="bg-primary text-on-primary px-6 py-3 text-sm font-semibold hover:brightness-110 transition-all flex items-center gap-2"
             >
               <span className="material-symbols-outlined text-sm">add</span>
               New Booking
             </Link>
             <Link
               href="/portfolio"
-              className="border border-[#3b494c] text-[#bac9cd] px-6 py-3 text-sm font-semibold hover:border-[#00daf8] transition-colors"
+              className="border border-outline-variant text-on-surface-variant px-6 py-3 text-sm font-semibold hover:border-primary transition-colors"
             >
               Portfolio
             </Link>
@@ -166,10 +166,10 @@ export default function DashboardPage() {
             { label: "PENDING", value: bookings.filter((b) => b.status === "pending" || b.status === "awaiting_payment").length, icon: "schedule" },
             { label: "CHAT SESSIONS", value: sessions.length, icon: "chat_bubble" },
           ].map((stat) => (
-            <div key={stat.label} className="bg-[#201f20] border border-[#3b494c]/40 p-6">
-              <span className="material-symbols-outlined text-[#00daf8] text-xl mb-3 block">{stat.icon}</span>
-              <p className="text-3xl font-bold mb-1" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>{stat.value}</p>
-              <p className="text-xs text-[#859397] tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>{stat.label}</p>
+            <div key={stat.label} className="bg-surface-container-low border border-outline-variant/40 p-6">
+              <span className="material-symbols-outlined text-primary text-xl mb-3 block">{stat.icon}</span>
+              <p className="text-3xl font-bold mb-1" style={{ fontFamily: "Libre Franklin, sans-serif" }}>{stat.value}</p>
+              <p className="text-xs text-outline tracking-widest" style={{ fontFamily: "Libre Franklin, sans-serif" }}>{stat.label}</p>
             </div>
           ))}
         </div>
@@ -178,7 +178,7 @@ export default function DashboardPage() {
           <div className="flex justify-center py-20">
             <div className="flex gap-3">
               {[0, 1, 2].map((i) => (
-                <div key={i} className="w-3 h-3 bg-[#00daf8] rounded-full animate-bounce" style={{ animationDelay: `${i * 150}ms` }} />
+                <div key={i} className="w-3 h-3 bg-primary rounded-full animate-bounce" style={{ animationDelay: `${i * 150}ms` }} />
               ))}
             </div>
           </div>
@@ -192,17 +192,17 @@ export default function DashboardPage() {
 
               {/* Order Tracker */}
               {bookings.length > 0 && (
-                <section className="bg-[#201f20] border border-[#3b494c]/40">
-                  <div className="p-6 border-b border-[#3b494c]/40 flex items-center justify-between">
-                    <h2 className="text-xl font-semibold" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
+                <section className="bg-surface-container-low border border-outline-variant/40">
+                  <div className="p-6 border-b border-outline-variant/40 flex items-center justify-between">
+                    <h2 className="text-xl font-semibold" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
                       Order Tracker
                     </h2>
                     {bookings.length > 1 && (
                       <select
                         value={activeBooking ?? ""}
                         onChange={(e) => setActiveBooking(e.target.value)}
-                        className="bg-[#131314] border border-[#3b494c] text-xs px-3 py-2 text-[#e5e2e3] outline-none"
-                        style={{ fontFamily: "JetBrains Mono, monospace" }}
+                        className="bg-background border border-outline-variant text-xs px-3 py-2 text-on-surface outline-none"
+                        style={{ fontFamily: "Libre Franklin, sans-serif" }}
                       >
                         {bookings.map((b) => (
                           <option key={b.id} value={b.id}>
@@ -217,14 +217,14 @@ export default function DashboardPage() {
                       <div className="flex items-center justify-between mb-8">
                         <div>
                           <p className="font-semibold capitalize">{activeBookingData.service}</p>
-                          <p className="text-xs text-[#859397]">{activeBookingData.date}</p>
+                          <p className="text-xs text-outline">{activeBookingData.date}</p>
                         </div>
                         <span
                           className="text-xs px-3 py-1 border"
                           style={{
                             borderColor: STATUS_COLORS[activeBookingData.status],
                             color: STATUS_COLORS[activeBookingData.status],
-                            fontFamily: "JetBrains Mono, monospace",
+                            fontFamily: "Libre Franklin, sans-serif",
                           }}
                         >
                           {activeBookingData.status.replace("_", " ").toUpperCase()}
@@ -233,9 +233,9 @@ export default function DashboardPage() {
 
                       {/* Progress Steps */}
                       <div className="relative">
-                        <div className="absolute top-4 left-0 right-0 h-[2px] bg-[#3b494c]/40 mx-8" />
+                        <div className="absolute top-4 left-0 right-0 h-[2px] bg-[var(--color-outline-variant)]/40 mx-8" />
                         <div
-                          className="absolute top-4 left-0 h-[2px] bg-[#00daf8] mx-8 transition-all duration-700"
+                          className="absolute top-4 left-0 h-[2px] bg-primary mx-8 transition-all duration-700"
                           style={{ width: `${(getStepIndex(activeBookingData.status) / (ORDER_STEPS.length - 1)) * 100}%` }}
                         />
                         <div className="relative flex justify-between">
@@ -248,23 +248,23 @@ export default function DashboardPage() {
                                 <div
                                   className="w-8 h-8 rounded-full flex items-center justify-center border-2 transition-all duration-500 z-10"
                                   style={{
-                                    background: isCompleted || isCurrent ? "#00daf8" : "#131314",
-                                    borderColor: isCompleted || isCurrent ? "#00daf8" : "#3b494c",
+                                    background: isCompleted || isCurrent ? "#994700" : "var(--color-background)",
+                                    borderColor: isCompleted || isCurrent ? "#994700" : "var(--color-outline-variant)",
                                   }}
                                 >
                                   {isCompleted ? (
-                                    <span className="material-symbols-outlined text-[#001f25] text-sm">check</span>
+                                    <span className="material-symbols-outlined text-on-primary text-sm">check</span>
                                   ) : isCurrent ? (
-                                    <div className="w-2 h-2 bg-[#001f25] rounded-full" />
+                                    <div className="w-2 h-2 bg-[var(--color-on-primary)] rounded-full" />
                                   ) : (
-                                    <div className="w-2 h-2 bg-[#3b494c] rounded-full" />
+                                    <div className="w-2 h-2 bg-[var(--color-outline-variant)] rounded-full" />
                                   )}
                                 </div>
                                 <span
                                   className="text-[10px] text-center w-16"
                                   style={{
-                                    color: isCompleted || isCurrent ? "#00daf8" : "#859397",
-                                    fontFamily: "JetBrains Mono, monospace",
+                                    color: isCompleted || isCurrent ? "#994700" : "var(--color-outline)",
+                                    fontFamily: "Libre Franklin, sans-serif",
                                   }}
                                 >
                                   {step.label}
@@ -276,10 +276,10 @@ export default function DashboardPage() {
                       </div>
 
                       {activeBookingData.mpesaReceiptNumber && (
-                        <div className="mt-6 p-4 bg-[#131314] border border-[#3b494c]/40 flex items-center gap-3">
-                          <span className="material-symbols-outlined text-[#4ade80] text-sm">receipt</span>
+                        <div className="mt-6 p-4 bg-background border border-outline-variant/40 flex items-center gap-3">
+                          <span className="material-symbols-outlined text-[#16a34a] text-sm">receipt</span>
                           <div>
-                            <p className="text-xs text-[#859397]" style={{ fontFamily: "JetBrains Mono, monospace" }}>M-PESA RECEIPT</p>
+                            <p className="text-xs text-outline" style={{ fontFamily: "Libre Franklin, sans-serif" }}>M-PESA RECEIPT</p>
                             <p className="text-sm font-semibold">{activeBookingData.mpesaReceiptNumber}</p>
                           </div>
                         </div>
@@ -290,29 +290,29 @@ export default function DashboardPage() {
               )}
 
               {/* My Bookings */}
-              <section className="bg-[#201f20] border border-[#3b494c]/40">
-                <div className="p-6 border-b border-[#3b494c]/40 flex justify-between items-center">
-                  <h2 className="text-xl font-semibold" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
+              <section className="bg-surface-container-low border border-outline-variant/40">
+                <div className="p-6 border-b border-outline-variant/40 flex justify-between items-center">
+                  <h2 className="text-xl font-semibold" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
                     My Bookings
                   </h2>
-                  <Link href="/booking" className="text-xs text-[#00daf8] hover:underline" style={{ fontFamily: "JetBrains Mono, monospace" }}>
+                  <Link href="/booking" className="text-xs text-primary hover:underline" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
                     + NEW
                   </Link>
                 </div>
                 {bookings.length === 0 ? (
                   <div className="p-12 text-center">
-                    <span className="material-symbols-outlined text-4xl text-[#3b494c] mb-4 block">calendar_month</span>
-                    <p className="text-[#859397] mb-6">No bookings yet.</p>
-                    <Link href="/booking" className="bg-[#00daf8] text-[#001f25] px-8 py-3 text-sm font-semibold">
+                    <span className="material-symbols-outlined text-4xl text-[var(--color-outline-variant)] mb-4 block">calendar_month</span>
+                    <p className="text-outline mb-6">No bookings yet.</p>
+                    <Link href="/booking" className="bg-primary text-on-primary px-8 py-3 text-sm font-semibold">
                       Book a Consultation
                     </Link>
                   </div>
                 ) : (
-                  <div className="divide-y divide-[#3b494c]/20">
+                  <div className="divide-y divide-[var(--color-outline-variant)]/20">
                     {bookings.map((b) => (
                       <div
                         key={b.id}
-                        className="p-5 flex items-center justify-between hover:bg-[#131314] transition-colors cursor-pointer"
+                        className="p-5 flex items-center justify-between hover:bg-background transition-colors cursor-pointer"
                         onClick={() => setActiveBooking(b.id)}
                       >
                         <div className="flex items-center gap-4">
@@ -329,7 +329,7 @@ export default function DashboardPage() {
                           </div>
                           <div>
                             <p className="font-semibold capitalize">{b.service}</p>
-                            <p className="text-xs text-[#859397]">{b.date} · {b.paymentMethod}</p>
+                            <p className="text-xs text-outline">{b.date} · {b.paymentMethod}</p>
                           </div>
                         </div>
                         <div className="text-right">
@@ -338,12 +338,12 @@ export default function DashboardPage() {
                             style={{
                               borderColor: STATUS_COLORS[b.status],
                               color: STATUS_COLORS[b.status],
-                              fontFamily: "JetBrains Mono, monospace",
+                              fontFamily: "Libre Franklin, sans-serif",
                             }}
                           >
                             {b.status.replace("_", " ").toUpperCase()}
                           </span>
-                          <p className="text-xs text-[#3b494c]">{formatDate(b.createdAt)}</p>
+                          <p className="text-xs text-[var(--color-outline-variant)]">{formatDate(b.createdAt)}</p>
                         </div>
                       </div>
                     ))}
@@ -356,8 +356,8 @@ export default function DashboardPage() {
             <div className="lg:col-span-4 space-y-6">
 
               {/* Quick Actions */}
-              <section className="bg-[#201f20] border border-[#3b494c]/40 p-6">
-                <h2 className="text-lg font-semibold mb-6" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
+              <section className="bg-surface-container-low border border-outline-variant/40 p-6">
+                <h2 className="text-lg font-semibold mb-6" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
                   Quick Actions
                 </h2>
                 <div className="space-y-3">
@@ -370,14 +370,14 @@ export default function DashboardPage() {
                     <Link
                       key={action.href}
                       href={action.href}
-                      className="flex items-center gap-4 p-4 border border-[#3b494c]/40 hover:border-[#00daf8] hover:bg-[#131314] transition-all group"
+                      className="flex items-center gap-4 p-4 border border-outline-variant/40 hover:border-primary hover:bg-background transition-all group"
                     >
-                      <span className="material-symbols-outlined text-[#00daf8] text-xl">{action.icon}</span>
+                      <span className="material-symbols-outlined text-primary text-xl">{action.icon}</span>
                       <div>
-                        <p className="text-sm font-semibold group-hover:text-[#00daf8] transition-colors">{action.label}</p>
-                        <p className="text-xs text-[#859397]">{action.sub}</p>
+                        <p className="text-sm font-semibold group-hover:text-primary transition-colors">{action.label}</p>
+                        <p className="text-xs text-outline">{action.sub}</p>
                       </div>
-                      <span className="material-symbols-outlined text-[#3b494c] group-hover:text-[#00daf8] ml-auto transition-colors text-sm">
+                      <span className="material-symbols-outlined text-[var(--color-outline-variant)] group-hover:text-primary ml-auto transition-colors text-sm">
                         arrow_forward
                       </span>
                     </Link>
@@ -386,40 +386,40 @@ export default function DashboardPage() {
               </section>
 
               {/* Recent Chats */}
-              <section className="bg-[#201f20] border border-[#3b494c]/40">
-                <div className="p-6 border-b border-[#3b494c]/40 flex justify-between items-center">
-                  <h2 className="text-lg font-semibold" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
+              <section className="bg-surface-container-low border border-outline-variant/40">
+                <div className="p-6 border-b border-outline-variant/40 flex justify-between items-center">
+                  <h2 className="text-lg font-semibold" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
                     Recent Chats
                   </h2>
-                  <Link href="/chat-history" className="text-xs text-[#00daf8] hover:underline" style={{ fontFamily: "JetBrains Mono, monospace" }}>
+                  <Link href="/chat-history" className="text-xs text-primary hover:underline" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
                     VIEW ALL
                   </Link>
                 </div>
                 {sessions.length === 0 ? (
                   <div className="p-8 text-center">
-                    <span className="material-symbols-outlined text-3xl text-[#3b494c] mb-3 block">chat_bubble</span>
-                    <p className="text-sm text-[#859397]">No chats yet. Ask the AI Artisan anything!</p>
+                    <span className="material-symbols-outlined text-3xl text-[var(--color-outline-variant)] mb-3 block">chat_bubble</span>
+                    <p className="text-sm text-outline">No chats yet. Ask the AI Artisan anything!</p>
                   </div>
                 ) : (
-                  <div className="divide-y divide-[#3b494c]/20">
+                  <div className="divide-y divide-[var(--color-outline-variant)]/20">
                     {sessions.slice(0, 4).map((session, i) => {
                       const firstMsg = session.messages.find((m) => m.role === "user");
                       return (
                         <Link
                           key={session.id}
                           href="/chat-history"
-                          className="block p-4 hover:bg-[#131314] transition-colors"
+                          className="block p-4 hover:bg-background transition-colors"
                         >
                           <div className="flex justify-between items-start mb-1">
-                            <span className="text-xs text-[#00daf8]" style={{ fontFamily: "JetBrains Mono, monospace" }}>
+                            <span className="text-xs text-primary" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
                               SESSION {String(i + 1).padStart(2, "0")}
                             </span>
-                            <span className="text-[10px] text-[#3b494c]">{session.messages.length} msgs</span>
+                            <span className="text-[10px] text-[var(--color-outline-variant)]">{session.messages.length} msgs</span>
                           </div>
-                          <p className="text-sm text-[#bac9cd] line-clamp-2">
+                          <p className="text-sm text-on-surface-variant line-clamp-2">
                             {firstMsg?.content ?? "New conversation"}
                           </p>
-                          <p className="text-[10px] text-[#3b494c] mt-1" style={{ fontFamily: "JetBrains Mono, monospace" }}>
+                          <p className="text-[10px] text-[var(--color-outline-variant)] mt-1" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
                             {formatDate(session.createdAt)}
                           </p>
                         </Link>
@@ -430,23 +430,23 @@ export default function DashboardPage() {
               </section>
 
               {/* Contact Card */}
-              <section className="bg-[#1c1b1c] border border-[#3b494c]/40 p-6">
-                <h2 className="text-lg font-semibold mb-4" style={{ fontFamily: "Archivo Narrow, sans-serif" }}>
+              <section className="bg-surface-container-lowest border border-outline-variant/40 p-6">
+                <h2 className="text-lg font-semibold mb-4" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
                   Need Help?
                 </h2>
                 <div className="space-y-3">
-                  <a href="tel:+254726461196" className="flex items-center gap-3 text-sm text-[#bac9cd] hover:text-[#00daf8] transition-colors">
-                    <span className="material-symbols-outlined text-[#00daf8] text-sm">call</span>
+                  <a href="tel:+254726461196" className="flex items-center gap-3 text-sm text-on-surface-variant hover:text-primary transition-colors">
+                    <span className="material-symbols-outlined text-primary text-sm">call</span>
                     +254 726 461 196
                   </a>
-                    <a href="mailto:info@tuistech.co.ke" className="flex items-center gap-3 text-sm text-[#bac9cd] hover:text-[#00daf8] transition-colors">
-                    <span className="material-symbols-outlined text-[#00daf8] text-sm">mail</span>
+                    <a href="mailto:info@tuistech.co.ke" className="flex items-center gap-3 text-sm text-on-surface-variant hover:text-primary transition-colors">
+                    <span className="material-symbols-outlined text-primary text-sm">mail</span>
                     info@tuistech.co.ke
                   </a>
                 </div>
-                <div className="mt-6 pt-4 border-t border-[#3b494c]/30">
-                  <p className="text-xs text-[#3b494c] tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>
-                    FORGED IN NAIROBI, KENYA
+                <div className="mt-6 pt-4 border-t border-outline-variant/30">
+                  <p className="text-xs text-[var(--color-outline-variant)] tracking-widest" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
+                    CRAFTED IN NAIROBI, KENYA
                   </p>
                 </div>
               </section>

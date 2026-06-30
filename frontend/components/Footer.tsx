@@ -25,29 +25,27 @@ export default function Footer() {
 
 
   return (
-    <footer style={{ background: "#0e1c14", borderTop: "1px solid rgba(61,43,31,0.5)" }}>
+    <footer className="bg-inverse-surface text-inverse-on-surface" style={{ borderTop: "1px solid rgba(140,114,99,0.3)" }}>
 
       {/* Top CTA Banner */}
-      <div style={{ borderBottom: "1px solid rgba(61,43,31,0.3)", background: "rgba(217,160,91,0.06)" }}>
+      <div style={{ borderBottom: "1px solid rgba(140,114,99,0.25)", background: "rgba(255,122,0,0.06)" }}>
         <div className="max-w-[1440px] mx-auto px-4 md:px-16 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <p className="text-2xl font-bold" style={{ fontFamily: "Domine, serif" }}>
+            <p className="font-headline-md text-2xl font-bold">
               Ready to start your woodworking project?
             </p>
-            <p className="text-[#737973] text-sm mt-1">Speak with our master craftsmen today.</p>
+            <p className="text-inverse-on-surface/60 text-sm mt-1">Speak with our master craftsmen today.</p>
           </div>
           <div className="flex gap-4 flex-shrink-0">
             <Link
               href="/booking"
-              className="bg-[#825516] text-[#ffffff] px-8 py-3 text-sm font-semibold hover:brightness-110 transition-all active:scale-95"
-              style={{ fontFamily: "Work Sans, sans-serif" }}
+              className="bg-primary text-on-primary px-8 py-3 rounded-lg text-sm font-bold hover:bg-primary-container transition-all active:scale-95"
             >
               BOOK CONSULTATION
             </Link>
             <Link
               href="/portfolio"
-              className="border border-[#c3c8c1] text-[#434843] px-8 py-3 text-sm font-semibold hover:border-[#825516] hover:text-[#825516] transition-all"
-              style={{ fontFamily: "Work Sans, sans-serif" }}
+              className="border border-inverse-on-surface/30 text-inverse-on-surface px-8 py-3 rounded-lg text-sm font-bold hover:border-primary-fixed-dim hover:text-primary-fixed-dim transition-all"
             >
               VIEW PORTFOLIO
             </Link>
@@ -66,15 +64,15 @@ export default function Footer() {
                 <span className="material-symbols-outlined text-surface-cream text-xl">carpenter</span>
               </div>
               <div>
-                <p className="text-[#825516] font-bold text-xl leading-none" style={{ fontFamily: "Domine, serif" }}>
+                <p className="font-headline-md text-primary-fixed-dim font-bold text-xl leading-none">
                   Rarewoods Crew
                 </p>
-                <p className="text-[9px] text-[#737973] tracking-[0.2em] mt-0.5" style={{ fontFamily: "Work Sans, sans-serif" }}>
+                <p className="font-label-caps text-[9px] text-inverse-on-surface/50 tracking-[0.2em] mt-0.5">
                   MASTER CRAFTSMEN · NAIROBI
                 </p>
               </div>
             </Link>
-            <p className="text-[#434843] text-sm leading-relaxed mb-8 max-w-xs">
+            <p className="text-inverse-on-surface/70 text-sm leading-relaxed mb-8 max-w-xs">
               A craftsman studio dedicated to the art of fine woodworking. Made for those who value quality joinery and honest timelines.
             </p>
 
@@ -82,17 +80,17 @@ export default function Footer() {
             <div className="space-y-3 mb-8">
               <a
                 href="tel:+254726461196"
-                className="flex items-center gap-3 text-sm text-[#434843] hover:text-[#825516] transition-colors group"
+                className="flex items-center gap-3 text-sm text-inverse-on-surface/70 hover:text-primary-fixed-dim transition-colors group"
               >
-                <div className="w-8 h-8 border border-[#c3c8c1] group-hover:border-[#825516] flex items-center justify-center transition-colors flex-shrink-0">
+                <div className="w-8 h-8 border border-inverse-on-surface/20 group-hover:border-primary-fixed-dim flex items-center justify-center transition-colors flex-shrink-0 rounded-md">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                   </svg>
                 </div>
                 +254 726 461 196
               </a>
-              <div className="flex items-center gap-3 text-sm text-[#434843]">
-                <div className="w-8 h-8 border border-[#c3c8c1] flex items-center justify-center flex-shrink-0">
+              <div className="flex items-center gap-3 text-sm text-inverse-on-surface/70">
+                <div className="w-8 h-8 border border-inverse-on-surface/20 flex items-center justify-center flex-shrink-0 rounded-md">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                     <circle cx="12" cy="10" r="3"/>
@@ -107,16 +105,17 @@ export default function Footer() {
              {[
   {
     label: "TikTok",
-    href: "https://www.tiktok.com/@blacksteelcrew",
+    href: "https://www.tiktok.com/@rarewoodscrew",
     path: "M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.77a4.85 4.85 0 0 1-1.01-.08z",
   },
   {
     label: "Instagram",
-    href: "https://www.instagram.com/blacksteelcrew/",
+    href: "https://www.instagram.com/rarewoodscrew/",
     path: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z M17.5 6.5h.01 M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z",
   },
   {
     label: "YouTube",
+    href: "https://www.youtube.com/@rarewoodscrew",
     path: "M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z M9.75 15.02l5.75-3.02-5.75-3.02v6.04z",
   },
 ].map((social) => (  <a
@@ -125,7 +124,7 @@ export default function Footer() {
     href={social.href ?? "#"}
     target={social.href ? "_blank" : undefined}
     rel={social.href ? "noopener noreferrer" : undefined}
-    className="w-9 h-9 border border-[#c3c8c1] hover:border-[#825516] flex items-center justify-center text-[#434843] hover:text-[#825516] transition-all"
+    className="w-9 h-9 rounded-md border border-inverse-on-surface/20 hover:border-primary-fixed-dim flex items-center justify-center text-inverse-on-surface/70 hover:text-primary-fixed-dim transition-all"
     aria-label={social.label}
   >
     <svg
@@ -148,8 +147,7 @@ export default function Footer() {
           {/* Navigation Links */}
           <div className="md:col-span-2">
             <h4
-              className="text-[#1b1c19] text-xs font-medium tracking-widest mb-6"
-              style={{ fontFamily: "Work Sans, sans-serif" }}
+              className="font-label-caps text-inverse-on-surface text-xs font-medium tracking-widest mb-6"
             >
               NAVIGATE
             </h4>
@@ -166,10 +164,10 @@ export default function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-[#434843] hover:text-[#825516] transition-colors text-sm flex items-center gap-2 group"
+                    className="text-inverse-on-surface/70 hover:text-primary-fixed-dim transition-colors text-sm flex items-center gap-2 group"
                   >
                     <span className="w-0 group-hover:w-3 overflow-hidden transition-all duration-300">
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#825516" strokeWidth="2.5">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#ffb68b" strokeWidth="2.5">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                       </svg>
                     </span>
@@ -183,27 +181,26 @@ export default function Footer() {
           {/* Services */}
           <div className="md:col-span-2">
             <h4
-              className="text-[#1b1c19] text-xs font-medium tracking-widest mb-6"
-              style={{ fontFamily: "Work Sans, sans-serif" }}
+              className="font-label-caps text-inverse-on-surface text-xs font-medium tracking-widest mb-6"
             >
               SERVICES
             </h4>
            <ul className="space-y-3">
               {[
-  { label: "Custom Gates", anchor: "custom-gates" },
-  { label: "Railings & Balustrades", anchor: "railings-balustrades" },
-  { label: "Staircase Fabrication", anchor: "staircase-fabrication" },
   { label: "Custom Furniture", anchor: "custom-furniture" },
-  { label: "Precision Welding", anchor: "precision-welding" },
-  { label: "Commercial Installations", anchor: "commercial-installations" },
+  { label: "Kitchen Cabinets", anchor: "kitchen-cabinets" },
+  { label: "Bedroom & Wardrobes", anchor: "bedroom-wardrobes" },
+  { label: "Doors & Staircases", anchor: "doors-staircases" },
+  { label: "Restoration & Repair", anchor: "restoration-repair" },
+  { label: "Commercial Joinery", anchor: "commercial-joinery" },
 ].map((item) => (
   <li key={item.anchor}>
     <Link
       href={`/services#${item.anchor}`}
-      className="text-[#434843] hover:text-[#825516] transition-colors text-sm flex items-center gap-2 group"
+      className="text-inverse-on-surface/70 hover:text-primary-fixed-dim transition-colors text-sm flex items-center gap-2 group"
     >
       <span className="w-0 group-hover:w-3 overflow-hidden transition-all duration-300">
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#825516" strokeWidth="2.5">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#ffb68b" strokeWidth="2.5">
           <path d="M5 12h14M12 5l7 7-7 7"/>
         </svg>
       </span>
@@ -217,22 +214,21 @@ export default function Footer() {
           {/* Newsletter */}
           <div className="md:col-span-4">
             <h4
-              className="text-[#1b1c19] text-xs font-medium tracking-widest mb-6"
-              style={{ fontFamily: "Work Sans, sans-serif" }}
+              className="font-label-caps text-inverse-on-surface text-xs font-medium tracking-widest mb-6"
             >
               JOIN THE CREW
             </h4>
-            <p className="text-sm text-[#434843] mb-6 leading-relaxed">
-              Subscribe for first access to completed projects, behind-the-scenes fabrication, and studio updates.
+            <p className="text-sm text-inverse-on-surface/70 mb-6 leading-relaxed">
+              Subscribe for first access to completed projects, behind-the-scenes craftsmanship, and studio updates.
             </p>
 
             {subscribed ? (
-              <div className="border border-[#825516]/30 bg-[#825516]/5 px-6 py-4 flex items-center gap-3">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#825516" strokeWidth="2">
+              <div className="border border-primary-fixed-dim/30 bg-primary-fixed-dim/10 px-6 py-4 flex items-center gap-3 rounded-lg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffb68b" strokeWidth="2">
                   <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
                   <polyline points="22 4 12 14.01 9 11.01"/>
                 </svg>
-                <p className="text-sm text-[#825516]">You&apos;re on the list. Welcome to the Crew.</p>
+                <p className="text-sm text-primary-fixed-dim">You&apos;re on the list. Welcome to the Crew.</p>
               </div>
             ) : (
               <div>
@@ -243,16 +239,16 @@ export default function Footer() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
-                    className="bg-[#fbf9f4] border border-[#c3c8c1] focus:border-[#825516] outline-none px-4 py-3 flex-grow text-sm text-[#1b1c19] placeholder-[#737973] transition-all"
+                    className="bg-inverse-surface border border-inverse-on-surface/25 focus:border-primary-fixed-dim outline-none px-4 py-3 flex-grow text-sm text-inverse-on-surface placeholder-inverse-on-surface/40 rounded-l-lg transition-all"
                   />
                   <button
                     onClick={handleSubscribe}
-                    className="bg-[#825516] text-[#ffffff] px-6 py-3 text-sm font-semibold hover:brightness-110 transition-all flex-shrink-0"
+                    className="bg-primary text-on-primary px-6 py-3 text-sm font-bold rounded-r-lg hover:bg-primary-container transition-all flex-shrink-0"
                   >
                     Subscribe
                   </button>
                 </div>
-                <p className="text-xs text-[#c3c8c1] mt-2">No spam. Unsubscribe anytime.</p>
+                <p className="text-xs text-inverse-on-surface/40 mt-2">No spam. Unsubscribe anytime.</p>
               </div>
             )}
 
@@ -276,13 +272,13 @@ export default function Footer() {
                   sub: "Local craftsmanship",
                 },
               ].map((badge) => (
-                <div key={badge.label} className="flex items-center gap-3 p-3 border border-[#c3c8c1]/40">
+                <div key={badge.label} className="flex items-center gap-3 p-3 border border-inverse-on-surface/15 rounded-lg">
                   <svg
                     width="16"
                     height="16"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke="#825516"
+                    stroke="#ffb68b"
                     strokeWidth="1.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -291,8 +287,8 @@ export default function Footer() {
                     <path d={badge.icon} />
                   </svg>
                   <div>
-                    <p className="text-xs font-semibold text-[#1b1c19]">{badge.label}</p>
-                    <p className="text-[10px] text-[#737973]">{badge.sub}</p>
+                    <p className="text-xs font-semibold text-inverse-on-surface">{badge.label}</p>
+                    <p className="text-[10px] text-inverse-on-surface/50">{badge.sub}</p>
                   </div>
                 </div>
               ))}
@@ -302,17 +298,17 @@ export default function Footer() {
       </div>
 
       {/* Map Section */}
-      <div style={{ borderTop: "1px solid rgba(61,43,31,0.3)" }}>
+      <div style={{ borderTop: "1px solid rgba(140,114,99,0.25)" }}>
         <div className="max-w-[1440px] mx-auto px-4 md:px-16 py-12">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
 
             {/* Contact Info */}
             <div className="md:col-span-4 space-y-6">
               <div>
-                <h3 className="text-lg font-semibold mb-4" style={{ fontFamily: "Domine, serif" }}>
+                <h3 className="font-headline-md text-lg font-semibold mb-4">
                   Find Our Studio
                 </h3>
-                <p className="text-[#434843] text-sm leading-relaxed">
+                <p className="text-inverse-on-surface/70 text-sm leading-relaxed">
                   Visit our workshop along Ngong Road, Nairobi. We welcome clients by appointment — book a consultation to arrange a visit.
                 </p>
               </div>
@@ -328,13 +324,13 @@ export default function Footer() {
                   },
                 ].map((item) => (
                   <div key={item.label} className="flex items-start gap-3">
-                    <div className="w-8 h-8 border border-[#c3c8c1] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-8 h-8 border border-inverse-on-surface/20 flex items-center justify-center flex-shrink-0 mt-0.5 rounded-md">
                       <svg
                         width="14"
                         height="14"
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke="#825516"
+                        stroke="#ffb68b"
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -342,7 +338,7 @@ export default function Footer() {
                         <path d={item.icon} />
                       </svg>
                     </div>
-                    <p className="text-sm text-[#434843] leading-relaxed">{item.label}</p>
+                    <p className="text-sm text-inverse-on-surface/70 leading-relaxed">{item.label}</p>
                   </div>
                 ))}
               </div>
@@ -350,8 +346,7 @@ export default function Footer() {
                 href="https://www.google.com/maps/dir/?api=1&destination=-1.2921,36.8219"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs text-[#825516] border border-[#825516]/30 px-4 py-2 hover:bg-[#825516]/10 transition-colors"
-                style={{ fontFamily: "Work Sans, sans-serif" }}
+                className="inline-flex items-center gap-2 text-xs font-label-caps text-primary-fixed-dim border border-primary-fixed-dim/30 rounded-lg px-4 py-2 hover:bg-primary-fixed-dim/10 transition-colors"
               >
                 GET DIRECTIONS →
               </a>
@@ -360,7 +355,7 @@ export default function Footer() {
             {/* Google Map Embed */}
             <div className="md:col-span-8">
               <div
-                className="relative w-full overflow-hidden rounded-xl border border-[#c3c8c1]/40"
+                className="relative w-full overflow-hidden rounded-xl border border-inverse-on-surface/20"
                 style={{ height: "320px" }}
               >
                 <iframe
@@ -378,11 +373,10 @@ export default function Footer() {
                   title="Rarewoods Crew Location"
                 />
                 {/* Overlay badge */}
-                <div className="absolute top-4 left-4 bg-[#ffffff]/90 border border-[#825516]/30 px-3 py-2 flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#825516] rounded-full animate-pulse" />
+                <div className="absolute top-4 left-4 bg-surface-container-lowest/90 border border-primary/30 rounded-lg px-3 py-2 flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
                   <span
-                    className="text-xs text-[#825516]"
-                    style={{ fontFamily: "Work Sans, sans-serif" }}
+                    className="font-label-caps text-xs text-primary"
                   >
                     NGONG ROAD · NAIROBI
                   </span>
@@ -394,23 +388,22 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div style={{ borderTop: "1px solid rgba(61,43,31,0.3)", background: "rgba(14,28,20,0.95)" }}>
+      <div style={{ borderTop: "1px solid rgba(140,114,99,0.25)", background: "rgba(29,27,23,0.4)" }}>
         <div className="max-w-[1440px] mx-auto px-4 md:px-16 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[#737973] text-xs text-center md:text-left">
+          <p className="text-inverse-on-surface/50 text-xs text-center md:text-left">
             © {new Date().getFullYear()} Rarewoods Crew. All Rights Reserved.
           </p>
           <div className="flex items-center gap-6">
             {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item) => (
-              <a key={item} href="#" className="text-[#737973] hover:text-[#825516] text-xs transition-colors">
+              <a key={item} href="#" className="text-inverse-on-surface/50 hover:text-primary-fixed-dim text-xs transition-colors">
                 {item}
               </a>
             ))}
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-[#825516] rounded-full animate-pulse" />
+            <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
             <span
-              className="text-xs text-[#737973]"
-              style={{ fontFamily: "Work Sans, sans-serif" }}
+              className="font-label-caps text-xs text-inverse-on-surface/50"
             >
               CRAFTED IN KENYA
             </span>

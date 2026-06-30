@@ -7,7 +7,7 @@ const CONSUMER_KEY = process.env.MPESA_CONSUMER_KEY!;
 const CONSUMER_SECRET = process.env.MPESA_CONSUMER_SECRET!;
 const CALLBACK_URL = process.env.MPESA_SHOP_CALLBACK_URL
   ?? process.env.MPESA_CALLBACK_URL?.replace("/api/mpesa/callback", "/api/mpesa/shop-callback")
-  ?? "https://blacksteelcrew.tuistech.co.ke/api/mpesa/shop-callback";
+  ?? "https://rarewoodscrew.tuistech.co.ke/api/mpesa/shop-callback";
 const IS_PRODUCTION = process.env.MPESA_ENVIRONMENT === "production";
 const MPESA_BASE = IS_PRODUCTION
   ? "https://api.safaricom.co.ke"

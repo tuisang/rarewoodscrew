@@ -21,43 +21,64 @@ interface Review {
 }
 
 const HERO_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuBeeOgIEcSOvgIAQAKIj8DoMZUHQaq5YJYWWFIuGirFGKSjr9XHTzYiNPT1ZJBBjSgOtxqltgj9WRkLfy0jXZTjNcGp1epgzf_its1rja7SMPNdjwrEEZwDAFO57gBKB4D3y3ApFFmCvl1MnJLwQXtCpW-fw8Sih0B7P9PrSvi9Z4uHFaZGbmXB-KGxcrd-3PMtzuj8JmHK-bq4tlutQzyfeC6qMqCnEKMl-6TyyoU3cKcn3je0AJVrsaBRieRorqcGbmijQWMQnKI_";
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuDCPBHLKaNhBlv6yK9XvlgX5DeT7NK2PMO_JCb52UBDJX61YJgI13vF95T4UX15jRUJg9B2irW-TkrPIOELWXFd-LHOGpC-uepB5ilNV4owZLnTkMjAZO2kR0A-5MCw2ZZ714yp3bKMbG1cwdV8dcr_sCrykahlxfxmYQOyuUr6Ox69O5tnqr04XPU3tu_Y4o7WS5vnzOgt2TdaHBkYcg_qIrI5LKTb4rGbMBvNqFxeKt3kXl31UZjGC3UXwTSsaF9EqUyLR72nq5g";
 
-const WORKSHOP_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuCMi_CjqFKhoLcpfQ5IuPAgn1yTZBT_3s9Zwp0c1twVqJXtxhYDWNVL2cQZz3OTM9m7kf76Yvy3c7ffmiXPBRgQbECFgLTQylV2s9zdSvvcVyQ1st9EsI-aGmBC4MPsvuzfXBPoTOljV4ZefihLFO9H06AfuGN6-EOWQN-pn4jy9hbull_yfYRPZMGb1_b9UanG83jgfvaCY1TuJsy_O5JV0C2BSJtoWJ3tRXqGYHuX64aGLb6os5u4aIU6K6M4cO4X34v77d5TGKsj";
+const PROJECT_HERO_IMAGE =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuBmXdi9qKOMjYqCJNygDXhApF_QeqqMjKtWDUvxufhV3pui8b3m9etyiLVLnTWHJMKguwI3si5H5sr56eH10JtQhmvJwqUNklYrT9tk9udzRzavPeNXFFz2NVaKoQrm8NvTnHUYswL2mqvjvwM3cFE4Be3fd2ZNPPzJD9uOlEpZOewwK3O_gBQ9ow2mNfRnV2CjWLKqNigHuFHYjeWgDbHio0u1v8R-xNY2PR9mNMeODJe58kxjUX-4vWvz8A5f43WFTildVdigDcY";
 
-const WHY_US = [
-  {
-    icon: "engineering",
-    title: "Unmatched Local Expertise",
-    body: "With over 15 years in the Nairobi market, we understand local timber, humidity challenges, and the architectural nuances of Kenyan homes. Every joint and finish is engineered for longevity in our climate.",
-  },
-  {
-    icon: "verified_user",
-    title: "Total Reliability",
-    body: "We do not just fix wood, we honor your schedule. Our On-Time Guarantee ensures that your project is completed within the agreed window, or we discount the final labor cost.",
-  },
-  {
-    icon: "work",
-    title: "Full Maintenance",
-    body: "From creaky floors to sagging kitchen cabinets, we provide comprehensive repair solutions for all residential needs.",
-  },
+const MEDIA_CONSOLE_IMAGE =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuAAAItuammZHQ-FDgLe6CFi8_uJN4sUbhBKGUWKBhFW8mCi9iqUrKxKTZNgJ2MA3Z5dPp14cvs3MJcgp9kJaR5TaGtOfOTi6o2B_XfYhb7zaYpeAHxLrLrSvEoH6zWLCAWQsdTL0Pw_xjbeIFCezATLFkUlen1ix_RqWpCJBV6U7iFtI661PmkiGDeXkVTXZ4Pk436DdVAJb7lh4N-a4c4ws7avLlH_qc67J670-k-Haz1NyY8VKaCC2FLUyIWaly3VVPjVBC_3lAk";
+
+const KITCHEN_DETAIL_IMAGE =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuBhQzTrN5d4WuKgP5uluLj-3w4kQrLXJPLZJ0KaKXZ_JwH-Ml70bA2dOefJNCnzDl-JCVkhT9vclMwVSu2bx6Qn4s7_BWM_ecTapTdc8Z05XL4NXFa_14nbw1TuJGUBx6HfldnMAxNtcYZDuN9Pd4uNVNIr2SX1vTi2We3uMDgdmGJ6Le-Bx9EZDfsdTuGz5KHzVur_gDd3blELdrYZ0A6oekV6Gc9N3O1kc3nHGqzQmlWJkJYKClC_jQsWouSP4KUgJ59XQztTgZ4";
+
+const WORKSHOP_DETAIL_IMAGE =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuDMF2Ky7JgID6zlVmHbual6qosyth1uoUOAqjXiGaAOI8h4LdBEECwvweSz_P2Qt5ckYQaii0OpOIJGWzgDZevaz1XFmimNJFXZ_BCbD9XTUDuOw7gYgCyHv9fgtWhwKYYi1Iu0AZQsQg4-ridw-Zlj4s50KZApCSBjqAiHg4Nl3-xvFcy0WaEDFaSgWNgOeYkr_emKSqwq-Eh8H0wYXWx0OMDV51p2k3Xd24KR3sJawv5YgdDZ7H8KgpZKvb4bLHE670SSou9cMN0";
+
+const SERVICES = [
   {
     icon: "chair",
-    title: "Custom Pieces",
-    body: "Bring your designs to life. We specialize in bespoke wardrobes, dining tables, and entertainment units tailored to your space.",
+    title: "Custom Furniture",
+    body: "Handcrafted tables, chairs, and bedroom sets designed to last for generations.",
+  },
+  {
+    icon: "kitchen",
+    title: "Kitchen Cabinets",
+    body: "High-precision millwork and cabinetry that blends functionality with luxury aesthetics.",
+  },
+  {
+    icon: "architecture",
+    title: "Bespoke Millwork",
+    body: "Custom wall paneling, built-ins, and architectural features for premium interiors.",
   },
 ];
 
 const PRODUCTS = [
-  { id: 1, name: "Custom Wardrobe", image: WORKSHOP_IMAGE, price: 85000, reviews: 14 },
-  { id: 2, name: "Dining Table Set", image: WORKSHOP_IMAGE, price: 62000, reviews: 19 },
-  { id: 3, name: "Kitchen Cabinetry", image: WORKSHOP_IMAGE, price: 145000, reviews: 8 },
-  { id: 4, name: "Bookshelf Unit", image: WORKSHOP_IMAGE, price: 28500, reviews: 22 },
-  { id: 5, name: "Office Desk", image: WORKSHOP_IMAGE, price: 34000, reviews: 11 },
-  { id: 6, name: "TV Stand", image: WORKSHOP_IMAGE, price: 21000, reviews: 16 },
-  { id: 7, name: "Bed Frame", image: WORKSHOP_IMAGE, price: 47000, reviews: 9 },
-  { id: 8, name: "Display Cabinet", image: WORKSHOP_IMAGE, price: 53000, reviews: 6 },
+  { id: 1, name: "Custom Wardrobe", image: WORKSHOP_DETAIL_IMAGE, price: 85000, reviews: 14 },
+  { id: 2, name: "Dining Table Set", image: PROJECT_HERO_IMAGE, price: 62000, reviews: 19 },
+  { id: 3, name: "Kitchen Cabinetry", image: KITCHEN_DETAIL_IMAGE, price: 145000, reviews: 8 },
+  { id: 4, name: "Bookshelf Unit", image: MEDIA_CONSOLE_IMAGE, price: 28500, reviews: 22 },
+  { id: 5, name: "Office Desk", image: WORKSHOP_DETAIL_IMAGE, price: 34000, reviews: 11 },
+  { id: 6, name: "TV Stand", image: MEDIA_CONSOLE_IMAGE, price: 21000, reviews: 16 },
+  { id: 7, name: "Bed Frame", image: PROJECT_HERO_IMAGE, price: 47000, reviews: 9 },
+  { id: 8, name: "Display Cabinet", image: KITCHEN_DETAIL_IMAGE, price: 53000, reviews: 6 },
+];
+
+const TESTIMONIALS_FALLBACK = [
+  {
+    id: "fallback-1",
+    quote: "The attention to detail on our walnut library was beyond anything we expected. Rarewoods Crew are true artists.",
+    author: "Eleanor Vance",
+    location: "Private Residence, Karen",
+    tag: "Full Library Fit-out",
+  },
+  {
+    id: "fallback-2",
+    quote: "They delivered a masterpiece of a dining table. It's the undisputed centerpiece of our home and will be for decades.",
+    author: "Julian Thorne",
+    location: "Penthouse, Nairobi",
+    tag: "Custom Dining Table",
+  },
 ];
 
 const USD_KES_RATE = 130;
@@ -78,105 +99,109 @@ export default function HomePage() {
   useEffect(() => {
     fetch("/api/reviews")
       .then((r) => r.json())
-      .then((d) => setReviews((d.reviews ?? []).slice(0, 3)))
+      .then((d) => setReviews((d.reviews ?? []).slice(0, 2)))
       .catch(() => {});
   }, []);
 
   return (
-    <main className="bg-background text-on-surface overflow-x-hidden">
-      <section className="relative w-full overflow-hidden">
-        <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-12 md:py-20">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="w-full md:w-1/2 space-y-6">
-              <span className="inline-block bg-secondary-container/30 text-secondary px-4 py-1 rounded-full font-label-md text-label-md uppercase tracking-wider">
-                Craftsmanship &amp; Care
-              </span>
-              <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-primary leading-tight">
-                Expert Carpentry <br /> Services in Nairobi
-              </h1>
-              <p className="text-body-lg text-on-surface-variant max-w-lg">
-                Bridging traditional craftsmanship with modern reliability. From custom furniture to structural repairs, we honor the material and your deadlines.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  href="/booking"
-                  className="bg-secondary text-on-secondary px-8 py-3 rounded-lg font-label-md text-label-md hover:opacity-90 transition-all"
-                >
-                  Book Now
-                </Link>
-                <Link
-                  href="/portfolio"
-                  className="border border-walnut/30 text-on-surface px-8 py-3 rounded-lg font-label-md text-label-md hover:bg-surface-container transition-all"
-                >
-                  View Our Portfolio
-                </Link>
-              </div>
-            </div>
-            <div className="w-full md:w-1/2 relative">
-              <div className="aspect-square rounded-full bg-oak/10 absolute -top-4 -right-4 w-64 h-64 -z-10 blur-3xl" />
-              <img
-                src={HERO_IMAGE}
-                alt="Carpenter with M-Pesa payment"
-                className="w-full h-auto rounded-2xl shadow-xl border-4 border-white object-cover aspect-[4/3]"
-              />
-            </div>
+    <main className="bg-background text-on-background overflow-x-hidden">
+      {/* Hero */}
+      <section className="relative h-[600px] md:h-[795px] flex items-end justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="w-full h-full object-cover" alt="Sunlit premium woodworking workshop with timber workbenches and raw oak planks" src={HERO_IMAGE} />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+        </div>
+        <div className="relative z-10 px-6 md:px-margin-desktop pb-12 md:pb-16 text-center max-w-4xl">
+          <h1 className="font-headline-xl text-4xl md:text-6xl font-extrabold text-white mb-4 leading-[1.1] tracking-tight">
+            Timeless Woodcraft. Built by Rarewoods Crew.
+          </h1>
+          <p className="text-white/90 font-body-lg text-base md:text-lg mb-8 max-w-2xl mx-auto">
+            Crafting bespoke furniture and architectural woodwork with precision, passion, and premium hardwoods.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md sm:max-w-none mx-auto">
+            <Link href="/portfolio" className="bg-primary-container text-on-primary-fixed font-bold py-4 px-10 rounded-lg text-base md:text-lg hover:scale-[1.02] transition-transform">
+              View Portfolio
+            </Link>
+            <Link href="/booking" className="border-2 border-white text-white font-bold py-4 px-10 rounded-lg text-base md:text-lg hover:bg-white/10 transition-colors">
+              Book Consultation
+            </Link>
           </div>
         </div>
       </section>
 
-      <section className="px-margin-mobile md:px-margin-desktop py-20 max-w-container-max mx-auto">
-        <span className="font-label-md text-label-md text-secondary uppercase tracking-wider">
-          Craftsmanship &amp; Care
-        </span>
-        <h2 className="font-headline-md text-headline-md text-primary mt-2 mb-10">
-          Why Nairobi Trusts Rarewoods Crew
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-          {WHY_US.map((item, i) => (
-            <div
-              key={item.title}
-              className={`tactile-card rounded-xl p-8 ${i === 1 ? "bg-forest-deep text-surface-cream" : ""}`}
-            >
-              <span
-                className={`material-symbols-outlined text-3xl mb-4 block ${
-                  i === 1 ? "text-oak" : "text-secondary"
-                }`}
-              >
-                {item.icon}
-              </span>
-              <h3 className="font-headline-sm text-headline-sm mb-3">{item.title}</h3>
-              <p className={`text-body-md ${i === 1 ? "text-surface-dim" : "text-on-surface-variant"}`}>
-                {item.body}
-              </p>
-              {i === 1 && (
-                <div className="mt-6 pt-6 border-t border-oak/20 space-y-2">
-                  {["Vetted Professionals", "Transparent Pricing", "Pay via M-Pesa"].map((tag) => (
-                    <div key={tag} className="flex items-center gap-2 text-label-md font-label-md">
-                      <span className="material-symbols-outlined text-mpesa-green text-base">check_circle</span>
-                      {tag}
-                    </div>
-                  ))}
-                </div>
-              )}
+      {/* Featured Projects — Bento Masonry */}
+      <section className="py-16 md:py-section-gap px-6 md:px-margin-desktop max-w-container-max mx-auto">
+        <div className="mb-12">
+          <span className="font-label-caps text-xs text-primary uppercase tracking-widest">Portfolio</span>
+          <h2 className="font-headline-lg text-3xl md:text-5xl font-bold mt-2">Featured Projects</h2>
+        </div>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-12 md:grid-rows-2">
+          <Link href="/portfolio" className="md:col-span-8 md:row-span-2 group relative overflow-hidden rounded-xl shadow-ambient block">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="w-full h-[400px] md:h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Bespoke American Walnut dining table with live edge" src={PROJECT_HERO_IMAGE} />
+            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors flex flex-col justify-end p-8">
+              <p className="text-white/80 font-label-caps text-xs mb-1">Bespoke Furniture</p>
+              <h3 className="text-white font-headline-md text-2xl font-bold">The Heritage Walnut Table</h3>
             </div>
-          ))}
+          </Link>
+          <Link href="/portfolio" className="md:col-span-4 group relative overflow-hidden rounded-xl shadow-ambient block">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="w-full h-[250px] object-cover transition-transform duration-700 group-hover:scale-110" alt="White Oak media console with vertical slat detailing" src={MEDIA_CONSOLE_IMAGE} />
+            <div className="absolute inset-0 bg-black/20 flex flex-col justify-end p-6">
+              <h3 className="text-white text-base font-bold">Oak Media Console</h3>
+            </div>
+          </Link>
+          <Link href="/portfolio" className="md:col-span-4 group relative overflow-hidden rounded-xl shadow-ambient block">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="w-full h-[250px] object-cover transition-transform duration-700 group-hover:scale-110" alt="Dovetail joint detail on a custom cherry wood kitchen island" src={KITCHEN_DETAIL_IMAGE} />
+            <div className="absolute inset-0 bg-black/20 flex flex-col justify-end p-6">
+              <h3 className="text-white text-base font-bold">Kitchen Craftsmanship</h3>
+            </div>
+          </Link>
         </div>
       </section>
 
-      <section className="px-margin-mobile md:px-margin-desktop pb-20 max-w-container-max mx-auto">
-        <div className="bg-surface-container-lowest border-l-4 border-mpesa-green rounded-r-xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      {/* Services Overview */}
+      <section className="bg-surface-container py-16 md:py-section-gap px-6 md:px-margin-desktop">
+        <div className="max-w-container-max mx-auto">
+          <div className="text-center mb-16">
+            <span className="font-label-caps text-xs text-primary uppercase tracking-widest">What We Do</span>
+            <h2 className="font-headline-lg text-3xl md:text-5xl font-bold mt-2">Our Services</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {SERVICES.map((service) => (
+              <div key={service.title} className="bg-surface rounded-xl p-8 oak-texture ghost-border shadow-ambient hover:-translate-y-1 transition-all duration-300">
+                <div className="text-primary mb-6">
+                  <span className="material-symbols-outlined text-5xl" style={{ fontVariationSettings: "'wght' 200" }}>{service.icon}</span>
+                </div>
+                <h3 className="font-headline-md text-2xl mb-4 text-on-surface">{service.title}</h3>
+                <p className="text-on-surface-variant mb-6">{service.body}</p>
+                <hr className="border-outline-variant/30 mb-6" />
+                <Link href="/services" className="text-primary font-bold inline-flex items-center gap-2">
+                  Explore <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* M-Pesa Banner */}
+      <section className="px-6 md:px-margin-desktop py-16 max-w-container-max mx-auto">
+        <div className="bg-surface-container-lowest border-l-4 border-mpesa-green rounded-r-xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 ghost-border">
           <div className="flex items-center gap-4">
             <span className="material-symbols-outlined text-mpesa-green text-2xl">smartphone</span>
             <div>
-              <h3 className="font-headline-sm text-headline-sm mb-1">Secure Payments with M-Pesa</h3>
-              <p className="text-body-md text-on-surface-variant">
+              <h3 className="font-headline-md text-lg font-semibold mb-1">Secure Payments with M-Pesa</h3>
+              <p className="text-sm text-on-surface-variant">
                 Seamless, high-trust transactions. We offer direct Lipa na M-Pesa options for all deposits and project balances.
               </p>
             </div>
           </div>
           <Link
             href="/payments"
-            className="bg-mpesa-green text-white px-6 py-3 rounded-lg font-label-md text-label-md flex items-center gap-2 flex-shrink-0 hover:opacity-90 transition-all"
+            className="bg-mpesa-green text-white px-6 py-3 rounded-lg font-bold text-sm flex items-center gap-2 flex-shrink-0 hover:opacity-90 transition-all"
           >
             <span className="material-symbols-outlined text-base">smartphone</span>
             View Payment Steps
@@ -184,16 +209,48 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 bg-surface-container-low">
-        <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-10">
+      {/* About / Ethos */}
+      <section className="py-16 md:py-section-gap px-6 md:px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
+          <div className="w-full md:w-1/2 relative">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="rounded-xl shadow-2xl w-full h-[400px] md:h-[500px] object-cover" alt="A craftsman measuring reclaimed timber with a brass rule" src={WORKSHOP_DETAIL_IMAGE} />
+            <div className="absolute -bottom-6 -right-6 md:-bottom-8 md:-right-8 w-36 h-36 md:w-48 md:h-48 bg-primary-fixed-dim rounded-full flex items-center justify-center p-6 md:p-8 text-center rotate-12 shadow-xl border-4 border-surface">
+              <span className="font-label-caps text-xs text-on-primary-fixed leading-tight">Master Guild Quality Since 2008</span>
+            </div>
+          </div>
+          <div className="w-full md:w-1/2">
+            <span className="font-label-caps text-xs text-primary uppercase tracking-widest">Our Ethos</span>
+            <h2 className="font-headline-lg text-3xl md:text-5xl font-bold mt-2 mb-6">Handcrafted Excellence</h2>
+            <p className="font-body-lg text-base text-on-surface-variant mb-6 leading-relaxed">
+              At Rarewoods Crew, we believe every piece of timber tells a story. Our process begins with the careful selection of premium, sustainably sourced hardwoods, followed by weeks of meticulous hand-shaping and precision joinery.
+            </p>
+            <p className="font-body-lg text-base text-on-surface-variant mb-8 leading-relaxed">
+              We marry traditional techniques with modern high-tech precision to ensure that every curve, joint, and finish exceeds the highest standards of luxury woodworking.
+            </p>
+            <div className="flex gap-10">
+              <div>
+                <p className="font-headline-md text-3xl font-bold text-primary">150+</p>
+                <p className="font-label-caps text-xs text-secondary tracking-widest">PROJECTS BUILT</p>
+              </div>
+              <div>
+                <p className="font-headline-md text-3xl font-bold text-primary">15yr</p>
+                <p className="font-label-caps text-xs text-secondary tracking-widest">GUARANTEE</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Woodwork carousel (shop) */}
+      <section className="py-16 md:py-section-gap bg-surface-container-low">
+        <div className="px-6 md:px-margin-desktop max-w-container-max mx-auto mb-10">
           <div className="flex justify-between items-end">
             <div>
-              <span className="font-label-md text-label-md text-secondary tracking-widest mb-2 block">
-                CRAFTED TO ORDER
-              </span>
-              <h2 className="font-headline-md text-headline-md text-primary">Featured Woodwork</h2>
+              <span className="font-label-caps text-xs text-primary tracking-widest mb-2 block">CRAFTED TO ORDER</span>
+              <h2 className="font-headline-md text-2xl md:text-3xl font-bold">Featured Woodwork</h2>
             </div>
-            <Link href="/shop" className="font-label-md text-label-md text-secondary hover:underline">
+            <Link href="/shop" className="font-label-caps text-xs text-primary hover:underline tracking-widest">
               VIEW ALL
             </Link>
           </div>
@@ -212,11 +269,12 @@ export default function HomePage() {
             1024: { slidesPerView: 3 },
             1280: { slidesPerView: 5 },
           }}
-          className="px-margin-mobile md:px-margin-desktop"
+          className="px-6 md:px-margin-desktop"
         >
           {PRODUCTS.map((product) => (
             <SwiperSlide key={product.id}>
-              <div className="relative rounded-xl overflow-hidden group shadow-xl">
+              <div className="relative rounded-xl overflow-hidden group shadow-ambient">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={product.image}
                   alt={product.name}
@@ -226,7 +284,7 @@ export default function HomePage() {
                 <div className="absolute top-4 left-4">
                   <h3 className="text-white font-bold text-lg">{product.name}</h3>
                 </div>
-                <div className="absolute top-4 right-4 bg-secondary text-white px-3 py-1 rounded-full font-semibold text-sm flex flex-col items-end leading-tight">
+                <div className="absolute top-4 right-4 bg-primary text-on-primary px-3 py-1 rounded-full font-semibold text-sm flex flex-col items-end leading-tight">
                   <span>KSh {product.price.toLocaleString()}</span>
                   <span className="text-[10px] font-normal opacity-80">
                     approx ${Math.round(product.price / USD_KES_RATE).toLocaleString()}
@@ -234,7 +292,7 @@ export default function HomePage() {
                 </div>
                 <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-sm p-3 rounded-xl w-[190px]">
                   <div className="flex items-center justify-between mb-2">
-                    <div className="text-oak text-sm">*****</div>
+                    <div className="text-primary-fixed-dim text-sm">*****</div>
                     <span className="text-xs text-white">({product.reviews})</span>
                   </div>
                   <div className="flex items-center justify-center gap-2 mb-3">
@@ -255,7 +313,7 @@ export default function HomePage() {
                         quantities[product.id] || 1
                       )
                     }
-                    className="bg-secondary text-white px-3 py-2 rounded w-full font-semibold text-sm"
+                    className="bg-primary text-on-primary px-3 py-2 rounded w-full font-semibold text-sm hover:bg-primary-container transition-colors"
                   >
                     Add to Cart
                   </button>
@@ -266,55 +324,62 @@ export default function HomePage() {
         </Swiper>
       </section>
 
-      {reviews.length > 0 && (
-        <section className="py-20">
-          <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-            <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-10 gap-6">
-              <div>
-                <span className="font-label-md text-label-md text-secondary mb-2 block tracking-widest">
-                  CLIENT TESTIMONIALS
-                </span>
-                <h2 className="font-headline-md text-headline-md text-primary">What Our Clients Say</h2>
-              </div>
-              <Link href="/reviews" className="font-label-md text-label-md text-secondary hover:underline flex items-center gap-2">
-                VIEW ALL REVIEWS
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-              {reviews.map((review) => (
-                <div key={review.id} className="tactile-card rounded-xl p-6">
-                  <div className="flex gap-1 mb-4">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <svg
-                        key={star}
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill={star <= review.rating ? "#D9A05B" : "none"}
-                        stroke="#D9A05B"
-                        strokeWidth="2"
-                      >
-                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                      </svg>
-                    ))}
-                  </div>
-                  <h3 className="font-headline-sm text-headline-sm mb-3">{review.title}</h3>
-                  <p className="text-body-md text-on-surface-variant leading-relaxed mb-6">{review.body}</p>
-                  <div className="flex items-center gap-3 pt-4 border-t border-walnut/10">
-                    <div className="w-8 h-8 bg-secondary/10 border border-secondary/30 rounded-full flex items-center justify-center">
-                      <span className="text-secondary text-sm font-bold">{review.authorName.charAt(0).toUpperCase()}</span>
-                    </div>
-                    <div>
-                      <p className="text-body-md font-semibold">{review.authorName}</p>
-                      {review.service && <p className="text-caption text-on-surface-variant capitalize">{review.service}</p>}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+      {/* Testimonials */}
+      <section className="bg-surface-container-high py-16 md:py-section-gap px-6 md:px-margin-desktop">
+        <div className="max-w-container-max mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="font-headline-lg text-3xl md:text-5xl font-bold">Client Stories</h2>
           </div>
-        </section>
-      )}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {(reviews.length > 0
+              ? reviews.map((r) => ({
+                  id: r.id,
+                  quote: r.body,
+                  author: r.authorName,
+                  location: r.service ?? "Verified Client",
+                  tag: r.title,
+                  rating: r.rating,
+                }))
+              : TESTIMONIALS_FALLBACK.map((t) => ({ ...t, rating: 5 }))
+            ).map((item) => (
+              <div key={item.id} className="bg-surface p-10 rounded-xl shadow-ambient">
+                <div className="flex gap-1 mb-6 text-primary">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <span key={star} className="material-symbols-outlined" style={{ fontVariationSettings: `'FILL' ${star <= item.rating ? 1 : 0}` }}>
+                      star
+                    </span>
+                  ))}
+                </div>
+                <p className="font-body-lg text-xl leading-relaxed mb-8">&quot;{item.quote}&quot;</p>
+                <hr className="border-outline-variant/30 mb-6" />
+                <div className="flex justify-between items-center flex-wrap gap-3">
+                  <div>
+                    <p className="font-bold text-on-surface">{item.author}</p>
+                    <p className="font-label-caps text-xs text-secondary tracking-widest">{item.location}</p>
+                  </div>
+                  <span className="font-label-caps text-xs bg-secondary-container px-3 py-1 rounded text-on-secondary-container">{item.tag}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-16 md:py-section-gap px-6 md:px-margin-desktop text-center bg-inverse-surface text-white">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="font-headline-lg text-3xl md:text-5xl font-bold mb-6">Start Your Bespoke Project</h2>
+          <p className="font-body-lg text-base mb-10 text-white/70">
+            From initial concept drawings to final installation, we guide you through the process of creating something truly unique.
+          </p>
+          <div className="flex flex-col gap-4 max-w-sm mx-auto">
+            <Link href="/booking" className="bg-primary text-white font-bold py-5 px-10 rounded-lg text-lg hover:bg-primary-container transition-colors shadow-lg">
+              Schedule Consultation
+            </Link>
+            <p className="text-sm text-white/50">Current lead time: 8-12 weeks</p>
+          </div>
+        </div>
+      </section>
 
       <Footer />
       <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />

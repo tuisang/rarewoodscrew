@@ -148,7 +148,7 @@ const materials: Material[] = [
     durability: 85,
     workability: 100,
     priceRange: "KSh 1,200–2,000/m²",
-    description: "A signature Black Steel Crew finish. The deep blue-grey tone of gunmetal creates a sophisticated industrial aesthetic that pairs beautifully with walnut and mahogany.",
+    description: "A signature Rarewoods Crew finish for hybrid wood-and-metal pieces. The deep blue-grey tone of gunmetal creates a sophisticated industrial accent that pairs beautifully with walnut and mahogany.",
     bestFor: ["Luxury Frames", "Statement Pieces", "Modern Industrial"],
     color: "Deep Blue-Grey",
     grain: "Satin smooth",
@@ -169,12 +169,12 @@ function RatingBar({ value, label }: { value: number; label: string }) {
   return (
     <div>
       <div className="flex justify-between mb-1">
-        <span className="text-xs text-[#9c8e84]" style={{ fontFamily: "JetBrains Mono, monospace" }}>{label}</span>
-        <span className="text-xs text-[#e8bf9b]" style={{ fontFamily: "JetBrains Mono, monospace" }}>{value}/100</span>
+        <span className="text-xs text-outline" style={{ fontFamily: "Libre Franklin, sans-serif" }}>{label}</span>
+        <span className="text-xs text-primary" style={{ fontFamily: "Libre Franklin, sans-serif" }}>{value}/100</span>
       </div>
-      <div className="h-1 bg-[#4f453d]/40 w-full">
+      <div className="h-1 bg-outline-variant/30 w-full">
         <div
-          className="h-full bg-[#e8bf9b] transition-all duration-700"
+          className="h-full bg-primary transition-all duration-700"
           style={{ width: `${value}%` }}
         />
       </div>
@@ -197,31 +197,31 @@ export default function CatalogPage() {
   });
 
   return (
-    <main className="bg-[#131313] text-[#e5e2e1] min-h-screen">
+    <main className="bg-background text-on-surface min-h-screen">
       <div
         className="fixed inset-0 pointer-events-none z-0 opacity-[0.03]"
-        style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/carbon-fibre.png')" }}
+        style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/oak.png')" }}
       />
 
       <div className="relative z-10 pt-32 pb-24 max-w-[1440px] mx-auto px-4 md:px-16">
 
         {/* Header */}
         <header className="mb-12">
-          <span className="text-xs text-[#ffb785] uppercase tracking-[0.2em] mb-4 block" style={{ fontFamily: "JetBrains Mono, monospace" }}>
+          <span className="text-xs text-primary uppercase tracking-[0.2em] mb-4 block" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
             Material Library
           </span>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight" style={{ fontFamily: "Playfair Display, serif" }}>
+              <h1 className="text-4xl md:text-5xl font-bold leading-tight" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
                 Wood &amp; Metal Catalog
               </h1>
-              <p className="text-[#d3c4b9] mt-3 max-w-xl">
+              <p className="text-on-surface-variant mt-3 max-w-xl">
                 Explore our curated selection of timbers and metal finishes. Every material is hand-selected for quality, sustainability, and beauty.
               </p>
             </div>
             <Link
               href="/booking"
-              className="flex-shrink-0 bg-[#e8bf9b] text-[#442b12] px-8 py-3 text-sm font-semibold hover:brightness-110 transition-all"
+              className="flex-shrink-0 bg-primary text-on-primary px-8 py-3 text-sm font-semibold hover:brightness-110 transition-all"
             >
               Book Consultation
             </Link>
@@ -231,7 +231,7 @@ export default function CatalogPage() {
         {/* Search + Filters */}
         <div className="flex flex-col gap-4 mb-8">
           <div className="relative w-full">
-            <svg className="absolute left-4 top-1/2 -translate-y-1/2 text-[#e8bf9b]" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="absolute left-4 top-1/2 -translate-y-1/2 text-primary" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
             </svg>
             <input
@@ -239,10 +239,10 @@ export default function CatalogPage() {
               placeholder="Search timber, metal, finishes..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              style={{ background: "#20201f", border: "1px solid rgba(232,191,155,0.4)" }}
-              className="w-full pl-12 pr-4 py-4 text-base text-[#e5e2e1] placeholder-[#9c8e84] outline-none focus:ring-0"
-              onFocus={(e) => e.target.style.borderColor = "#e8bf9b"}
-              onBlur={(e) => e.target.style.borderColor = "rgba(232,191,155,0.4)"}
+              style={{ background: "var(--color-surface-container-low)", border: "1px solid rgba(224,192,175,0.6)" }}
+              className="w-full pl-12 pr-4 py-4 text-base text-on-surface placeholder-outline outline-none focus:ring-0"
+              onFocus={(e) => e.target.style.borderColor = '#994700'}
+              onBlur={(e) => e.target.style.borderColor = 'rgba(224,192,175,0.6)'}
             />
           </div>
           <div className="flex flex-wrap gap-2">
@@ -252,10 +252,10 @@ export default function CatalogPage() {
                 onClick={() => setActiveFilter(f.value)}
                 className={`px-4 py-2 text-xs tracking-widest transition-all ${
                   activeFilter === f.value
-                    ? "bg-[#e8bf9b] text-[#442b12]"
-                    : "border border-[#4f453d] text-[#d3c4b9] hover:border-[#e8bf9b]"
+                    ? "bg-primary text-on-primary"
+                    : "border border-outline-variant text-on-surface-variant hover:border-primary"
                 }`}
-                style={{ fontFamily: "JetBrains Mono, monospace" }}
+                style={{ fontFamily: "Libre Franklin, sans-serif" }}
               >
                 {f.label}
               </button>
@@ -268,7 +268,7 @@ export default function CatalogPage() {
           {/* Material Grid */}
           <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4 content-start">
             {filtered.length === 0 && (
-              <div className="col-span-2 py-16 text-center text-[#9c8e84]">
+              <div className="col-span-2 py-16 text-center text-outline">
                 <span className="material-symbols-outlined text-4xl mb-4 block">search_off</span>
                 No materials found.
               </div>
@@ -279,8 +279,8 @@ export default function CatalogPage() {
                 onClick={() => setActiveMaterial(material)}
                 className={`cursor-pointer group relative overflow-hidden border transition-all ${
                   activeMaterial.id === material.id
-                    ? "border-[#e8bf9b]"
-                    : "border-[#4f453d]/40 hover:border-[#e8bf9b]/50"
+                    ? "border-primary"
+                    : "border-outline-variant/40 hover:border-primary/50"
                 }`}
               >
                 <div className="h-40 overflow-hidden relative rounded-t-xl">
@@ -289,29 +289,29 @@ export default function CatalogPage() {
                     alt={material.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#131313] via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent" />
                   {material.badge && (
-                    <div className="absolute top-3 right-3 bg-[#e8bf9b] px-2 py-0.5">
-                      <span className="text-[9px] font-bold text-[#442b12]" style={{ fontFamily: "JetBrains Mono, monospace" }}>
+                    <div className="absolute top-3 right-3 bg-primary px-2 py-0.5">
+                      <span className="text-[9px] font-bold text-on-primary" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
                         {material.badge}
                       </span>
                     </div>
                   )}
                 </div>
-                <div className="p-4 bg-[#20201f]">
+                <div className="p-4 bg-surface-container-low">
                   <div className="flex justify-between items-start mb-1">
-                    <h3 className="font-semibold text-sm" style={{ fontFamily: "Playfair Display, serif" }}>{material.name}</h3>
+                    <h3 className="font-semibold text-sm" style={{ fontFamily: "Libre Franklin, sans-serif" }}>{material.name}</h3>
                     <span
-                      className="text-[10px] px-2 py-0.5 border border-[#4f453d] text-[#9c8e84]"
-                      style={{ fontFamily: "JetBrains Mono, monospace" }}
+                      className="text-[10px] px-2 py-0.5 border border-outline-variant text-outline"
+                      style={{ fontFamily: "Libre Franklin, sans-serif" }}
                     >
                       {material.category}
                     </span>
                   </div>
-                  <p className="text-xs text-[#e8bf9b]">{material.priceRange}</p>
+                  <p className="text-xs text-primary">{material.priceRange}</p>
                 </div>
                 {activeMaterial.id === material.id && (
-                  <div className="absolute inset-y-0 left-0 w-1 bg-[#e8bf9b]" />
+                  <div className="absolute inset-y-0 left-0 w-1 bg-primary" />
                 )}
               </div>
             ))}
@@ -319,7 +319,7 @@ export default function CatalogPage() {
 
           {/* Detail Panel */}
           <div className="lg:col-span-7 sticky top-32">
-            <div className="bg-[#20201f] border border-[#4f453d]/40">
+            <div className="bg-surface-container-low border border-outline-variant/40 rounded-lg overflow-hidden">
               {/* Image */}
               <div className="h-64 overflow-hidden relative rounded-t-xl">
                 <img
@@ -327,14 +327,14 @@ export default function CatalogPage() {
                   alt={activeMaterial.name}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#20201f] via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6">
                   {activeMaterial.badge && (
-                    <span className="bg-[#e8bf9b] text-[#442b12] text-xs font-bold px-3 py-1 block mb-2" style={{ fontFamily: "JetBrains Mono, monospace" }}>
+                    <span className="bg-primary text-on-primary text-xs font-bold px-3 py-1 block mb-2" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
                       {activeMaterial.badge}
                     </span>
                   )}
-                  <h2 className="text-3xl font-bold" style={{ fontFamily: "Playfair Display, serif" }}>
+                  <h2 className="text-3xl font-bold" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
                     {activeMaterial.name}
                   </h2>
                 </div>
@@ -343,21 +343,21 @@ export default function CatalogPage() {
               {/* Details */}
               <div className="p-6">
                 {/* Meta */}
-                <div className="grid grid-cols-3 gap-4 mb-6 pb-6 border-b border-[#4f453d]/40">
+                <div className="grid grid-cols-3 gap-4 mb-6 pb-6 border-b border-outline-variant/40">
                   {[
                     { label: "CATEGORY", value: activeMaterial.category },
                     { label: "ORIGIN", value: activeMaterial.origin },
                     { label: "PRICE", value: activeMaterial.priceRange },
                   ].map((item) => (
                     <div key={item.label}>
-                      <p className="text-[10px] text-[#9c8e84] mb-1 tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>{item.label}</p>
+                      <p className="text-[10px] text-outline mb-1 tracking-widest" style={{ fontFamily: "Libre Franklin, sans-serif" }}>{item.label}</p>
                       <p className="text-sm font-semibold">{item.value}</p>
                     </div>
                   ))}
                 </div>
 
                 {/* Description */}
-                <p className="text-[#d3c4b9] text-sm leading-relaxed mb-6">
+                <p className="text-on-surface-variant text-sm leading-relaxed mb-6">
                   {activeMaterial.description}
                 </p>
 
@@ -368,26 +368,26 @@ export default function CatalogPage() {
                 </div>
 
                 {/* Properties */}
-                <div className="grid grid-cols-2 gap-4 mb-6 p-4 bg-[#131313] border border-[#4f453d]/40">
+                <div className="grid grid-cols-2 gap-4 mb-6 p-4 bg-surface-container border border-outline-variant/40">
                   <div>
-                    <p className="text-[10px] text-[#9c8e84] mb-1 tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>COLOUR</p>
+                    <p className="text-[10px] text-outline mb-1 tracking-widest" style={{ fontFamily: "Libre Franklin, sans-serif" }}>COLOUR</p>
                     <p className="text-sm">{activeMaterial.color}</p>
                   </div>
                   <div>
-                    <p className="text-[10px] text-[#9c8e84] mb-1 tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>GRAIN / TEXTURE</p>
+                    <p className="text-[10px] text-outline mb-1 tracking-widest" style={{ fontFamily: "Libre Franklin, sans-serif" }}>GRAIN / TEXTURE</p>
                     <p className="text-sm">{activeMaterial.grain}</p>
                   </div>
                 </div>
 
                 {/* Best For */}
                 <div className="mb-6">
-                  <p className="text-[10px] text-[#9c8e84] mb-3 tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace" }}>BEST FOR</p>
+                  <p className="text-[10px] text-outline mb-3 tracking-widest" style={{ fontFamily: "Libre Franklin, sans-serif" }}>BEST FOR</p>
                   <div className="flex flex-wrap gap-2">
                     {activeMaterial.bestFor.map((use) => (
                       <span
                         key={use}
-                        className="text-xs px-3 py-1 border border-[#4f453d] text-[#d3c4b9]"
-                        style={{ fontFamily: "JetBrains Mono, monospace" }}
+                        className="text-xs px-3 py-1 border border-outline-variant text-on-surface-variant"
+                        style={{ fontFamily: "Libre Franklin, sans-serif" }}
                       >
                         {use}
                       </span>
@@ -398,8 +398,8 @@ export default function CatalogPage() {
                 {/* CTA */}
                 <Link
                   href="/booking"
-                  className="w-full block text-center bg-[#e8bf9b] text-[#442b12] py-4 text-sm font-semibold hover:brightness-110 transition-all active:scale-[0.98]"
-                  style={{ fontFamily: "JetBrains Mono, monospace" }}
+                  className="w-full block text-center bg-primary text-on-primary py-4 text-sm font-semibold hover:brightness-110 transition-all active:scale-[0.98]"
+                  style={{ fontFamily: "Libre Franklin, sans-serif" }}
                 >
                   USE {activeMaterial.name.toUpperCase()} IN MY PROJECT →
                 </Link>

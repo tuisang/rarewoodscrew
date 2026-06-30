@@ -191,7 +191,7 @@ export default function PaymentsPage() {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-            
+            <a
               className="flex items-center justify-center gap-2 bg-mpesa-green text-white px-8 py-4 rounded-xl font-label-md text-label-md hover:shadow-lg hover:-translate-y-1 transition-all active:scale-95"
               href="tel:+254700000000"
             >

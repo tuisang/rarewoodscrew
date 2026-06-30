@@ -32,9 +32,9 @@ export default function FloatingActions() {
       {phoneVisible && (
         <div
           style={{
-            background: "#0e1c14",
+            background: "#32302c",
             border: "1px solid rgba(216,160,91,0.3)",
-            borderLeft: "3px solid #825516",
+            borderLeft: "3px solid #994700",
             padding: "12px 16px",
             display: "flex",
             alignItems: "center",
@@ -44,10 +44,10 @@ export default function FloatingActions() {
           }}
         >
           <div>
-            <p style={{ margin: 0, fontSize: "10px", color: "#737973", letterSpacing: "0.12em", fontFamily: "Work Sans, sans-serif" }}>
+            <p style={{ margin: 0, fontSize: "10px", color: "#8c7263", letterSpacing: "0.12em", fontFamily: "Libre Franklin, sans-serif" }}>
               CALL US
             </p>
-            <p style={{ margin: "2px 0 0", fontSize: "15px", fontWeight: 700, color: "#825516", letterSpacing: "0.02em" }}>
+            <p style={{ margin: "2px 0 0", fontSize: "15px", fontWeight: 700, color: "#994700", letterSpacing: "0.02em" }}>
               {phone}
             </p>
           </div>
@@ -57,8 +57,8 @@ export default function FloatingActions() {
               onClick={copyPhone}
               title="Copy number"
               style={{
-                background: copied ? "#4ade80" : "#f0eee9",
-                border: "1px solid #c3c8c1",
+                background: copied ? "#4ade80" : "#f3ede6",
+                border: "1px solid #e0c0af",
                 width: "32px",
                 height: "32px",
                 display: "flex",
@@ -71,7 +71,7 @@ export default function FloatingActions() {
               {copied ? (
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#14532d" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               ) : (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#825516" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#994700" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               )}
             </button>
             {/* Call link */}
@@ -79,8 +79,8 @@ export default function FloatingActions() {
               href={`tel:${phone}`}
               title="Call now"
               style={{
-                background: "#f0eee9",
-                border: "1px solid #c3c8c1",
+                background: "#f3ede6",
+                border: "1px solid #e0c0af",
                 width: "32px",
                 height: "32px",
                 display: "flex",
@@ -90,7 +90,7 @@ export default function FloatingActions() {
                 transition: "all 0.2s",
               }}
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#825516" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#994700" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             </a>
             {/* Close */}
             <button
@@ -99,7 +99,7 @@ export default function FloatingActions() {
                 background: "none",
                 border: "none",
                 cursor: "pointer",
-                color: "#737973",
+                color: "#8c7263",
                 fontSize: "16px",
                 padding: "0 4px",
               }}
@@ -120,8 +120,8 @@ export default function FloatingActions() {
           style={{
             width: "52px",
             height: "52px",
-            background: phoneVisible ? "#825516" : "#fbf9f4",
-            border: `2px solid ${phoneVisible ? "#825516" : "rgba(130,85,22,0.4)"}`,
+            background: phoneVisible ? "#994700" : "#fef8f1",
+            border: `2px solid ${phoneVisible ? "#994700" : "rgba(130,85,22,0.4)"}`,
             cursor: "pointer",
             display: "flex",
             alignItems: "center",
@@ -131,13 +131,13 @@ export default function FloatingActions() {
           }}
           onMouseEnter={(e) => {
             if (!phoneVisible) {
-              e.currentTarget.style.background = "#f0eee9";
-              e.currentTarget.style.borderColor = "#825516";
+              e.currentTarget.style.background = "#f3ede6";
+              e.currentTarget.style.borderColor = "#994700";
             }
           }}
           onMouseLeave={(e) => {
             if (!phoneVisible) {
-              e.currentTarget.style.background = "#fbf9f4";
+              e.currentTarget.style.background = "#fef8f1";
               e.currentTarget.style.borderColor = "rgba(130,85,22,0.4)";
             }
           }}
@@ -147,7 +147,7 @@ export default function FloatingActions() {
             height="22"
             viewBox="0 0 24 24"
             fill="none"
-            stroke={phoneVisible ? "#ffffff" : "#825516"}
+            stroke={phoneVisible ? "#ffffff" : "#994700"}
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
