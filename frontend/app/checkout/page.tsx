@@ -21,30 +21,39 @@ export default function CheckoutPage() {
   const set = (field: string, value: string) =>
     setForm((prev) => ({ ...prev, [field]: value }));
 
-  const pollOrderStatus = (id: string) => {
+  const pollOrderStatus = (id: string, checkoutReqId: string) => {
     let attempts = 0;
     const interval = setInterval(async () => {
       attempts++;
       try {
-        const res = await fetch(`/api/orders/${id}`);
-        const data = await res.json();
-        if (data.order?.status === "paid") {
-          setReceiptNumber(data.order.mpesaReceiptNumber);
+        const queryRes = await fetch("/api/mpesa/stk-query", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ checkoutRequestId: checkoutReqId, orderId: id, type: "order" }),
+        });
+        const queryData = await queryRes.json();
+        if (queryData.status === "paid") {
+          const orderRes = await fetch(`/api/orders/${id}`);
+          const orderData = await orderRes.json();
+          setReceiptNumber(orderData.order?.mpesaReceiptNumber ?? null);
           setStep("confirmed");
           clearCart();
           clearInterval(interval);
-        } else if (data.order?.status === "pending" && attempts > 5) {
-          setErrorMsg("Payment was not completed. Please try again.");
+          return;
+        }
+        if (queryData.status === "cancelled") {
+          setErrorMsg("Payment was cancelled. Please try again.");
           setStep("error");
           clearInterval(interval);
+          return;
         }
-      } catch { clearInterval(interval); }
-      if (attempts >= 10) {
+      } catch (e) { console.error("Poll error:", e); }
+      if (attempts >= 15) {
         setStep("error");
         setErrorMsg("Payment timed out. Please try again.");
         clearInterval(interval);
       }
-    }, 3000);
+    }, 4000);
   };
 
   const handlePlaceOrder = async () => {
@@ -88,7 +97,7 @@ export default function CheckoutPage() {
         setCheckoutId(stkData.checkoutRequestId);
         setStep("stk_sent");
         setIsProcessing(false);
-        pollOrderStatus(order.id);
+        pollOrderStatus(order.id, stkData.checkoutRequestId);
       } else {
         // Non-mpesa: mark as confirmed directly
         setStep("confirmed");
@@ -125,7 +134,7 @@ export default function CheckoutPage() {
         {step === "stk_sent" && (
           <div className="max-w-lg mx-auto text-center py-20">
             <div className="w-20 h-20 bg-[#39b54a]/10 border border-[#39b54a]/30 rounded-full flex items-center justify-center mx-auto mb-6">
-              <span className="text-4xl">📱</span>
+              <span className="text-4xl">ðŸ“±</span>
             </div>
             <h2 className="text-2xl font-bold mb-3" style={{ fontFamily: "Libre Franklin, sans-serif" }}>Check Your Phone</h2>
             <p className="text-on-surface-variant mb-4">
@@ -240,7 +249,7 @@ export default function CheckoutPage() {
                 </div>
                 {paymentMethod === "mpesa" && (
                   <div className="mt-4 p-4 bg-[#39b54a]/10 border border-[#39b54a]/30 flex items-center gap-3">
-                    <span className="text-lg">📱</span>
+                    <span className="text-lg">ðŸ“±</span>
                     <p className="text-xs text-on-surface-variant">
                       An STK push will be sent to <span className="text-primary">{form.phone || "your phone"}</span>. Enter your M-Pesa PIN to confirm payment of <span className="text-primary font-bold">KSh {totalPrice.toLocaleString()}</span>.
                     </p>
@@ -264,7 +273,7 @@ export default function CheckoutPage() {
                         <p className="text-xs text-outline">{item.priceLabel}</p>
                       </div>
                       <div className="flex items-center border border-outline-variant flex-shrink-0">
-                        <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="w-7 h-7 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">−</button>
+                        <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="w-7 h-7 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">âˆ’</button>
                         <span className="w-6 text-center text-xs font-bold">{item.quantity}</span>
                         <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="w-7 h-7 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">+</button>
                       </div>
@@ -293,7 +302,7 @@ export default function CheckoutPage() {
                     ) : paymentMethod === "mpesa" ? (
                       `PAY KSh ${totalPrice.toLocaleString()} VIA M-PESA`
                     ) : (
-                      `PLACE ORDER · KSh ${totalPrice.toLocaleString()}`
+                      `PLACE ORDER Â· KSh ${totalPrice.toLocaleString()}`
                     )}
                   </button>
                   <p className="text-center text-xs text-outline mt-3 flex items-center justify-center gap-2">
