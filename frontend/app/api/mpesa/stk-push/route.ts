@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+﻿import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
 const SHORTCODE = process.env.MPESA_SHORTCODE ?? "174379";
@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
         PartyB: SHORTCODE,
         PhoneNumber: formattedPhone,
         CallBackURL: CALLBACK_URL,
-        AccountReference: "BlackSteelCrew",
+        AccountReference: "RarewoodsCrew",
         TransactionDesc: "Consultation Fee",
       }),
     });
@@ -99,3 +99,4 @@ export async function POST(req: NextRequest) {
     }, { status: 500 });
   }
 }
+
