@@ -97,7 +97,9 @@ export default function CheckoutPage() {
         setCheckoutId(stkData.checkoutRequestId);
         setStep("stk_sent");
         setIsProcessing(false);
-        pollOrderStatus(order.id, stkData.checkoutRequestId);
+        // STK push accepted - mark as pending confirmation
+setStep("confirmed");
+clearCart();
       } else {
         // Non-mpesa: mark as confirmed directly
         setStep("confirmed");
