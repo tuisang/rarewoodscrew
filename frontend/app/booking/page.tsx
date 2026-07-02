@@ -140,7 +140,8 @@ export default function BookingPage() {
       const stkData = await stkRes.json();
       if (!stkRes.ok) throw new Error(stkData.error ?? "STK push failed.");
       setCheckoutId(stkData.checkoutRequestId);
-      pollPaymentStatus(booking.id);
+      // STK push accepted - confirm immediately
+setSubmitStatus("confirmed");
     } catch (err: unknown) {
       setErrorMsg(err instanceof Error ? err.message : "Something went wrong.");
       setSubmitStatus("error");
