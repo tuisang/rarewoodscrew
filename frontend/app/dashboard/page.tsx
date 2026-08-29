@@ -137,9 +137,9 @@ export default function DashboardPage() {
               Welcome Back
             </span>
             <h1 className="text-4xl md:text-5xl font-bold leading-tight" style={{ fontFamily: "Libre Franklin, sans-serif" }}>
-              {user.firstName ? `${user.firstName}'s Workshop` : "Your Workshop"}
+              Tuistech Workshop
             </h1>
-            <p className="text-outline mt-2">{user.primaryEmailAddress?.emailAddress}</p>
+            <p className="text-outline mt-2">info@tuistech.co.ke</p>
           </div>
           <div className="flex gap-3">
             <Link
