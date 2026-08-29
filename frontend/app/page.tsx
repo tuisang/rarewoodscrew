@@ -20,20 +20,15 @@ interface Review {
   service?: string;
 }
 
-const HERO_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDCPBHLKaNhBlv6yK9XvlgX5DeT7NK2PMO_JCb52UBDJX61YJgI13vF95T4UX15jRUJg9B2irW-TkrPIOELWXFd-LHOGpC-uepB5ilNV4owZLnTkMjAZO2kR0A-5MCw2ZZ714yp3bKMbG1cwdV8dcr_sCrykahlxfxmYQOyuUr6Ox69O5tnqr04XPU3tu_Y4o7WS5vnzOgt2TdaHBkYcg_qIrI5LKTb4rGbMBvNqFxeKt3kXl31UZjGC3UXwTSsaF9EqUyLR72nq5g";
+const HERO_IMAGE = "/images/hero.jpg";
 
-const PROJECT_HERO_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuBmXdi9qKOMjYqCJNygDXhApF_QeqqMjKtWDUvxufhV3pui8b3m9etyiLVLnTWHJMKguwI3si5H5sr56eH10JtQhmvJwqUNklYrT9tk9udzRzavPeNXFFz2NVaKoQrm8NvTnHUYswL2mqvjvwM3cFE4Be3fd2ZNPPzJD9uOlEpZOewwK3O_gBQ9ow2mNfRnV2CjWLKqNigHuFHYjeWgDbHio0u1v8R-xNY2PR9mNMeODJe58kxjUX-4vWvz8A5f43WFTildVdigDcY";
+const PROJECT_HERO_IMAGE = "/images/log-table.jpg";
 
-const MEDIA_CONSOLE_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuAAAItuammZHQ-FDgLe6CFi8_uJN4sUbhBKGUWKBhFW8mCi9iqUrKxKTZNgJ2MA3Z5dPp14cvs3MJcgp9kJaR5TaGtOfOTi6o2B_XfYhb7zaYpeAHxLrLrSvEoH6zWLCAWQsdTL0Pw_xjbeIFCezATLFkUlen1ix_RqWpCJBV6U7iFtI661PmkiGDeXkVTXZ4Pk436DdVAJb7lh4N-a4c4ws7avLlH_qc67J670-k-Haz1NyY8VKaCC2FLUyIWaly3VVPjVBC_3lAk";
+const MEDIA_CONSOLE_IMAGE = "/images/mahogany-tv-stand.jpg";
 
-const KITCHEN_DETAIL_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuBhQzTrN5d4WuKgP5uluLj-3w4kQrLXJPLZJ0KaKXZ_JwH-Ml70bA2dOefJNCnzDl-JCVkhT9vclMwVSu2bx6Qn4s7_BWM_ecTapTdc8Z05XL4NXFa_14nbw1TuJGUBx6HfldnMAxNtcYZDuN9Pd4uNVNIr2SX1vTi2We3uMDgdmGJ6Le-Bx9EZDfsdTuGz5KHzVur_gDd3blELdrYZ0A6oekV6Gc9N3O1kc3nHGqzQmlWJkJYKClC_jQsWouSP4KUgJ59XQztTgZ4";
+const KITCHEN_DETAIL_IMAGE = "/images/shelves.jpg";
 
-const WORKSHOP_DETAIL_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDMF2Ky7JgID6zlVmHbual6qosyth1uoUOAqjXiGaAOI8h4LdBEECwvweSz_P2Qt5ckYQaii0OpOIJGWzgDZevaz1XFmimNJFXZ_BCbD9XTUDuOw7gYgCyHv9fgtWhwKYYi1Iu0AZQsQg4-ridw-Zlj4s50KZApCSBjqAiHg4Nl3-xvFcy0WaEDFaSgWNgOeYkr_emKSqwq-Eh8H0wYXWx0OMDV51p2k3Xd24KR3sJawv5YgdDZ7H8KgpZKvb4bLHE670SSou9cMN0";
+const WORKSHOP_DETAIL_IMAGE = "/images/mahogany-bed.jpg";
 
 const SERVICES = [
   {
@@ -54,14 +49,14 @@ const SERVICES = [
 ];
 
 const PRODUCTS = [
-  { id: 1, name: "Custom Wardrobe", image: WORKSHOP_DETAIL_IMAGE, price: 85000, reviews: 14 },
-  { id: 2, name: "Dining Table Set", image: PROJECT_HERO_IMAGE, price: 62000, reviews: 19 },
-  { id: 3, name: "Kitchen Cabinetry", image: KITCHEN_DETAIL_IMAGE, price: 145000, reviews: 8 },
-  { id: 4, name: "Bookshelf Unit", image: MEDIA_CONSOLE_IMAGE, price: 28500, reviews: 22 },
-  { id: 5, name: "Office Desk", image: WORKSHOP_DETAIL_IMAGE, price: 34000, reviews: 11 },
-  { id: 6, name: "TV Stand", image: MEDIA_CONSOLE_IMAGE, price: 21000, reviews: 16 },
-  { id: 7, name: "Bed Frame", image: PROJECT_HERO_IMAGE, price: 47000, reviews: 9 },
-  { id: 8, name: "Display Cabinet", image: KITCHEN_DETAIL_IMAGE, price: 53000, reviews: 6 },
+  { id: 1, name: "Mahogany Bed Frame", image: WORKSHOP_DETAIL_IMAGE, price: 85000, reviews: 14 },
+  { id: 2, name: "Live-Edge Log Table", image: PROJECT_HERO_IMAGE, price: 62000, reviews: 19 },
+  { id: 3, name: "Custom Storage Shelving", image: KITCHEN_DETAIL_IMAGE, price: 145000, reviews: 8 },
+  { id: 4, name: "Mahogany TV Stand", image: MEDIA_CONSOLE_IMAGE, price: 28500, reviews: 22 },
+  { id: 5, name: "Mahogany Bed Frame", image: WORKSHOP_DETAIL_IMAGE, price: 34000, reviews: 11 },
+  { id: 6, name: "Mahogany TV Stand", image: MEDIA_CONSOLE_IMAGE, price: 21000, reviews: 16 },
+  { id: 7, name: "Live-Edge Log Table", image: PROJECT_HERO_IMAGE, price: 47000, reviews: 9 },
+  { id: 8, name: "Custom Storage Shelving", image: KITCHEN_DETAIL_IMAGE, price: 53000, reviews: 6 },
 ];
 
 const TESTIMONIALS_FALLBACK = [
@@ -109,7 +104,7 @@ export default function HomePage() {
       <section className="relative h-[600px] md:h-[795px] flex items-end justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="w-full h-full object-cover" alt="Sunlit premium woodworking workshop with timber workbenches and raw oak planks" src={HERO_IMAGE} />
+          <img className="w-full h-full object-cover" alt="Handcrafted wooden play structure built by Rarewoods Crew" src={HERO_IMAGE} />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         </div>
         <div className="relative z-10 px-6 md:px-margin-desktop pb-12 md:pb-16 text-center max-w-4xl">
@@ -139,24 +134,24 @@ export default function HomePage() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-12 md:grid-rows-2">
           <Link href="/portfolio" className="md:col-span-8 md:row-span-2 group relative overflow-hidden rounded-xl shadow-ambient block">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="w-full h-[400px] md:h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Bespoke American Walnut dining table with live edge" src={PROJECT_HERO_IMAGE} />
+            <img className="w-full h-[400px] md:h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Live-edge log slab table handcrafted by Rarewoods Crew" src={PROJECT_HERO_IMAGE} />
             <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors flex flex-col justify-end p-8">
               <p className="text-white/80 font-label-caps text-xs mb-1">Bespoke Furniture</p>
-              <h3 className="text-white font-headline-md text-2xl font-bold">The Heritage Walnut Table</h3>
+              <h3 className="text-white font-headline-md text-2xl font-bold">The Live-Edge Log Table</h3>
             </div>
           </Link>
           <Link href="/portfolio" className="md:col-span-4 group relative overflow-hidden rounded-xl shadow-ambient block">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="w-full h-[250px] object-cover transition-transform duration-700 group-hover:scale-110" alt="White Oak media console with vertical slat detailing" src={MEDIA_CONSOLE_IMAGE} />
+            <img className="w-full h-[250px] object-cover transition-transform duration-700 group-hover:scale-110" alt="Mahogany TV stand with drawer storage" src={MEDIA_CONSOLE_IMAGE} />
             <div className="absolute inset-0 bg-black/20 flex flex-col justify-end p-6">
-              <h3 className="text-white text-base font-bold">Oak Media Console</h3>
+              <h3 className="text-white text-base font-bold">Mahogany TV Stand</h3>
             </div>
           </Link>
           <Link href="/portfolio" className="md:col-span-4 group relative overflow-hidden rounded-xl shadow-ambient block">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="w-full h-[250px] object-cover transition-transform duration-700 group-hover:scale-110" alt="Dovetail joint detail on a custom cherry wood kitchen island" src={KITCHEN_DETAIL_IMAGE} />
+            <img className="w-full h-[250px] object-cover transition-transform duration-700 group-hover:scale-110" alt="Custom cubby-style storage shelving" src={KITCHEN_DETAIL_IMAGE} />
             <div className="absolute inset-0 bg-black/20 flex flex-col justify-end p-6">
-              <h3 className="text-white text-base font-bold">Kitchen Craftsmanship</h3>
+              <h3 className="text-white text-base font-bold">Custom Storage Shelving</h3>
             </div>
           </Link>
         </div>
@@ -214,7 +209,7 @@ export default function HomePage() {
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
           <div className="w-full md:w-1/2 relative">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="rounded-xl shadow-2xl w-full h-[400px] md:h-[500px] object-cover" alt="A craftsman measuring reclaimed timber with a brass rule" src={WORKSHOP_DETAIL_IMAGE} />
+            <img className="rounded-xl shadow-2xl w-full h-[400px] md:h-[500px] object-cover" alt="Handcrafted mahogany bed frame by Rarewoods Crew" src={WORKSHOP_DETAIL_IMAGE} />
             <div className="absolute -bottom-6 -right-6 md:-bottom-8 md:-right-8 w-36 h-36 md:w-48 md:h-48 bg-primary-fixed-dim rounded-full flex items-center justify-center p-6 md:p-8 text-center rotate-12 shadow-xl border-4 border-surface">
               <span className="font-label-caps text-xs text-on-primary-fixed leading-tight">Master Guild Quality Since 2008</span>
             </div>

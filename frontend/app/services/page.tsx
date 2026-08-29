@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     title: "Services | Rarewoods Crew Nairobi",
     description: "Furniture repairs, cabinet installation, custom woodwork, and door and window maintenance in Nairobi, Kenya.",
     url: "https://rarewoodscrew.tuistech.co.ke/services",
-    images: ["https://lh3.googleusercontent.com/aida-public/AB6AXuBeeOgIEcSOvgIAQAKIj8DoMZUHQaq5YJYWWFIuGirFGKSjr9XHTzYiNPT1ZJBBjSgOtxqltgj9WRkLfy0jXZTjNcGp1epgzf_its1rja7SMPNdjwrEEZwDAFO57gBKB4D3y3ApFFmCvl1MnJLwQXtCpW-fw8Sih0B7P9PrSvi9Z4uHFaZGbmXB-KGxcrd-3PMtzuj8JmHK-bq4tlutQzyfeC6qMqCnEKMl-6TyyoU3cKcn3je0AJVrsaBRieRorqcGbmijQWMQnKI_"],
+    images: ["/images/log-table.jpg"],
   },
   twitter: {
     card: "summary_large_image",
@@ -19,8 +19,7 @@ export const metadata: Metadata = {
 import Link from "next/link";
 import Footer from "@/components/Footer";
 
-const WORKSHOP_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuCMi_CjqFKhoLcpfQ5IuPAgn1yTZBT_3s9Zwp0c1twVqJXtxhYDWNVL2cQZz3OTM9m7kf76Yvy3c7ffmiXPBRgQbECFgLTQylV2s9zdSvvcVyQ1st9EsI-aGmBC4MPsvuzfXBPoTOljV4ZefihLFO9H06AfuGN6-EOWQN-pn4jy9hbull_yfYRPZMGb1_b9UanG83jgfvaCY1TuJsy_O5JV0C2BSJtoWJ3tRXqGYHuX64aGLb6os5u4aIU6K6M4cO4X34v77d5TGKsj";
+const WORKSHOP_IMAGE = "/images/mahogany-tv-stand.jpg";
 
 export default function ServicesPage() {
   return (
@@ -41,7 +40,7 @@ export default function ServicesPage() {
           <div className="md:col-span-5">
             <img
               src={WORKSHOP_IMAGE}
-              alt="Workshop bench"
+              alt="Mahogany TV stand by Rarewoods Crew"
               className="w-full h-auto rounded-2xl shadow-xl border-4 border-white object-cover aspect-[4/3]"
             />
           </div>

@@ -4,14 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 
-const GRAIN_BG =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDxmfjsHefubMnprZhvrCAighoyOmku_7bduoqO8RXGH8oC2TneRineYjnq-Df9mmfNjvV4LTcs2lOi70Y1wL-Gl3Fgyci1ElNdZUa6Sj5kMs7jkpkejdcYVNfGj4BPmCAPc3WAVCqhREdYMtxbpBB8ldLtzgMpZF4ufpiMHZriNoGB9rl4Gtpz2MYQoVChwOK1YIsAy-TcvIxdgdxzZKXeUBir-PNx5o3OaqlG1uQnHRVg_M8HaB8oSyWV9nLbTxtQmk-kXgFX1X2v";
+const GRAIN_BG = "/images/log-table.jpg";
 
-const HERO_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuBeeOgIEcSOvgIAQAKIj8DoMZUHQaq5YJYWWFIuGirFGKSjr9XHTzYiNPT1ZJBBjSgOtxqltgj9WRkLfy0jXZTjNcGp1epgzf_its1rja7SMPNdjwrEEZwDAFO57gBKB4D3y3ApFFmCvl1MnJLwQXtCpW-fw8Sih0B7P9PrSvi9Z4uHFaZGbmXB-KGxcrd-3PMtzuj8JmHK-bq4tlutQzyfeC6qMqCnEKMl-6TyyoU3cKcn3je0AJVrsaBRieRorqcGbmijQWMQnKI_";
+const HERO_IMAGE = "/images/mahogany-tv-stand.jpg";
 
-const WORKSHOP_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuCMi_CjqFKhoLcpfQ5IuPAgn1yTZBT_3s9Zwp0c1twVqJXtxhYDWNVL2cQZz3OTM9m7kf76Yvy3c7ffmiXPBRgQbECFgLTQylV2s9zdSvvcVyQ1st9EsI-aGmBC4MPsvuzfXBPoTOljV4ZefihLFO9H06AfuGN6-EOWQN-pn4jy9hbull_yfYRPZMGb1_b9UanG83jgfvaCY1TuJsy_O5JV0C2BSJtoWJ3tRXqGYHuX64aGLb6os5u4aIU6K6M4cO4X34v77d5TGKsj";
+const WORKSHOP_IMAGE = "/images/lab-table-chairs-sidetable.jpg";
 
 const PAYBILL_NUMBER = "000000";
 const ACCOUNT_NAME = "RAREWOODS";
@@ -54,7 +51,7 @@ export default function PaymentsPage() {
             <div className="aspect-square rounded-full bg-oak/10 absolute -top-4 -right-4 w-64 h-64 -z-10 blur-3xl" />
             <img
               src={HERO_IMAGE}
-              alt="Carpenter with M-Pesa payment"
+              alt="Mahogany TV stand handcrafted by Rarewoods Crew"
               className="w-full h-auto rounded-2xl shadow-xl border-4 border-white object-cover aspect-[4/3]"
             />
           </div>
@@ -136,7 +133,7 @@ export default function PaymentsPage() {
           <div className="md:col-span-2 md:row-span-2 bg-primary text-surface-cream rounded-2xl p-10 flex flex-col justify-end relative overflow-hidden group">
             <div className="absolute inset-0 opacity-20 transition-transform duration-700 group-hover:scale-110">
               <img
-                alt="Workshop close up"
+                alt="Rarewoods Crew custom furniture installation"
                 className="w-full h-full object-cover"
                 src={WORKSHOP_IMAGE}
               />
