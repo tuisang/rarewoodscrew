@@ -35,7 +35,7 @@ const materials: Material[] = [
     bestFor: ["Dining Tables", "Outdoor Furniture", "Structural Beams"],
     color: "Golden Brown to Dark Brown",
     grain: "Interlocked, coarse",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAsSq8Nra0r65CDQA_qJi7jyKDhmXniyz0h83suHoWU8t8pxgawS7bC8GAcxqHCTICoby3FB0vF4pfywk_nh4cYsvmgdhl1iHpZnUVbG14vRCVm0qAAEDikuMGETWn9ppi0lqXAh1ghiGmcz4lOU5Asx5NwFn0EDqR72eKOTTiDDQ1ikEOCCpjD8LGrH01SrNZ5FwIPlrHjlCwkk1a3yA3YBWCRyTaLAbgbCXf2cOhntzvxx02CQy9ONbEslKyuHp6LIwMMxjWxk9do",
+    img: "/images/mahogany-tv-stand.jpg",
     badge: "LOCAL FAVOURITE",
   },
   {
@@ -50,7 +50,7 @@ const materials: Material[] = [
     bestFor: ["Cabinet Making", "Veneers", "High-End Furniture"],
     color: "Reddish-Brown",
     grain: "Straight to interlocked",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuALcwqDtHQMuozeBQ5ychH6X8MBPZ2iGrfOh5ImF0ZojiiCVwCvIUTmjhBOCdtBHbbpOzB5LshODZUAAxVuq-M5aStTO1BMHW2uxbfiqMQNWGXahaHAV9KxRgd9eejgt4D1AIcb7U1mA9Jx8JJt2Q-vDaonMYKGDq9WuSDf9sOCQhcdgzbgPxaEj-JEwXsHSLvfMrU0caQrl3bh0f8MSRSXgl-ZxWZDfxRDCSD5B8MO0yJXZBJZPGKanC0c1hTeOVXxzQezy3Ug_Qwg",
+    img: "/images/mahogany-bed.jpg",
   },
   {
     id: 3,
@@ -64,7 +64,7 @@ const materials: Material[] = [
     bestFor: ["Live-Edge Tables", "Luxury Furniture", "Decorative Panels"],
     color: "Dark Chocolate Brown",
     grain: "Straight, occasionally wavy",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAnmUYJCVlqTL6AzkLeoD2LZTKYMnb4sfrexaOe0jvPWD6spR9lo-9UJsGepINOs6Gl8uR_YZ15OhODmHgV2dBAM3GJ08ZUCmZF7KzJCdWBCpEsw9ORWdA2oL0xaXDReS9NqXqTcydmKLX104BAc_yd-uiNyLMJLqzK4iVZi42S-7iiy4Q90RjtqvQJ1wS-cR5Lv8Nv2Q4fFS8w-DxkFWFWN4aBoma9892xEdDuguRpSR5txWWie0FSOyNOqjauM4YMZkLdwIIRuxFG",
+    img: "/images/log-table.jpg",
     badge: "PREMIUM",
   },
   {
@@ -79,7 +79,7 @@ const materials: Material[] = [
     bestFor: ["Bedroom Furniture", "Chairs", "Decorative Items"],
     color: "Light Pink to Reddish-Brown",
     grain: "Fine, straight",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAkae4jFO215TwwYfODeHibUzdIT93poQklQR7l0P8zAKJpRMrphd1RLJOwiqZy-xIG43qj7Rn4wZY1B-xEwiDdj5dxIBiOxV6hfXiI1_9uOT1B3g9UiclWMt2QY98Ky0fYVZw120vlqsBb7Rk-to7Xwx9zGQz4RYusbCDP6a--8qJ9VojLv0qs89XTqSXVUQLUNxpvx-w75Qa154joDq8hpEG57PiNV463AXjQXgCdEMlFagN5ICB4_yGmw8rXJIh8V8o7OFYn-EjS",
+    img: "/images/school-dining-tables.jpg",
   },
   {
     id: 5,
@@ -93,7 +93,7 @@ const materials: Material[] = [
     bestFor: ["Shelving", "Painted Furniture", "Budget Projects"],
     color: "Pale Yellow to White",
     grain: "Straight, knotty",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAatGztftak76tZ56xv3wcaukQKkuypfaYyWaOP_dvctNFT8YTzx_Bh2vcjjBDqg8ItJaLfkm8Hjen2pOBJLjCHGgA40oRW0i8MigiGEXXpvDA-Wk8dN9C_7HOarMSA3L8rqd8e31I1vLlYGknetLmIwDzNzMuGJPwonDZZwtC96I5L0AX8vsX96M5ur0rNXrcZNcucbtyN7JsrAOPgcVux1THQoy7Y9YdPGOATEykHP1F_bzIS8l74HrTDFgeYIJ2ZCA_bycJuExqO",
+    img: "/images/school-tables.jpg",
     badge: "BUDGET FRIENDLY",
   },
   {
@@ -108,7 +108,7 @@ const materials: Material[] = [
     bestFor: ["Table Legs", "Frames", "Structural Support"],
     color: "Metallic Grey",
     grain: "Smooth surface",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCi0W20K7JdvjhzPhBCsufmbaCx6pdfVSw5SrxgrjXUKLHdiJV1rROV8o8_LKu53mozE401KnCURBw11DWNKdpKPHa0ibFoeGGLzOxpKn3p_Uy1hGqt0MpJ627Qet6f84qC9j_56U52neJQVm47khZxpwk3q_8k5nHvVV65ZKkuMiXOc3WCzvztYLUnDWoafbQ_sQr9gv0TTaPMnqfFtWxan8a0t_id8OOQf1rb0Wxl9U9GlU10hIq1zgaXyXv3I4haAXKje6wpvGEY",
+    img: "/images/round-table.jpg",
   },
   {
     id: 7,
@@ -122,7 +122,7 @@ const materials: Material[] = [
     bestFor: ["Decorative Panels", "Bar Tops", "Accent Pieces"],
     color: "Warm Copper → Green Patina",
     grain: "Smooth, malleable",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC7lN-Q9-UdgQvVpdNM0EqImb13L6tstH98aZmGieGKorDRvTR_TEB_4eTmnpmSJ_Ddczbo_pHrfgkX7bJKjT4G8XZt7smcrLZ5ZAnyhBN3lFmo9mn71Ae9HLSFQjYU4Cmw8Z-Olmmz7wCkhA8uP1bPo5dozYLHRco2uTtzLQSTW64H_k9YKA95bpok7XWOX35xBjz7ufk-MEH1Ft-ORPRhni4afg7JBjEIzQjwXLP6iklXEfcS0a-C6LrH_d2v9v3kIKOySZQBg6Va",
+    img: "/images/mahogany-bed.jpg",
     badge: "TRENDING",
   },
   {
@@ -137,7 +137,7 @@ const materials: Material[] = [
     bestFor: ["Table Frames", "Shelving", "Industrial Look"],
     color: "Jet Black (RAL 9005)",
     grain: "Matte smooth",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAsSq8Nra0r65CDQA_qJi7jyKDhmXniyz0h83suHoWU8t8pxgawS7bC8GAcxqHCTICoby3FB0vF4pfywk_nh4cYsvmgdhl1iHpZnUVbG14vRCVm0qAAEDikuMGETWn9ppi0lqXAh1ghiGmcz4lOU5Asx5NwFn0EDqR72eKOTTiDDQ1ikEOCCpjD8LGrH01SrNZ5FwIPlrHjlCwkk1a3yA3YBWCRyTaLAbgbCXf2cOhntzvxx02CQy9ONbEslKyuHp6LIwMMxjWxk9do",
+    img: "/images/mahogany-tv-stand.jpg",
     badge: "MOST POPULAR",
   },
   {
@@ -152,7 +152,7 @@ const materials: Material[] = [
     bestFor: ["Luxury Frames", "Statement Pieces", "Modern Industrial"],
     color: "Deep Blue-Grey",
     grain: "Satin smooth",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuALcwqDtHQMuozeBQ5ychH6X8MBPZ2iGrfOh5ImF0ZojiiCVwCvIUTmjhBOCdtBHbbpOzB5LshODZUAAxVuq-M5aStTO1BMHW2uxbfiqMQNWGXahaHAV9KxRgd9eejgt4D1AIcb7U1mA9Jx8JJt2Q-vDaonMYKGDq9WuSDf9sOCQhcdgzbgPxaEj-JEwXsHSLvfMrU0caQrl3bh0f8MSRSXgl-ZxWZDfxRDCSD5B8MO0yJXZBJZPGKanC0c1hTeOVXxzQezy3Ug_Qwg",
+    img: "/images/mahogany-bed.jpg",
     badge: "SIGNATURE",
   },
 ];
