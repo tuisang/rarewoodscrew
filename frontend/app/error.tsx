@@ -61,7 +61,7 @@ export default function Error({
       <div className="mt-12 p-4 bg-surface-container-low border border-outline-variant/40 max-w-sm">
         <p className="text-xs text-outline mb-2">Need help? Contact us directly:</p>
         <a href="tel:+254726461196" className="text-sm text-primary hover:underline block">+254 726 461 196</a>
-        <a href="mailto:alex2000rui@gmail.com" className="text-sm text-primary hover:underline block">alex2000rui@gmail.com</a>
+        <a href="mailto:info@tuistech.co.ke" className="text-sm text-primary hover:underline block">info@tuistech.co.ke</a>
       </div>
     </main>
   );
