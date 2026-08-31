@@ -1,6 +1,6 @@
 # Manufacturing Process
 
-Forge & Timber follows a structured manufacturing process to ensure quality.
+Rarewoods Crew follows a structured manufacturing process to ensure quality.
 
 Process Steps:
 - Design Consultation

@@ -1,6 +1,6 @@
 # Warranty Policy
 
-Forge & Timber provides warranty coverage for manufacturing defects.
+Rarewoods Crew provides warranty coverage for manufacturing defects.
 
 Coverage:
 - Structural defects

@@ -1,6 +1,6 @@
 # Office Furniture Service
 
-Forge & Timber designs and manufactures office furniture for businesses of all sizes.
+Rarewoods Crew designs and manufactures office furniture for businesses of all sizes.
 
 Available Products:
 - Office Desks

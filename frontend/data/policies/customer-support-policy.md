@@ -1,6 +1,6 @@
 # Customer Support Policy
 
-Forge & Timber is committed to providing reliable customer support.
+Rarewoods Crew is committed to providing reliable customer support.
 
 Support Channels:
 - Phone

@@ -26,4 +26,4 @@ Mahogany's workability and classic good looks make it a favourite for refined, d
 - **Touch-ups:** Light scuffs can usually be addressed with fine-grit sanding followed by a matching finish coat — ask us about refinishing if a piece has lost its lustre.
 
 ### Sourcing Note
-Forge & Timber sources Mahogany from responsibly managed suppliers and is happy to discuss provenance for clients commissioning larger pieces.
+Rarewoods Crew sources Mahogany from responsibly managed suppliers and is happy to discuss provenance for clients commissioning larger pieces.

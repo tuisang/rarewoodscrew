@@ -1,6 +1,6 @@
 # Furniture Cleaning Service
 
-Forge & Timber provides professional furniture cleaning services.
+Rarewoods Crew provides professional furniture cleaning services.
 
 Services Include:
 - Surface Cleaning

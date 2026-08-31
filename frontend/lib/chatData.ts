@@ -3,7 +3,7 @@ import path from "path";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 
-const FOLDERS = ["policies", "products", "projects", "services", "steels", "woods"];
+const FOLDERS = ["policies", "products", "projects", "services", "woods"];
 
 // Keywords that map to specific folders
 const FOLDER_KEYWORDS: Record<string, string[]> = {
@@ -11,10 +11,6 @@ const FOLDER_KEYWORDS: Record<string, string[]> = {
     "wood", "timber", "hardwood", "softwood", "lumber", "grain", "species",
     "cypress", "eucalyptus", "oak", "pine", "teak", "mvule", "mahogany",
     "walnut", "cherry", "tree", "plank", "board", "carpentry", "joinery",
-  ],
-  steels: [
-    "steel accent", "steel leg", "steel hardware", "steel frame", "metal accent",
-    "mild steel", "stainless", "gunmetal", "rust",
   ],
   products: [
     "product", "furniture", "table", "chair", "shelf", "shelving", "desk",

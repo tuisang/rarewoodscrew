@@ -1,6 +1,6 @@
 # Cabinetry Service
 
-Forge & Timber designs and installs custom cabinetry for residential and commercial spaces.
+Rarewoods Crew designs and installs custom cabinetry for residential and commercial spaces.
 
 Available Customizations:
 - Dimensions

@@ -1,6 +1,6 @@
 # Bulk Order Service
 
-Forge & Timber handles large-scale furniture orders for organizations and institutions.
+Rarewoods Crew handles large-scale furniture orders for organizations and institutions.
 
 Order Benefits:
 - Volume Discounts

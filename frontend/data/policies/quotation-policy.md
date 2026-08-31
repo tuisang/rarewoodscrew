@@ -1,6 +1,6 @@
 # Quotation Policy
 
-Forge & Timber provides detailed quotations for custom furniture projects.
+Rarewoods Crew provides detailed quotations for custom furniture projects.
 
 Quotation Includes:
 - Materials

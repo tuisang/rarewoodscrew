@@ -1,6 +1,6 @@
 # Outdoor Furniture Service
 
-Forge & Timber manufactures weather-resistant outdoor furniture.
+Rarewoods Crew manufactures weather-resistant outdoor furniture.
 
 Available Products:
 - Garden Benches

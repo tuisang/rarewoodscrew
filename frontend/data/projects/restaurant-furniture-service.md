@@ -1,6 +1,6 @@
 # Restaurant Furniture Service
 
-Forge & Timber manufactures durable furniture for restaurants and cafes.
+Rarewoods Crew manufactures durable furniture for restaurants and cafes.
 
 Available Products:
 - Dining Tables

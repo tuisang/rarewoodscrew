@@ -1,6 +1,6 @@
 # Interior Fit-Out Service
 
-Forge & Timber provides complete interior fit-out solutions for residential and commercial spaces.
+Rarewoods Crew provides complete interior fit-out solutions for residential and commercial spaces.
 
 Services Include:
 - Furniture Installation

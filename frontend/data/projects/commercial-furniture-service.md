@@ -1,6 +1,6 @@
 # Commercial Furniture Service
 
-Forge & Timber provides furniture solutions for commercial environments.
+Rarewoods Crew provides furniture solutions for commercial environments.
 
 Available Products:
 - Workstations

@@ -72,7 +72,7 @@ const POSTS: Record<string, BlogPost> = {
     title: "Preventing Rust on Steel Furniture",
     category: "Metal Care",
     readTime: "3 min read",
-    description: "How to prevent rust on mild steel and outdoor steel furniture. Practical maintenance tips from Rarewoods Crew's metalwork studio in Nairobi.",
+    description: "How to prevent rust on mild steel furniture frames. Practical maintenance tips from Rarewoods Crew in Nairobi.",
     content: [
       {
         body: "Steel brings a kind of structural confidence to furniture that's hard to replicate in any other material — but it has one well-known weakness: moisture. The good news is that rust is almost entirely preventable with a handful of simple habits, whether you're maintaining an indoor steel-framed console or a garden bench that lives outside year-round.",

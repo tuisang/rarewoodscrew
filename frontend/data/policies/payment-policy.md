@@ -1,6 +1,6 @@
 # Payment Policy
 
-Forge & Timber offers multiple payment options for customer convenience.
+Rarewoods Crew offers multiple payment options for customer convenience.
 
 Accepted Methods:
 - M-Pesa

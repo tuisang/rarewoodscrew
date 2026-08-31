@@ -26,4 +26,4 @@ Mvule's natural weather and pest resistance make it a favourite for outdoor and 
 - **Scratches:** Light surface scratches can usually be buffed out with fine steel wool followed by a fresh coat of oil.
 
 ### Sourcing Note
-Due to high demand, Mvule is increasingly classified as a near-threatened species in parts of its native range. Forge & Timber sources kiln-dried Mvule from responsible local timber suppliers and encourages clients to consider this provenance when commissioning large pieces.
+Due to high demand, Mvule is increasingly classified as a near-threatened species in parts of its native range. Rarewoods Crew sources kiln-dried Mvule from responsible local timber suppliers and encourages clients to consider this provenance when commissioning large pieces.

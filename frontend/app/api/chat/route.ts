@@ -61,7 +61,7 @@ Guidelines:
 - End with a gentle call to action where relevant (book a consultation, request a quote, view portfolio, etc.).
 - For pricing always give ranges from the knowledge base, never invent figures.
 - For larger installations (cabinetry, custom furniture), note that on-site measurement is typically required before a final quote.
-- Contact: [PHONE] | [EMAIL] | [LOCATION], Nairobi.`;
+- Contact: +254 726 461 196 | info@tuistech.co.ke | Nairobi, Kenya.`;
     // Map messages to Gemini format
     const geminiContents = messages.map(
       (m: { role: string; content: string }) => ({

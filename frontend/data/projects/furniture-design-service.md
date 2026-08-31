@@ -1,6 +1,6 @@
 # Furniture Design Service
 
-Forge & Timber offers professional furniture design services before production begins.
+Rarewoods Crew offers professional furniture design services before production begins.
 
 Design Services:
 - 3D Visualization

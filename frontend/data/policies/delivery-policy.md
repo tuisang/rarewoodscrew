@@ -1,6 +1,6 @@
 # Delivery Policy
 
-Forge & Timber offers furniture delivery across Kenya.
+Rarewoods Crew offers furniture delivery across Kenya.
 
 Delivery Times:
 - Nairobi: 2-5 Days

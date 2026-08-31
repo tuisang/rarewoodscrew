@@ -1,6 +1,6 @@
 # Hotel Furniture Service
 
-Forge & Timber supplies furniture solutions for hospitality establishments.
+Rarewoods Crew supplies furniture solutions for hospitality establishments.
 
 Available Products:
 - Beds
